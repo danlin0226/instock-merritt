@@ -4,11 +4,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import InventoryPage from "./pages/InventoryPage";
 import WarehousesPage from "./pages/WarehousesPage";
+import Header from "./component/header/Header";
 
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
         <Route path="/warehouses">

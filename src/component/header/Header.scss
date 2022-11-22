@@ -1,29 +1,78 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/fonts" as *;
+
+
 
 .header{
-    background-color: #232940;
+    background-color:$Graphite;
+    height:8.5625rem;
+  
     &__logo{
     display: flex;
-    margin: 1rem auto;
-    padding-top: .5rem;
+    margin: 0 auto;
+    padding: 1rem;
     background-size: contain;
-    background-color: #232940;
+    background-color: $Graphite;
     max-width: 7.5rem;
     max-height: 1.5625rem;
     }    
 
     &__link{
     list-style-type: none;
-    color:#F7F8F9;
-    padding:.5rem;
-
-        &-wrapper{
-        display: flex;
-        justify-content: space-around;
-        gap:1rem;
-
-        }
+    color:$Cloud;
+    padding: .5rem 3rem;
+    @include fontsize_lineh_weight(.875rem,.8125rem,600)
 }
 
-
+&__link:hover{
+    background-color:$Instock-Black;
+    border-radius: 20px;
+    color: $white;
 }
 
+&__link-wrapper{
+display: flex;
+justify-content: space-around;
+}
+}
+
+@include medium{
+    
+    .header{
+      height: 5.75rem;
+      display: flex;
+      padding: 1rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+
+      &__logo{
+        margin:1rem;
+        align-items: center;
+    }
+    &__link{
+    list-style-type: none;
+    color:$Cloud;
+    padding: .5rem 3rem;
+    @include fontsize_lineh_weight(.875rem,1.375rem,600)
+}
+    }
+    }
+
+    @include large{
+        .header{
+      height: 5.75rem;
+      display: flex;
+      padding: 1rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+
+      &__logo{
+        margin:1rem;
+        align-items: center;
+    }
+    }
+
+    }
