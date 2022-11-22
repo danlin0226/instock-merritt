@@ -1,11 +1,10 @@
-
-
-.footer{
-display: flex;
-justify-content: center;
-align-items: center;
-    &__text{
-        padding: 2rem;
-        color: gray;
-    }
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    padding: 2rem;
+    color: gray;
+    background-color: gray;
+  }
 }
