@@ -1,10 +1,6 @@
 @use "../../main.scss";
 
 .warehouseDetails {
-  //   border: 2px solid red;
-
-  //   padding-top: 16px;
-
   &__head {
     @include main.m_flex-column;
     @include main.m_pad_sizing_lr(24px);

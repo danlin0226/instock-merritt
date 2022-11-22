@@ -1,4 +1,5 @@
 @use "./colors" as *;
+
 // @mixin width_sizing($width_prop, $maxwidth_prop, $w_val, $maxw_val){
 @mixin width_sizing($width_prop, $maxwidth_prop, $val) {
   #{$width_prop}: $val;
@@ -60,5 +61,17 @@
 }
 
 @mixin instock-label {
-  border-bottom: 1px solid $Cloud;
+  padding: 4px 8px;
+  background-color: rgba($Green, 7%);
+  border-radius: 20px;
+  color: $Green;
+  font-weight: 600;
+}
+
+@mixin oos-label {
+  padding: 4px 8px;
+  background-color: rgba($red, 7%);
+  border-radius: 20px;
+  color: $red;
+  font-weight: 600;
 }

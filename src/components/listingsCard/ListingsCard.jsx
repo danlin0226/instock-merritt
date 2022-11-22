@@ -8,6 +8,13 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 const ListingsCard = () => {
   return (
     <article className="listingsCard">
+      <div className="listingsCard__header">
+        <div>INVENTORY ITEM</div>
+        <div>CATEGORY</div>
+        <div>STATUS</div>
+        <div>QTY</div>
+        <div>ACTIONS</div>
+      </div>
       <div className="listingsCard__text-cont">
         <div className="listingsCard__cont-left">
           <div className="listingsCard__cont">
