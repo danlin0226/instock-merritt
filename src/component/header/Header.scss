@@ -1,0 +1,29 @@
+
+.header{
+    background-color: #232940;
+    &__logo{
+    display: flex;
+    margin: 1rem auto;
+    padding-top: .5rem;
+    background-size: contain;
+    background-color: #232940;
+    max-width: 7.5rem;
+    max-height: 1.5625rem;
+    }    
+
+    &__link{
+    list-style-type: none;
+    color:#F7F8F9;
+    padding:.5rem;
+
+        &-wrapper{
+        display: flex;
+        justify-content: space-around;
+        gap:1rem;
+
+        }
+}
+
+
+}
+
