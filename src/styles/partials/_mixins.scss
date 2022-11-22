@@ -58,3 +58,7 @@
 @mixin thin-border-bottom {
   border-bottom: 1px solid $Cloud;
 }
+
+@mixin instock-label {
+  border-bottom: 1px solid $Cloud;
+}

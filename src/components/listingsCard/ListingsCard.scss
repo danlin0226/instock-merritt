@@ -37,6 +37,14 @@
     &--blue {
       color: main.$c_Instock-Indigo;
     }
+
+    &--inStock {
+    }
+  }
+
+  &__chev {
+    height: 20px;
+    vertical-align: bottom;
   }
 
   &__icon-cont {
