@@ -1,40 +1,60 @@
+@use "./colors" as *;
 // @mixin width_sizing($width_prop, $maxwidth_prop, $w_val, $maxw_val){
-@mixin width_sizing($width_prop, $maxwidth_prop, $val){
-    #{$width_prop}: $val;
-    #{$maxwidth_prop}: $val;
+@mixin width_sizing($width_prop, $maxwidth_prop, $val) {
+  #{$width_prop}: $val;
+  #{$maxwidth_prop}: $val;
 }
 
-@mixin sizing_leftright($prop_l,$prop_r, $val){
-    #{$prop_l}: $val;
-    #{$prop_r}: $val;
+@mixin sizing_leftright($prop_l, $prop_r, $val) {
+  #{$prop_l}: $val;
+  #{$prop_r}: $val;
 }
 
-@mixin sizing_topbot($prop_top,$prop_bot, $val){
-    #{$prop_top}: $val;
-    #{$prop_bot}: $val;
+@mixin sizing_topbot($prop_top, $prop_bot, $val) {
+  #{$prop_top}: $val;
+  #{$prop_bot}: $val;
 }
 
-@mixin pad_sizing_lr($val){
-    padding-left: $val;
-    padding-right: $val;
+@mixin pad_sizing_lr($val) {
+  padding-left: $val;
+  padding-right: $val;
+}
+
+@mixin mar_sizing_lr($val) {
+  margin-left: $val;
+  margin-right: $val;
 }
 
 @mixin padding_l($val) {
-    padding-left: $val;
+  padding-left: $val;
 }
 
-@mixin fontsize_lineh_weight($font_size, $line-height,$weight){
-    font-size: $font_size;
-    line-height: $line-height;
-    font-weight: $weight;
+@mixin fontsize_lineh_weight($font_size, $line-height, $weight) {
+  font-size: $font_size;
+  line-height: $line-height;
+  font-weight: $weight;
 }
 
 @mixin wh-100 {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 @mixin padmar-0 {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin thin-border-bottom {
+  border-bottom: 1px solid $Cloud;
 }

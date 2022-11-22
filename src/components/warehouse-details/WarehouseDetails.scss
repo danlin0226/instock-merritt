@@ -1,0 +1,34 @@
+@use "../../main.scss";
+
+.warehouseDetails {
+  //   border: 2px solid red;
+
+  //   padding-top: 16px;
+
+  &__head {
+    @include main.m_flex-column;
+    @include main.m_pad_sizing_lr(24px);
+    @include main.m_thin-border-bottom;
+    @include main.m_sizing_topbot(padding-top, padding-bottom, 16px);
+    gap: 36px;
+  }
+
+  &__bottom {
+    @include main.m_flex-row;
+  }
+
+  &__cont {
+    flex: 1;
+  }
+  &__title {
+    color: main.$c_Slate;
+    @include main.m_fontsize_lineh_weight(11px, 16px, 600);
+    margin: 0px;
+    margin-bottom: 4px;
+  }
+  &__text {
+    color: main.$c_Instock-Black;
+    @include main.m_fontsize_lineh_weight(13px, 20px, 400);
+    margin: 0px;
+  }
+}

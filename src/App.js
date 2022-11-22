@@ -1,14 +1,16 @@
-
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import InventoryPage from "./pages/InventoryPage";
 import WarehousesPage from "./pages/WarehousesPage";
 
+import WarehouseDetails from "./components/warehouse-details/WarehouseDetails";
+
 function App() {
   return (
     <>
       {/* <Header /> */}
+      <WarehouseDetails />
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
         <Route path="/warehouses">
@@ -19,7 +21,6 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
-
   );
 }
 

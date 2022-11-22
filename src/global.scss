@@ -1,19 +1,18 @@
 @use "./main.scss";
-body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    font-family: "TitilliumWeb", Verdana, Tahoma;
-    box-sizing: border-box;
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: "Titillium Web", sans-serif;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
-
-
-
