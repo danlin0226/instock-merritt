@@ -1,12 +1,15 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
+import InventoryPage from "./pages/InventoryPage";
+import WarehousesPage from "./pages/WarehousesPage";
+
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<WarehousesPage />} />
         <Route path="/warehouses">
           <Route index element={<WarehousesPage />} />
           <Route path=":warehouseId" element={<WarehousesPage />} />
