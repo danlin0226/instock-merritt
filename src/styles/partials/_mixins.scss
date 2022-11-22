@@ -1,3 +1,5 @@
+@use "./colors" as *;
+
 // @mixin width_sizing($width_prop, $maxwidth_prop, $w_val, $maxw_val){
 @mixin width_sizing($width_prop, $maxwidth_prop, $val){
     #{$width_prop}: $val;
@@ -37,4 +39,18 @@
 @mixin padmar-0 {
     padding: 0;
     margin: 0;
+}
+
+@mixin header-mobile-btn{
+    width:10.1875rem;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    background-color: $Instock-Black;
+}
+
+@mixin header-tabDesk-btn{
+    width:6.6875rem;
+    height: 2.375rem;
+    border-radius: 1.25rem;
+    background-color: $Instock-Black;
 }
