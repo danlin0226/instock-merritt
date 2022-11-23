@@ -7,7 +7,6 @@
   &__head {
     background-color: main.$c_white;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-
     @include main.m_flex-row {
       flex-wrap: wrap;
       justify-content: space-between;
@@ -15,10 +14,11 @@
     @include main.m_pad_sizing_lr(24px);
     @include main.m_thin-border-bottom;
     @include main.m_sizing_topbot(padding-top, padding-bottom, 16px);
-    gap: 36px;
+    gap: 16px;
   }
 
   &__cont {
+    // border: 2px solid red;
     width: 45%;
 
     &:first-child {
@@ -36,5 +36,64 @@
     color: main.$c_Instock-Black;
     @include main.m_fontsize_lineh_weight(13px, 20px, 400);
     margin: 0px;
+  }
+}
+
+@include main.bp_medium {
+  .warehouseDetails {
+    @include main.m_pad_sizing_lr(32px);
+
+    &__head {
+      @include main.m_flex-row {
+        @include main.m_pad_sizing_lr(32px);
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+      border: none;
+      @include main.m_sizing_topbot(padding-top, padding-bottom, 24px);
+      gap: 0px;
+    }
+
+    &__cont {
+      width: auto;
+      // border: 2px solid red;
+
+      &:first-child {
+        width: 214px;
+        @include main.m_thin-border-right;
+        padding-right: 32px;
+        margin-right: 40px;
+        white-space: nowrap;
+      }
+      &:nth-child(2) {
+        width: 142px;
+        margin-right: 24px;
+      }
+    }
+
+    &__title {
+      @include main.m_fontsize_lineh_weight(12px, 18px, 600);
+    }
+    &__text {
+      @include main.m_fontsize_lineh_weight(14px, 22px, 400);
+    }
+  }
+}
+
+@include main.bp_large {
+  .warehouseDetails {
+    @include main.m_pad_sizing_lr(130px);
+    &__head {
+      @include main.m_pad_sizing_lr(40px);
+    }
+    &__cont {
+      &:first-child {
+        padding-right: 156px;
+        width: 370px;
+      }
+      &:nth-child(2) {
+        width: 217px;
+      }
+    }
   }
 }

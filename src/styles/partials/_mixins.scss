@@ -62,6 +62,10 @@
   border-bottom: 1px solid $Cloud;
 }
 
+@mixin thin-border-right {
+  border-right: 1px solid $Cloud;
+}
+
 @mixin instock-label {
   padding: 4px 8px;
   background-color: rgba($Green, 7%);

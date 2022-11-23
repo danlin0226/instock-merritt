@@ -1,7 +1,13 @@
 import React from "react";
 
+import WarehouseDetails from "../components/warehouse-details/WarehouseDetails";
+
 const WarehousesPage = () => {
-  return <div>Inventory Page</div>;
+  return (
+    <>
+      <WarehouseDetails />
+    </>
+  );
 };
 
 export default WarehousesPage;

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import ListingsCard from "../listingsCard/ListingsCard";
+import React from "react";
+import ListingsCard from "../listings-card/ListingsCard";
+import SortLabels from "../sort-labels/SortLabels";
 
 import "./WarehouseDetails.scss";
 
@@ -26,7 +27,7 @@ const warehouseDetails = () => {
           <p className="warehouseDetails__text">asdfsa@instock.com</p>
         </div>
       </section>
-      {/* <section>labels</section> */}
+      <SortLabels />
       <section>
         <ListingsCard />
         <ListingsCard />
