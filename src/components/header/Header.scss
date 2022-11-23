@@ -1,78 +1,73 @@
-@use "../../styles/partials/breakpoints" as *;
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/globals" as *;
-@use "../../styles/partials/fonts" as *;
-
+@use "../../main.scss";
 
 
 .header{
-    background-color:$Graphite;
+    background-color: main.$c_Graphite;
     height:8.5625rem;
-  
+
     &__logo{
-    display: flex;
-    margin: 0 auto;
-    padding: 1rem;
-    background-size: contain;
-    background-color: $Graphite;
-    max-width: 7.5rem;
-    max-height: 1.5625rem;
+        display: flex;
+        margin: 0 auto;
+        padding: 1rem;
+        background-size: contain;
+        background-color: main.$c_Graphite;
+        max-width: 7.5rem;
+        max-height: 1.5625rem;
     }    
 
     &__link{
-    list-style-type: none;
-    color:$Cloud;
-    padding: .5rem 3rem;
-    @include fontsize_lineh_weight(.875rem,.8125rem,600)
+        list-style-type: none;
+        color: main.$c_Cloud;
+        padding: .5rem 3rem;
+        @include main.m_fontsize_lineh_weight(.875rem,.8125rem,600)
+    }
+
+    &__link:hover{
+        background-color: main.$c_Instock-Black;
+        border-radius: 20px;
+        color: main.$c_white;
+    }
+
+    &__link-wrapper{
+        display: flex;
+        justify-content: space-around;
+    }
 }
 
-&__link:hover{
-    background-color:$Instock-Black;
-    border-radius: 20px;
-    color: $white;
-}
+@include main.bp_medium{
 
-&__link-wrapper{
-display: flex;
-justify-content: space-around;
-}
-}
-
-@include medium{
-    
     .header{
-      height: 5.75rem;
-      display: flex;
-      padding: 1rem 2rem;
-      align-items: center;
-      justify-content: space-between;
-
-      &__logo{
-        margin:1rem;
+        height: 5.75rem;
+        display: flex;
+        padding: 1rem 2rem;
         align-items: center;
+        justify-content: space-between;
+
+        &__logo{
+            margin:1rem;
+            align-items: center;
+        }
+        &__link{
+            list-style-type: none;
+            color: main.$c_Cloud;
+            padding: .5rem 3rem;
+            @include main.m_fontsize_lineh_weight(.875rem,1.375rem,600)
+        }
     }
-    &__link{
-    list-style-type: none;
-    color:$Cloud;
-    padding: .5rem 3rem;
-    @include fontsize_lineh_weight(.875rem,1.375rem,600)
 }
-    }
-    }
 
-    @include large{
-        .header{
-      height: 5.75rem;
-      display: flex;
-      padding: 1rem 2rem;
-      align-items: center;
-      justify-content: space-between;
-
-      &__logo{
-        margin:1rem;
+@include main.bp_large{
+    .header{
+        height: 5.75rem;
+        display: flex;
+        padding: 1rem 2rem;
         align-items: center;
-    }
+        justify-content: space-between;
+
+        &__logo{
+            margin:1rem;
+            align-items: center;
+        }
     }
 
-    }
+}

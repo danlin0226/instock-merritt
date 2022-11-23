@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react'
+import Title from '../components/title/Title'
 
 const WarehousesPage = () => {
-  return <div>Inventory Page</div>;
-};
+  return (
+    <>
+      <Title />
+      <div>Inventory Page</div>
+    </>
+  )
+}
 
-export default WarehousesPage;
+export default WarehousesPage

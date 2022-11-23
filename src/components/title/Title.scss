@@ -1,0 +1,15 @@
+@use "../../main.scss";
+
+.title {
+    background-color: red;
+}
+
+@include main.bp_small {
+    .title{
+        margin-top: -25px;
+        margin-left: 16px;
+        padding-left: 16px;
+        width: 200px;
+        height: 100px;
+    }
+}
