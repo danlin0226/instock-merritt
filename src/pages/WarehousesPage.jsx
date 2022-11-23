@@ -1,13 +1,13 @@
 import React from 'react'
-import Title from '../components/title/Title'
 
 import WarehouseDetails from '../components/warehouse-details/WarehouseDetails'
+import Title from '../components/title/Title'
 
 const WarehousesPage = () => {
   return (
     <>
       <Title />
-      <div>Inventory Page</div>
+      <WarehouseDetails />
     </>
   )
 }
