@@ -1,9 +1,15 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
   &__text {
+    font-family: "Titillium Web";
+    font-size: 0.75rem;
     padding: 2rem;
-    color: gray;
+    color: $Slate;
   }
 }
