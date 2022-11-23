@@ -1,21 +1,31 @@
 @use "../../main.scss";
 
 .warehouseDetails {
+  background-color: #d1d1d1;
+  @include main.m_pad_sizing_lr(16px);
+
   &__head {
-    @include main.m_flex-column;
+    background-color: main.$c_white;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+    @include main.m_flex-row {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
     @include main.m_pad_sizing_lr(24px);
     @include main.m_thin-border-bottom;
     @include main.m_sizing_topbot(padding-top, padding-bottom, 16px);
     gap: 36px;
   }
 
-  &__bottom {
-    @include main.m_flex-row;
+  &__cont {
+    width: 45%;
+
+    &:first-child {
+      width: 100%;
+    }
   }
 
-  &__cont {
-    flex: 1;
-  }
   &__title {
     color: main.$c_Slate;
     @include main.m_fontsize_lineh_weight(11px, 16px, 600);
