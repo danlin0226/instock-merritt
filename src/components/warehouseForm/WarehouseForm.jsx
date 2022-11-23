@@ -1,7 +1,7 @@
 import "./WarehouseForm.scss";
 import React from "react";
 
-function WarehouseForm() {
+function WarehouseForm(props) {
   return (
     <form className="warehouse" action="submit">
       <section className="warehouse__section">
@@ -107,12 +107,7 @@ function WarehouseForm() {
           />
         </div>
       </section>
-      <section className="warehouse__buttons">
-        <button className="warehouse__buttons__cancel">Cancel</button>
-        <button className="warehouse__buttons__submit">
-          + Add Warehouse
-        </button>
-      </section>
+      {props.Buttons}
     </form>
   );
 }
