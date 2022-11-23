@@ -1,0 +1,168 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse {
+  box-shadow: 2px 2px 8px $Cloud;
+  margin: 0 1rem;
+  border-radius: 3px;
+  font-family: "Titillium Web";
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-top: solid 1px $Cloud;
+      padding: 1rem 1.5rem;
+      &__header {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+      }
+      &__label {
+        padding-top: 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      &__input {
+        font-size: 0.8rem;
+        width: 94%;
+        height: 32px;
+        border: solid 1px lightgray;
+        border-radius: 20px;
+        padding-left: 1rem;
+      }
+    }
+  }
+  &__buttons {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $Light-Grey;
+    &__cancel {
+      font-weight: 600;
+      width: 8.75rem;
+      background-color: $white;
+      border: solid 1px $Cloud;
+      border-radius: 25px;
+      font-size: 0.7rem;
+      height: 2.25rem;
+      color: $Slate;
+    }
+    &__submit {
+      font-weight: 600;
+      background-color: $Instock-Indigo;
+      width: 8.75rem;
+      border: solid 1px $Cloud;
+      border-radius: 25px;
+      color: $white;
+      font-size: 0.7rem;
+      height: 2.25rem;
+    }
+  }
+}
+
+@include medium {
+  .warehouse {
+    min-width: 44rem;
+    margin: 0 2rem;
+
+    &__section {
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-bottom: 1.5rem;
+      &__details {
+        margin-top: 1.5rem;
+        padding-top: 0;
+        width: 50%;
+        border: none;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        &-right {
+          border-left: solid $Cloud 1px;
+        }
+        &__header {
+          font-size: 1.5rem;
+        }
+        &__label {
+          font-size: 0.875rem;
+          padding: 0.25rem 0;
+          padding-top: 1.5rem;
+        }
+
+        &__input {
+          height: 38px;
+          max-height: 38px;
+        }
+      }
+    }
+    &__buttons {
+      justify-content: flex-end;
+      &__cancel {
+        width: 4.5rem;
+      }
+      &__submit {
+        margin-left: 1rem;
+        width: 8.625rem;
+      }
+    }
+  }
+}
+
+@include large {
+  .warehouse {
+    min-width: 63.75rem;
+    min-height: 43.75rem;
+    height: 100%;
+    margin: 0 8.125rem;
+    &__section {
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-bottom: 1.5625rem;
+      &__details {
+        margin-top: 1.6875rem;
+        padding: 2rem 2.5rem;
+        padding-top: 0;
+
+        width: 50%;
+        border: none;
+        &-right {
+          border-left: solid $Cloud 1px;
+        }
+        &__header {
+          font-size: 1.5rem;
+          padding: 0;
+        }
+        &__input {
+          height: 38px;
+          max-height: 38px;
+        }
+        &__label {
+          padding-top: 2rem;
+          padding-bottom: 0.35rem;
+          font-size: 0.875rem;
+        }
+      }
+    }
+    &__buttons {
+      justify-content: flex-end;
+      padding: 1rem 2.5rem;
+      &__cancel {
+        width: 4.5rem;
+        height: 2.375rem;
+      }
+      &__submit {
+        margin-left: 1rem;
+        height: 2.375rem;
+        width: 8.625rem;
+      }
+    }
+  }
+}
