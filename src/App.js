@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import InventoryPage from "./pages/InventoryPage";
 import WarehousesPage from "./pages/WarehousesPage";
+import AddWarehouse from "./pages/AddWarehouse";
+
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
@@ -12,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
+        <Route path="/warehouse-add" element={<AddWarehouse />} />
         <Route path="/warehouses">
           <Route index element={<WarehousesPage />} />
           <Route path=":warehouseId" element={<WarehousesPage />} />
