@@ -1,0 +1,52 @@
+@use "../../main.scss";
+
+.sortLabels-cont {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  gap: 16px;
+  background-color: main.$c_Light-Grey;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+}
+
+.sortLabels {
+  display: none;
+  align-items: center;
+  // border: 2px solid red;
+  width: 100%;
+
+  &__name {
+    color: main.$c_Slate;
+    @include main.m_fontsize_lineh_weight(12px, 18px, 600);
+    margin-right: 4px;
+  }
+
+  &__icon {
+    margin-right: auto;
+    width: 16px;
+  }
+
+  &__action {
+    justify-content: flex-end;
+  }
+
+  &__hide {
+    display: none;
+  }
+}
+
+@include main.bp_medium {
+  .sortLabels-cont {
+    display: flex;
+    width: 100%;
+    @include main.m_pad_sizing_lr(32px);
+  }
+  .sortLabels {
+    @include main.m_flex-row;
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+      flex: 0 0 67px;
+    }
+  }
+}
