@@ -5,7 +5,7 @@ import WarehouseForm from "../components/warehouseForm/WarehouseForm";
 const InventoryPage = () => {
   return (
     <>
-      <WarehouseForm Buttons={<ButtonSet buttonName="+ Add Warehouse" />} />
+      <WarehouseForm Buttons={<ButtonSet buttonName="Save" />} />
     </>
   );
 };
