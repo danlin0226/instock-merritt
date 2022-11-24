@@ -47,6 +47,7 @@ input[type="radio"] {
   margin: 0rem;
   &:not(:checked) + label {
     color: $Slate;
+    opacity: 75%;
   }
 }
 
