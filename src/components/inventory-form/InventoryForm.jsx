@@ -1,6 +1,9 @@
 import "../../styles/partials/_typography.scss";
 import "./InventoryForm.scss";
 
+// components
+import Button from "../button/Button";
+
 const InventoryForm = () => {
   return (
     <form className="inventory__form">
@@ -77,6 +80,10 @@ const InventoryForm = () => {
             </option>
           </select>
         </div>
+      </div>
+      <div className="item__buttons">
+        <Button buttonText="Cancel" classes="button button-text item__buttons-cancel"></Button>
+        <Button buttonText="+Add Item" classes="button button-text item__buttons-add"></Button>
       </div>
     </form>
   );
