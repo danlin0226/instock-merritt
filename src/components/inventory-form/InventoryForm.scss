@@ -62,6 +62,9 @@
         border: 0.0625rem solid $Cloud !important;
         font-weight: 400;
         margin-right: 1rem;
+        &:hover {
+          background-color: $Instock-Indigo;
+        }
       }
       &-add {
         font-weight: 400;
@@ -145,6 +148,9 @@
         border: 0.0625rem solid $Cloud !important;
         font-weight: 400;
         margin-right: 1rem;
+        &:hover {
+          background-color: $Instock-Indigo;
+        }
       }
       &-add {
         font-weight: 400;
@@ -228,6 +234,9 @@
         border: 0.0625rem solid $Cloud !important;
         font-weight: 400;
         margin-right: 1rem;
+        &:hover {
+          background-color: $Instock-Indigo;
+        }
       }
       &-add {
         font-weight: 400;
