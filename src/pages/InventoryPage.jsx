@@ -1,7 +1,12 @@
-import React from "react";
-
+import React from 'react'
+import Title from '../components/title/Title.jsx'
 const InventoryPage = () => {
-  return <div>Inventory Page</div>;
-};
+  return (
+    <>
+      <Title />
+      <div>Inventory Page</div>
+    </>
+  )
+}
 
-export default InventoryPage;
+export default InventoryPage

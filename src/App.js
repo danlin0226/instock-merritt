@@ -1,12 +1,12 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
-import InventoryPage from "./pages/InventoryPage";
-import WarehousesPage from "./pages/WarehousesPage";
-import AddWarehouse from "./pages/AddWarehouse";
+import InventoryPage from './pages/InventoryPage'
+import WarehousesPage from './pages/WarehousesPage'
+import AddWarehouse from './pages/AddWarehouse'
 
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
       </Routes>
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
