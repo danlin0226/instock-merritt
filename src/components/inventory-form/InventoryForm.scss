@@ -26,13 +26,11 @@
       padding: 0rem 1rem;
     }
 
-    &__label {
-      @include fontsize_lineh_weight(0.8125rem, 1.25rem, 600);
-      margin-bottom: 0.25rem;
-    }
-
     &__radio {
-      font-size: 10rem;
+      margin-right: 2.75rem;
+      &-container {
+        display: flex;
+      }
     }
 
     &__select {
@@ -46,15 +44,15 @@
       font-family: "Titillium Web";
       height: 10vh;
     }
-    &__section {
-      &-header {
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-    }
 
     &__details {
       border-bottom: 0.0625rem solid $Cloud;
     }
+  }
+
+  //label-text css class is from styles/partials/typography
+  .label-text.item__radio-label {
+    font-weight: 400;
+    margin-left: 0.5rem;
   }
 }
