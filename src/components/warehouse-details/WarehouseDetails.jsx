@@ -1,8 +1,8 @@
-import React from "react";
-import ListingsCard from "../listings-card/ListingsCard";
-import SortLabels from "../sort-labels/SortLabels";
+import React from 'react';
+import ListingsCard from '../listings-card/ListingsCard';
+import SortLabels from '../sort-labels/SortLabels';
 
-import "./WarehouseDetails.scss";
+import './WarehouseDetails.scss';
 
 const warehouseDetails = () => {
   return (
@@ -29,11 +29,11 @@ const warehouseDetails = () => {
       </section>
       <SortLabels />
       <section>
+        {/* <ListingsCard />
         <ListingsCard />
         <ListingsCard />
         <ListingsCard />
-        <ListingsCard />
-        <ListingsCard />
+        <ListingsCard /> */}
       </section>
     </div>
   );

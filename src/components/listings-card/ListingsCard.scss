@@ -1,4 +1,4 @@
-@use "../../main.scss";
+@use '../../main.scss';
 
 .listingsCard {
   @include main.m_pad_sizing_lr(24px);
@@ -68,28 +68,28 @@
     padding-top: 18px;
     padding-bottom: 18px;
     flex-wrap: nowrap;
+    align-items: center;
+    justify-content: none;
 
     &__title {
       display: none;
     }
 
     &__cont {
-      width: 100%;
-      display: flex;
-      align-items: center;
+      width: 18%;
 
       &--second {
         order: 4;
       }
 
       &:last-child {
-        width: 100px;
-        justify-content: flex-end;
+        width: auto;
         gap: 15px;
       }
     }
     &__text {
       @include main.m_fontsize_lineh_weight(14px, 22px, 400);
+
       margin: 0px;
 
       &--inStock {
