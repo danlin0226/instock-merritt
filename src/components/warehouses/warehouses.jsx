@@ -2,15 +2,26 @@ import React from 'react';
 import ListingsCard from '../listings-card/ListingsCard';
 import SortLabels from '../sort-labels/SortLabels';
 
-import './warehouses.scss';
+import './Warehouses.scss';
 
 const warehouses = ({ warehouses }) => {
-  console.log('test', warehouses);
+  const warehouseLabels = [
+    'WAREHOUSE',
+    'ADDRESS',
+    'CONTACT NAME',
+    'CONTACT INFORMATION',
+    'ACTIONS',
+  ];
+
   return (
     <div className="warehouses">
-      <SortLabels warehouse={warehouses[0]} />
+      <div className="sortLabels-cont">
+        {warehouseLabels.map((label, index) => {
+          return <SortLabels key={index} label={label} />;
+        })}
+      </div>
       {warehouses.map((warehouse) => {
-        return <ListingsCard warehouse={warehouse} />;
+        return <ListingsCard key={warehouse.id} warehouse={warehouse} />;
       })}
     </div>
   );

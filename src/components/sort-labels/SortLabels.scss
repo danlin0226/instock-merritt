@@ -31,6 +31,10 @@
 
     &__icon {
       width: 16px;
+
+      &--hidden {
+        display: none;
+      }
     }
 
     &:last-child {
