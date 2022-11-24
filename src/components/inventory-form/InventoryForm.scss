@@ -249,4 +249,10 @@
       }
     }
   }
+
+  //label-text css class is from styles/partials/typography
+  .label-text.item__radio-label {
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
 }
