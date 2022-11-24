@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ListingsCard from '../listings-card/ListingsCard';
 import SortLabels from '../sort-labels/SortLabels';
-import warehouses from '../warehouses/Warehouses';
 
 import './WarehouseDetails.scss';
 
@@ -29,7 +27,7 @@ const WarehouseDetails = () => {
       console.log(res.data);
       setSelectedWarehouse(res.data);
     });
-  }, []);
+  }, [id]);
 
   return (
     <div className="warehouseDetails">

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Header from '../components/header/Header';
+import { Routes, Route } from 'react-router-dom';
 
 import WarehouseDetails from '../components/warehouse-details/WarehouseDetails';
 import Warehouses from '../components/warehouses/Warehouses';
@@ -11,7 +10,6 @@ const BACK_END = 'http://localhost:8080';
 
 const WarehousesPage = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
 
   useEffect(() => {
     console.log(`${BACK_END}/warehouses`);
@@ -19,10 +17,6 @@ const WarehousesPage = () => {
       setWarehouses(res.data);
     });
   }, []);
-
-  // const clickHandler = (e) => {
-  //   set();
-  // };
 
   return (
     <>
@@ -33,10 +27,6 @@ const WarehousesPage = () => {
           element={<WarehouseDetails warehouses={warehouses} />}
         />
       </Routes>
-      {/* <Route
-          path="/hi"
-          element={<Header selectedWarehouse={selectedWarehouse} />}
-        /> */}
     </>
   );
 };
