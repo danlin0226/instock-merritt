@@ -8,8 +8,6 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 
 const ListingsCard = ({ warehouse, test, selected }) => {
-  console.log(test);
-
   return (
     <>
       <article className="listingsCard">

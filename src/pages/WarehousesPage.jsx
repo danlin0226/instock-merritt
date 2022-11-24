@@ -12,7 +12,6 @@ const WarehousesPage = () => {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    console.log(`${BACK_END}/warehouses`);
     axios.get(`${BACK_END}/warehouses`).then((res) => {
       setWarehouses(res.data);
     });

@@ -13,18 +13,15 @@ const WarehouseDetails = () => {
 
   const inventoryLabels = ["INVENTORY", "CATEGORY", "STATUS", "QTY", "ACTIONS"];
 
-  console.log("selected", selectedWarehouse);
-
   const { id } = useParams();
 
   useEffect(() => {
+    //pulls warehouse inventories
     axios.get(`${BACK_END}/warehouses/${id}/inventories`).then((res) => {
-      console.log("inventory", res.data);
       setWarehouseInventory(res.data);
     });
-
+    //pull
     axios.get(`${BACK_END}/warehouses/${id}`).then((res) => {
-      console.log(res.data);
       setSelectedWarehouse(res.data);
     });
   }, [id]);
