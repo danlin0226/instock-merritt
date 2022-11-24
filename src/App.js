@@ -7,6 +7,7 @@ import AddWarehouse from "./pages/AddWarehouse";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import InventoryForm from "./components/inventory-form/InventoryForm";
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
           <Route index element={<WarehousesPage />} />
           <Route path=":warehouseId" element={<WarehousesPage />} />
         </Route>
-        <Route path="/inventory" element={<InventoryPage />} />
+        <Route path="/inventory">
+          <Route index element={<InventoryPage />} />
+          <Route path="add" element={<InventoryForm />} />
+        </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
