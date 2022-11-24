@@ -8,8 +8,8 @@ import "./WarehouseDetails.scss";
 const BACK_END = "http://localhost:8080";
 
 const WarehouseDetails = () => {
-  const [warehouseInventory, setWarehouseInventory] = useState([]);
-  const [selectedWarehouse, setSelectedWarehouse] = useState([]);
+  const [warehouseInventory, setWarehouseInventory] = useState([]); //loads a join array of warehouse and inventory
+  const [selectedWarehouse, setSelectedWarehouse] = useState([]); //loads a single warehouse object
 
   const inventoryLabels = ["INVENTORY", "CATEGORY", "STATUS", "QTY", "ACTIONS"];
 
