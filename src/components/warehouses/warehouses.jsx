@@ -1,16 +1,16 @@
-import React from 'react';
-import ListingsCard from '../listings-card/ListingsCard';
-import SortLabels from '../sort-labels/SortLabels';
+import React from "react";
+import ListingsCard from "../listings-card/ListingsCard";
+import SortLabels from "../sort-labels/SortLabels";
 
-import './Warehouses.scss';
+import "./Warehouses.scss";
 
 const warehouses = ({ warehouses }) => {
   const warehouseLabels = [
-    'WAREHOUSE',
-    'ADDRESS',
-    'CONTACT NAME',
-    'CONTACT INFORMATION',
-    'ACTIONS',
+    "WAREHOUSE",
+    "ADDRESS",
+    "CONTACT NAME",
+    "CONTACT INFORMATION",
+    "ACTIONS",
   ];
 
   return (

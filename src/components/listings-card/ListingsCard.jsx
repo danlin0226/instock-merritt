@@ -1,11 +1,11 @@
-import React from 'react';
-import './ListingsCard.scss';
+import React from "react";
+import "./ListingsCard.scss";
 
-import trashIcon from '../../assets/Icons/delete_outline-24px.svg';
-import editIcon from '../../assets/Icons/edit-24px.svg';
-import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
+import trashIcon from "../../assets/Icons/delete_outline-24px.svg";
+import editIcon from "../../assets/Icons/edit-24px.svg";
+import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const ListingsCard = ({ warehouse, test, selected }) => {
   console.log(test);
@@ -20,7 +20,7 @@ const ListingsCard = ({ warehouse, test, selected }) => {
               {/* <h4 className="listingsCard__title">INVENTORY ITEM</h4> */}
               <Link to={`/warehouses/${warehouse.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {test.item_name}{' '}
+                  {test.item_name}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
@@ -67,7 +67,7 @@ const ListingsCard = ({ warehouse, test, selected }) => {
               {/* <h4 className="listingsCard__title">INVENTORY ITEM</h4> */}
               <Link to={`/warehouses/${warehouse.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {warehouse.warehouse_name}{' '}
+                  {warehouse.warehouse_name}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}

@@ -1,25 +1,25 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import SortLabels from '../sort-labels/SortLabels';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import SortLabels from "../sort-labels/SortLabels";
 
-import './WarehouseDetails.scss';
+import "./WarehouseDetails.scss";
 
-const BACK_END = 'http://localhost:8080';
+const BACK_END = "http://localhost:8080";
 
 const WarehouseDetails = () => {
   const [warehouseInventory, setWarehouseInventory] = useState([]);
   const [selectedWarehouse, setSelectedWarehouse] = useState([]);
 
-  const inventoryLabels = ['INVENTORY', 'CATEGORY', 'STATUS', 'QTY', 'ACTIONS'];
+  const inventoryLabels = ["INVENTORY", "CATEGORY", "STATUS", "QTY", "ACTIONS"];
 
-  console.log('selected', selectedWarehouse);
+  console.log("selected", selectedWarehouse);
 
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`${BACK_END}/warehouses/${id}/inventories`).then((res) => {
-      console.log('inventory', res.data);
+      console.log("inventory", res.data);
       setWarehouseInventory(res.data);
     });
 
@@ -44,7 +44,7 @@ const WarehouseDetails = () => {
             {selectedWarehouse.contact_name}
           </p>
           <p className="warehouseDetails__text">
-            {' '}
+            {" "}
             {selectedWarehouse.contact_position}
           </p>
         </div>
