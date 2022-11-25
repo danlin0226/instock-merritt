@@ -8,6 +8,10 @@ import "./InventoryForm.scss";
 // components
 import Button from "../button/Button";
 
+import "../../styles/partials/_typography.scss";
+import "../../global.scss";
+import "./InventoryForm.scss";
+
 const InventoryForm = () => {
   return (
     <form className="inventory__form">
