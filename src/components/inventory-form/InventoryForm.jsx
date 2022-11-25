@@ -13,10 +13,18 @@ import "../../global.scss";
 import "./InventoryForm.scss";
 
 const InventoryForm = () => {
+  const [inventories, setInventories] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/inventories`).then((res) => {
+      setInventories(res.data);
+    });
+  }, []);
+
   return (
     <form className="inventory__form">
       <div className="item__details">
-        <h2 className="subheader">Item Details</h2>
+        <h2 className="subheader item__header">Item Details</h2>
         <div className="item__container">
           <label className="label-text">Item Name</label>
           <input className="item__form item__name" type="text" name="itemName" placeholder="Item Name" />
@@ -49,7 +57,7 @@ const InventoryForm = () => {
         </div>
       </div>
       <div className="item__availability">
-        <h2 className="subheader">Item Availability</h2>
+        <h2 className="subheader item__header">Item Availability</h2>
         <div className="item__container">
           <label className="label-text">Status</label>
           <div className="item__radio-container">
