@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SortLabels from "../sort-labels/SortLabels";
+import ListingsCard from "../listings-card/ListingsCard";
 
 import "./WarehouseDetails.scss";
 
@@ -16,11 +17,10 @@ const WarehouseDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    //pulls warehouse inventories
     axios.get(`${BACK_END}/warehouses/${id}/inventories`).then((res) => {
       setWarehouseInventory(res.data);
     });
-    //pull
+
     axios.get(`${BACK_END}/warehouses/${id}`).then((res) => {
       setSelectedWarehouse(res.data);
     });
@@ -61,11 +61,15 @@ const WarehouseDetails = () => {
         })}
       </div>
       <section>
-        {/* <ListingsCard test={testProp}  */}
-        {/* <ListingsCard />
-        <ListingsCard />
-        <ListingsCard />
-        <ListingsCard /> */}
+        {warehouseInventory.map((InventoryItem, index) => {
+          return (
+            <ListingsCard
+              key={index}
+              path="/warehouses/inventory"
+              dataItem={InventoryItem}
+            />
+          );
+        })}
       </section>
     </div>
   );
