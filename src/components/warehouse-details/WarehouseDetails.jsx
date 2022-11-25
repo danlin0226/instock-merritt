@@ -28,49 +28,53 @@ const WarehouseDetails = () => {
 
   return (
     <div className="warehouseDetails">
-      <section className="warehouseDetails__head">
-        <div className="warehouseDetails__cont">
-          <h4 className="warehouseDetails__title">WAREHOUSE ADDRESS:</h4>
-          <p className="warehouseDetails__text">{selectedWarehouse.address}</p>
-          <p className="warehouseDetails__text">{selectedWarehouse.city}</p>
-        </div>
+      <div className="warehouseDetails__page-cont">
+        <section className="warehouseDetails__head">
+          <div className="warehouseDetails__cont">
+            <h4 className="warehouseDetails__title">WAREHOUSE ADDRESS:</h4>
+            <p className="warehouseDetails__text">
+              {selectedWarehouse.address}
+            </p>
+            <p className="warehouseDetails__text">{selectedWarehouse.city}</p>
+          </div>
 
-        <div className="warehouseDetails__cont">
-          <h4 className="warehouseDetails__title">CONTACT NAME:</h4>
-          <p className="warehouseDetails__text">
-            {selectedWarehouse.contact_name}
-          </p>
-          <p className="warehouseDetails__text">
-            {" "}
-            {selectedWarehouse.contact_position}
-          </p>
+          <div className="warehouseDetails__cont">
+            <h4 className="warehouseDetails__title">CONTACT NAME:</h4>
+            <p className="warehouseDetails__text">
+              {selectedWarehouse.contact_name}
+            </p>
+            <p className="warehouseDetails__text">
+              {" "}
+              {selectedWarehouse.contact_position}
+            </p>
+          </div>
+          <div className="warehouseDetails__cont">
+            <h4 className="warehouseDetails__title">CONTACT INFORMATION:</h4>
+            <p className="warehouseDetails__text">
+              {selectedWarehouse.contact_phone}
+            </p>
+            <p className="warehouseDetails__text">
+              {selectedWarehouse.contact_email}
+            </p>
+          </div>
+        </section>
+        <div className="sortLabels-cont">
+          {inventoryLabels.map((label, index) => {
+            return <SortLabels key={index} label={label} />;
+          })}
         </div>
-        <div className="warehouseDetails__cont">
-          <h4 className="warehouseDetails__title">CONTACT INFORMATION:</h4>
-          <p className="warehouseDetails__text">
-            {selectedWarehouse.contact_phone}
-          </p>
-          <p className="warehouseDetails__text">
-            {selectedWarehouse.contact_email}
-          </p>
-        </div>
-      </section>
-      <div className="sortLabels-cont">
-        {inventoryLabels.map((label, index) => {
-          return <SortLabels key={index} label={label} />;
-        })}
+        <section>
+          {warehouseInventory.map((InventoryItem, index) => {
+            return (
+              <ListingsCard
+                key={index}
+                path="/warehouses/inventory"
+                dataItem={InventoryItem}
+              />
+            );
+          })}
+        </section>
       </div>
-      <section>
-        {warehouseInventory.map((InventoryItem, index) => {
-          return (
-            <ListingsCard
-              key={index}
-              path="/warehouses/inventory"
-              dataItem={InventoryItem}
-            />
-          );
-        })}
-      </section>
     </div>
   );
 };

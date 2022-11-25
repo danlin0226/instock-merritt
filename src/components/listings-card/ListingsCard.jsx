@@ -29,12 +29,10 @@ const ListingsCard = ({ path, dataItem }) => {
 
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">ADDRESS</h4>
-              <p className="listingsCard__text">{dataItem.address}</p>
-              <p className="listingsCard__text">{`${dataItem.city} ${dataItem.country}`}</p>
+              <p className="listingsCard__text">{`${dataItem.address}, ${dataItem.city}, ${dataItem.country}`}</p>
             </div>
 
             <div className="listingsCard__cont listingsCard__cont--second">
-              <h4 className="listingsCard__title">STATUS</h4>
               <h4 className="listingsCard__title">CONTACT NAME</h4>
               <p className="listingsCard__text">{dataItem.contact_name}</p>
             </div>
@@ -46,12 +44,20 @@ const ListingsCard = ({ path, dataItem }) => {
             </div>
 
             <div className="listingsCard__cont">
-              <img
-                className="listingsCard__img"
-                src={trashIcon}
-                alt="trashbin"
-              />
-              <img className="listingsCard__img" src={editIcon} alt="pencil" />
+              <Link to={`/`}>
+                <img
+                  className="listingsCard__img"
+                  src={trashIcon}
+                  alt="trashbin"
+                />
+              </Link>
+              <Link to={`/warehouses/${dataItem.id}/edit`}>
+                <img
+                  className="listingsCard__img"
+                  src={editIcon}
+                  alt="pencil"
+                />
+              </Link>
             </div>
           </>
         ) : (
@@ -92,6 +98,13 @@ const ListingsCard = ({ path, dataItem }) => {
               <h4 className="listingsCard__title">QUANTITY</h4>
               <p className="listingsCard__text">{dataItem.quantity}</p>
             </div>
+
+            {path === "inventories" && (
+              <div className="listingsCard__cont listingsCard__cont--right">
+                <h4 className="listingsCard__title">WAREHOUSE</h4>
+                <p className="listingsCard__text">{dataItem.warehouse_name}</p>
+              </div>
+            )}
 
             <div className="listingsCard__cont">
               <img
