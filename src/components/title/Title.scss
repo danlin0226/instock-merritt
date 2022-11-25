@@ -1,7 +1,7 @@
 @use "../../main.scss";
 
 body {
-    background-color: #d1d1d1;
+    background-color: main.$c_Light-Grey;
 }
 .title {
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);

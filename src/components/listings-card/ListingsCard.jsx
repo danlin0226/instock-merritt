@@ -44,13 +44,14 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
             </div>
 
             <div className="listingsCard__cont">
-              <Link to={`/`}>
-                <img
-                  className="listingsCard__img"
-                  src={trashIcon}
-                  alt="trashbin"
-                />
-              </Link>
+              <img
+                className="listingsCard__img"
+                src={trashIcon}
+                alt="trashbin"
+                onClick={(e) => {
+                  deleteHandler(e, dataItem.id, dataItem.warehouse_name);
+                }}
+              />
               <Link to={`/warehouses/${dataItem.id}/edit`}>
                 <img
                   className="listingsCard__img"
@@ -111,9 +112,6 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
                 className="listingsCard__img"
                 src={trashIcon}
                 alt="trashbin"
-                onClick={(e) => {
-                  deleteHandler(e, dataItem.id, dataItem.warehouse_name);
-                }}
               />
               <img className="listingsCard__img" src={editIcon} alt="pencil" />
             </div>

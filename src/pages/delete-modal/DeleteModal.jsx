@@ -1,7 +1,6 @@
 import "./DeleteModal.scss";
 import React from "react";
 const DeleteModal = ({ confirmDelete, warehouse_name }) => {
-  let wh_name = "Washington";
   return (
     <div className="deletemodal">
       <div className="deletemodal__content">
