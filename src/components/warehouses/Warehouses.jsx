@@ -4,7 +4,7 @@ import SortLabels from "../sort-labels/SortLabels";
 
 import "./Warehouses.scss";
 
-const warehouses = ({ warehouses }) => {
+const Warehouses = ({ warehouses }) => {
   const warehouseLabels = [
     "WAREHOUSE",
     "ADDRESS",
@@ -21,10 +21,16 @@ const warehouses = ({ warehouses }) => {
         })}
       </div>
       {warehouses.map((warehouse) => {
-        return <ListingsCard key={warehouse.id} warehouse={warehouse} />;
+        return (
+          <ListingsCard
+            key={warehouse.id}
+            path="warehouses"
+            dataItem={warehouse}
+          />
+        );
       })}
     </div>
   );
 };
 
-export default warehouses;
+export default Warehouses;

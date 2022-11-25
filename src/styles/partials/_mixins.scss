@@ -82,18 +82,19 @@
   border-radius: 20px;
   color: $Red;
   @include fontsize_lineh_weight(11px, 16px, 600);
+  display: inline-block;
 }
 
-@mixin header-mobile-btn{
-    width:10.1875rem;
-    height: 2.25rem;
-    border-radius: 1.25rem;
-    background-color: $Instock-Black;
+@mixin header-mobile-btn {
+  width: 10.1875rem;
+  height: 2.25rem;
+  border-radius: 1.25rem;
+  background-color: $Instock-Black;
 }
 
-@mixin header-tabDesk-btn{
-    width:6.6875rem;
-    height: 2.375rem;
-    border-radius: 1.25rem;
-    background-color: $Instock-Black;
+@mixin header-tabDesk-btn {
+  width: 6.6875rem;
+  height: 2.375rem;
+  border-radius: 1.25rem;
+  background-color: $Instock-Black;
 }

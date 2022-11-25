@@ -7,18 +7,17 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
 import { Link } from "react-router-dom";
 
-const ListingsCard = ({ warehouse, test, selected }) => {
+const ListingsCard = ({ path, dataItem }) => {
   return (
     <>
       <article className="listingsCard">
-        {test ? (
+        {path === "warehouses" ? (
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">WAREHOUSE</h4>
-              {/* <h4 className="listingsCard__title">INVENTORY ITEM</h4> */}
-              <Link to={`/warehouses/${warehouse.id}/inventories`}>
+              <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {test.item_name}{" "}
+                  {dataItem.city}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
@@ -30,23 +29,20 @@ const ListingsCard = ({ warehouse, test, selected }) => {
 
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">ADDRESS</h4>
-              <p className="listingsCard__text">{test.item_name}</p>
+              <p className="listingsCard__text">{dataItem.address}</p>
+              <p className="listingsCard__text">{`${dataItem.city} ${dataItem.country}`}</p>
             </div>
 
             <div className="listingsCard__cont listingsCard__cont--second">
               <h4 className="listingsCard__title">STATUS</h4>
               <h4 className="listingsCard__title">CONTACT NAME</h4>
-              <p className="listingsCard__text">{test.item_name}</p>
-              {/* conditional for modifier needed */}
-              {/* <h4 className="listingsCard__text listingsCard__text--inStock">
-            IN STOCK
-          </h4> */}
+              <p className="listingsCard__text">{dataItem.contact_name}</p>
             </div>
 
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">CONTACT INFORMATION</h4>
-              <p className="listingsCard__text">{test.item_name}</p>
-              {/* <p className="listingsCard__text">500</p> */}
+              <p className="listingsCard__text">{dataItem.contact_phone}</p>
+              <p className="listingsCard__text">{dataItem.contact_email}</p>
             </div>
 
             <div className="listingsCard__cont">
@@ -61,11 +57,10 @@ const ListingsCard = ({ warehouse, test, selected }) => {
         ) : (
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
-              <h4 className="listingsCard__title">WAREHOUSE</h4>
-              {/* <h4 className="listingsCard__title">INVENTORY ITEM</h4> */}
-              <Link to={`/warehouses/${warehouse.id}/inventories`}>
+              <h4 className="listingsCard__title">INVENTORY ITEM</h4>
+              <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {warehouse.warehouse_name}{" "}
+                  {dataItem.item_name}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
@@ -76,26 +71,26 @@ const ListingsCard = ({ warehouse, test, selected }) => {
             </div>
 
             <div className="listingsCard__cont">
-              <h4 className="listingsCard__title">ADDRESS</h4>
-              <p className="listingsCard__text">{warehouse.address}</p>
-              <p className="listingsCard__text">{`${warehouse.city} ${warehouse.country}`}</p>
+              <h4 className="listingsCard__title">CATEGORY</h4>
+              <p className="listingsCard__text">{dataItem.category}</p>
             </div>
 
             <div className="listingsCard__cont listingsCard__cont--second">
               <h4 className="listingsCard__title">STATUS</h4>
-              <h4 className="listingsCard__title">CONTACT NAME</h4>
-              <p className="listingsCard__text">{warehouse.contact_name}</p>
-              {/* conditional for modifier needed */}
-              {/* <h4 className="listingsCard__text listingsCard__text--inStock">
-            IN STOCK
-          </h4> */}
+              <p
+                className={`listingsCard__text ${
+                  dataItem.status === "In Stock"
+                    ? "listingsCard__text--inStock"
+                    : "listingsCard__text--oos"
+                }`}
+              >
+                {dataItem.status}
+              </p>
             </div>
 
             <div className="listingsCard__cont">
-              <h4 className="listingsCard__title">CONTACT INFORMATION</h4>
-              <p className="listingsCard__text">{warehouse.contact_phone}</p>
-              <p className="listingsCard__text">{warehouse.contact_email}</p>
-              {/* <p className="listingsCard__text">500</p> */}
+              <h4 className="listingsCard__title">QUANTITY</h4>
+              <p className="listingsCard__text">{dataItem.quantity}</p>
             </div>
 
             <div className="listingsCard__cont">
