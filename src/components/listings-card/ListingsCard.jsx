@@ -14,7 +14,7 @@ const ListingsCard = ({ path, dataItem }) => {
         {path === "warehouses" ? (
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
-              <h4 className="listingsCard__title">WAREHOUSEX</h4>
+              <h4 className="listingsCard__title">WAREHOUSE</h4>
               <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
                   {dataItem.city}{" "}
