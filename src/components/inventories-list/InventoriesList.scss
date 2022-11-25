@@ -1,23 +1,23 @@
 @use "../../main.scss";
 
-.warehouses {
+.inventoriesList {
   background-color: white;
   @include main.m_pad_sizing_lr(16px);
 
-  &__card-list-cont {
+  &__cardList-cont {
     border-radius: 3px;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   }
 }
 
 @include main.bp_medium {
-  .warehouses {
+  .inventoriesList {
     @include main.m_pad_sizing_lr(32px);
   }
 }
 
 @include main.bp_large {
-  .warehouses {
+  .inventoriesList {
     @include main.m_pad_sizing_lr(130px);
   }
 }

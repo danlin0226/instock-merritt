@@ -1,24 +1,23 @@
-import React from 'react'
-import './ListingsCard.scss'
+import React from "react";
+import "./ListingsCard.scss";
 
-import trashIcon from '../../assets/Icons/delete_outline-24px.svg'
-import editIcon from '../../assets/Icons/edit-24px.svg'
-import chevronIcon from '../../assets/Icons/chevron_right-24px.svg'
+import trashIcon from "../../assets/Icons/delete_outline-24px.svg";
+import editIcon from "../../assets/Icons/edit-24px.svg";
+import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const ListingsCard = ({ warehouse, test, selected, deleteHandler }) => {
+const ListingsCard = ({ path, dataItem, deleteHandler }) => {
   return (
     <>
       <article className="listingsCard">
-        {test ? (
+        {path === "warehouses" ? (
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">WAREHOUSE</h4>
-              {/* <h4 className="listingsCard__title">INVENTORY ITEM</h4> */}
-              <Link to={`/warehouses/${warehouse.id}/inventories`}>
+              <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {test.item_name}{' '}
+                  {dataItem.city}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
@@ -30,42 +29,44 @@ const ListingsCard = ({ warehouse, test, selected, deleteHandler }) => {
 
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">ADDRESS</h4>
-              <p className="listingsCard__text">{test.item_name}</p>
+              <p className="listingsCard__text">{`${dataItem.address}, ${dataItem.city}, ${dataItem.country}`}</p>
             </div>
 
             <div className="listingsCard__cont listingsCard__cont--second">
-              <h4 className="listingsCard__title">STATUS</h4>
               <h4 className="listingsCard__title">CONTACT NAME</h4>
-              <p className="listingsCard__text">{test.item_name}</p>
-              {/* conditional for modifier needed */}
-              {/* <h4 className="listingsCard__text listingsCard__text--inStock">
-            IN STOCK
-          </h4> */}
+              <p className="listingsCard__text">{dataItem.contact_name}</p>
             </div>
 
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">CONTACT INFORMATION</h4>
-              <p className="listingsCard__text">{test.item_name}</p>
-              {/* <p className="listingsCard__text">500</p> */}
+              <p className="listingsCard__text">{dataItem.contact_phone}</p>
+              <p className="listingsCard__text">{dataItem.contact_email}</p>
             </div>
 
             <div className="listingsCard__cont">
-              <img
-                className="listingsCard__img"
-                src={trashIcon}
-                alt="trashbin"
-              />
-              <img className="listingsCard__img" src={editIcon} alt="pencil" />
+              <Link to={`/`}>
+                <img
+                  className="listingsCard__img"
+                  src={trashIcon}
+                  alt="trashbin"
+                />
+              </Link>
+              <Link to={`/warehouses/${dataItem.id}/edit`}>
+                <img
+                  className="listingsCard__img"
+                  src={editIcon}
+                  alt="pencil"
+                />
+              </Link>
             </div>
           </>
         ) : (
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
-              <h4 className="listingsCard__title">WAREHOUSE</h4>
-              {/* <h4 className="listingsCard__title">INVENTORY ITEM</h4> */}
-              <Link to={`/warehouses/${warehouse.id}/inventories`}>
+              <h4 className="listingsCard__title">INVENTORY ITEM</h4>
+              <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {warehouse.warehouse_name}{' '}
+                  {dataItem.item_name}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
@@ -76,27 +77,34 @@ const ListingsCard = ({ warehouse, test, selected, deleteHandler }) => {
             </div>
 
             <div className="listingsCard__cont">
-              <h4 className="listingsCard__title">ADDRESS</h4>
-              <p className="listingsCard__text">{warehouse.address}</p>
-              <p className="listingsCard__text">{`${warehouse.city} ${warehouse.country}`}</p>
+              <h4 className="listingsCard__title">CATEGORY</h4>
+              <p className="listingsCard__text">{dataItem.category}</p>
             </div>
 
             <div className="listingsCard__cont listingsCard__cont--second">
               <h4 className="listingsCard__title">STATUS</h4>
-              <h4 className="listingsCard__title">CONTACT NAME</h4>
-              <p className="listingsCard__text">{warehouse.contact_name}</p>
-              {/* conditional for modifier needed */}
-              {/* <h4 className="listingsCard__text listingsCard__text--inStock">
-            IN STOCK
-          </h4> */}
+              <p
+                className={`listingsCard__text ${
+                  dataItem.status === "In Stock"
+                    ? "listingsCard__text--inStock"
+                    : "listingsCard__text--oos"
+                }`}
+              >
+                {dataItem.status}
+              </p>
             </div>
 
             <div className="listingsCard__cont">
-              <h4 className="listingsCard__title">CONTACT INFORMATION</h4>
-              <p className="listingsCard__text">{warehouse.contact_phone}</p>
-              <p className="listingsCard__text">{warehouse.contact_email}</p>
-              {/* <p className="listingsCard__text">500</p> */}
+              <h4 className="listingsCard__title">QUANTITY</h4>
+              <p className="listingsCard__text">{dataItem.quantity}</p>
             </div>
+
+            {path === "inventories" && (
+              <div className="listingsCard__cont listingsCard__cont--right">
+                <h4 className="listingsCard__title">WAREHOUSE</h4>
+                <p className="listingsCard__text">{dataItem.warehouse_name}</p>
+              </div>
+            )}
 
             <div className="listingsCard__cont">
               <img
@@ -104,7 +112,7 @@ const ListingsCard = ({ warehouse, test, selected, deleteHandler }) => {
                 src={trashIcon}
                 alt="trashbin"
                 onClick={(e) => {
-                  deleteHandler(e, warehouse.id, warehouse.warehouse_name)
+                  deleteHandler(e, dataItem.id, dataItem.warehouse_name);
                 }}
               />
               <img className="listingsCard__img" src={editIcon} alt="pencil" />
@@ -113,7 +121,7 @@ const ListingsCard = ({ warehouse, test, selected, deleteHandler }) => {
         )}
       </article>
     </>
-  )
-}
+  );
+};
 
-export default ListingsCard
+export default ListingsCard;

@@ -2,12 +2,13 @@ import React from "react";
 import ButtonSet from "../components/buttonSet/ButtonSet";
 import WarehouseForm from "../components/warehouseForm/WarehouseForm";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useNavigate } from "react";
 
 const URL = "http://localhost:8080/warehouses";
 
 const AddWarehouse = () => {
   const [warehouses, setWarehouses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchWarehouses = async () => {
@@ -32,6 +33,7 @@ const AddWarehouse = () => {
     };
     axios.post(URL, newWarehouse).then((response) => {
       setWarehouses([...warehouses, response.data]);
+      navigate(`/`);
     });
     event.target.reset();
   };

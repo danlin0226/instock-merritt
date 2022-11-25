@@ -3,27 +3,29 @@ import ButtonSet from "../components/buttonSet/ButtonSet";
 import WarehouseForm from "../components/warehouseForm/WarehouseForm";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:8080/warehouses";
+let FULLURL = `${URL}/fef93621-a803-4958-b0ee-c4e8f3c9e25a`;
 
-const defaultData = {
-
-};
+const defaultData = {};
 
 const EditWarehouse = (props) => {
   const [warehouseData, setWarehouseData] = useState(defaultData);
+  let params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (params.id) {
+      FULLURL = `${URL}/${params.id}`;
+    }
+
     const fetchWarehouseData = async () => {
       try {
-        const { data } = await axios.get(
-          `${URL}/fef93621-a803-4958-b0ee-c4e8f3c9e25a`
-        );
+        const { data } = await axios.get(`${FULLURL}`);
         console.log(data, "data1");
         setWarehouseData(data);
-      } catch (err) {
-
-      }
+      } catch (err) {}
     };
     fetchWarehouseData();
   }, []);
@@ -41,7 +43,8 @@ const EditWarehouse = (props) => {
       contact_email: event.target.email.value,
     };
     axios.patch(`${URL}/${warehouseData.id}`, values).then((response) => {
-
+      setWarehouseData(response.data);
+      navigate(`/`);
       event.target.reset();
     });
   };

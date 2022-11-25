@@ -5,7 +5,6 @@ function WarehouseForm(props) {
   console.log(props, "subProp");
   console.log(props.warehouse_name, "subProp");
 
-  
   let {
     warehouse_name,
     address,
@@ -16,7 +15,6 @@ function WarehouseForm(props) {
     contact_phone,
     contact_email,
   } = props;
-
 
   return (
     <form className="warehouse" action="submit" onSubmit={props.handleSubmit}>
