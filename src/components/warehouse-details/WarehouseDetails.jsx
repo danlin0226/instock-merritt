@@ -1,42 +1,74 @@
-import React from 'react'
-import ListingsCard from '../listings-card/ListingsCard'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import SortLabels from '../sort-labels/SortLabels'
 
 import './WarehouseDetails.scss'
 
-const warehouseDetails = () => {
+const BACK_END = 'http://localhost:8080'
+
+const WarehouseDetails = () => {
+  const [warehouseInventory, setWarehouseInventory] = useState([]) //loads a join array of warehouse and inventory
+  const [selectedWarehouse, setSelectedWarehouse] = useState([]) //loads a single warehouse object
+
+  const inventoryLabels = ['INVENTORY', 'CATEGORY', 'STATUS', 'QTY', 'ACTIONS']
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    //pulls warehouse inventories
+    axios.get(`${BACK_END}/warehouses/${id}/inventories`).then((res) => {
+      setWarehouseInventory(res.data)
+    })
+    //pull
+    axios.get(`${BACK_END}/warehouses/${id}`).then((res) => {
+      setSelectedWarehouse(res.data)
+    })
+  }, [id])
+
   return (
     <div className="warehouseDetails">
       <section className="warehouseDetails__head">
         <div className="warehouseDetails__cont">
           <h4 className="warehouseDetails__title">WAREHOUSE ADDRESS:</h4>
-          <p className="warehouseDetails__text">
-            33 Pearl Street SW conditional here
-          </p>
-          <p className="warehouseDetails__text">display none mod</p>
+          <p className="warehouseDetails__text">{selectedWarehouse.address}</p>
+          <p className="warehouseDetails__text">{selectedWarehouse.city}</p>
         </div>
 
         <div className="warehouseDetails__cont">
           <h4 className="warehouseDetails__title">CONTACT NAME:</h4>
-          <p className="warehouseDetails__text">Graeme Lyon</p>
-          <p className="warehouseDetails__text"> Warehouse Manager</p>
+          <p className="warehouseDetails__text">
+            {selectedWarehouse.contact_name}
+          </p>
+          <p className="warehouseDetails__text">
+            {' '}
+            {selectedWarehouse.contact_position}
+          </p>
         </div>
         <div className="warehouseDetails__cont">
           <h4 className="warehouseDetails__title">CONTACT INFORMATION:</h4>
-          <p className="warehouseDetails__text">+123-465-7897</p>
-          <p className="warehouseDetails__text">asdfsa@instock.com</p>
+          <p className="warehouseDetails__text">
+            {selectedWarehouse.contact_phone}
+          </p>
+          <p className="warehouseDetails__text">
+            {selectedWarehouse.contact_email}
+          </p>
         </div>
       </section>
-      <SortLabels />
+      <div className="sortLabels-cont">
+        {inventoryLabels.map((label, index) => {
+          return <SortLabels key={index} label={label} />
+        })}
+      </div>
       <section>
+        {/* <ListingsCard test={testProp}  */}
+        {/* <ListingsCard />
         <ListingsCard />
         <ListingsCard />
-        <ListingsCard />
-        <ListingsCard />
-        <ListingsCard />
+        <ListingsCard /> */}
       </section>
     </div>
   )
 }
 
-export default warehouseDetails
+export default WarehouseDetails
