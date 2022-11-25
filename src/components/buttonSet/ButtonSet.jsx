@@ -5,7 +5,7 @@ function ButtonSet(props) {
   return (
     <section className="warehouse__buttons">
       <button className="warehouse__buttons__cancel">Cancel</button>
-      <button className="warehouse__buttons__submit">
+      <button type="submit" className="warehouse__buttons__submit">
         {props ? props.buttonName : `+ Add Warehouse`}
       </button>
     </section>
