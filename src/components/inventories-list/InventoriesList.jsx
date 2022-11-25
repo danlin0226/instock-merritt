@@ -16,20 +16,22 @@ const InventoriesList = ({ inventories }) => {
 
   return (
     <div className="inventoriesList">
-      <div className="sortLabels-cont">
-        {inventoriesLabels.map((label, index) => {
-          return <SortLabels key={index} label={label} />;
+      <div className="inventoriesList__cardList-cont">
+        <div className="sortLabels-cont">
+          {inventoriesLabels.map((label, index) => {
+            return <SortLabels key={index} label={label} />;
+          })}
+        </div>
+        {inventories.map((inventoryItem) => {
+          return (
+            <ListingsCard
+              key={inventoryItem.id}
+              path="inventories"
+              dataItem={inventoryItem}
+            />
+          );
         })}
       </div>
-      {inventories.map((inventoryItem) => {
-        return (
-          <ListingsCard
-            key={inventoryItem.id}
-            path="inventories"
-            dataItem={inventoryItem}
-          />
-        );
-      })}
     </div>
   );
 };

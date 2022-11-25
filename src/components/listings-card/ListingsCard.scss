@@ -6,7 +6,6 @@
   padding-top: 16px;
   padding-bottom: 27px;
   background-color: main.$c_white;
-  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   @include main.m_flex-row {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -64,6 +63,10 @@
   &__chev {
     height: 20px;
     vertical-align: bottom;
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 }
 

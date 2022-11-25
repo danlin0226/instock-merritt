@@ -15,20 +15,22 @@ const Warehouses = ({ warehouses }) => {
 
   return (
     <div className="warehouses">
-      <div className="sortLabels-cont">
-        {warehouseLabels.map((label, index) => {
-          return <SortLabels key={index} label={label} />;
+      <div className="warehouses__card-list-cont">
+        <div className="sortLabels-cont">
+          {warehouseLabels.map((label, index) => {
+            return <SortLabels key={index} label={label} />;
+          })}
+        </div>
+        {warehouses.map((warehouse) => {
+          return (
+            <ListingsCard
+              key={warehouse.id}
+              path="warehouses"
+              dataItem={warehouse}
+            />
+          );
         })}
       </div>
-      {warehouses.map((warehouse) => {
-        return (
-          <ListingsCard
-            key={warehouse.id}
-            path="warehouses"
-            dataItem={warehouse}
-          />
-        );
-      })}
     </div>
   );
 };
