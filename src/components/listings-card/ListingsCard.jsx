@@ -44,12 +44,20 @@ const ListingsCard = ({ path, dataItem }) => {
             </div>
 
             <div className="listingsCard__cont">
-              <img
-                className="listingsCard__img"
-                src={trashIcon}
-                alt="trashbin"
-              />
-              <img className="listingsCard__img" src={editIcon} alt="pencil" />
+              <Link to={`/`}>
+                <img
+                  className="listingsCard__img"
+                  src={trashIcon}
+                  alt="trashbin"
+                />
+              </Link>
+              <Link to={`/warehouses/${dataItem.id}/edit`}>
+                <img
+                  className="listingsCard__img"
+                  src={editIcon}
+                  alt="pencil"
+                />
+              </Link>
             </div>
           </>
         ) : (
