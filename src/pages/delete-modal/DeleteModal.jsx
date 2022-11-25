@@ -1,7 +1,7 @@
-import './DeleteModal.scss'
-import React from 'react'
+import "./DeleteModal.scss";
+import React from "react";
 const DeleteModal = ({ confirmDelete, warehouse_name }) => {
-  let wh_name = 'Washington'
+  let wh_name = "Washington";
   return (
     <div className="deletemodal">
       <div className="deletemodal__content">
@@ -16,7 +16,7 @@ const DeleteModal = ({ confirmDelete, warehouse_name }) => {
               Do you want to delete {warehouse_name}?
             </div>
             <div className="deletemodal__text">
-              Please confirm that you&apos;d like to delete the {warehouse_name}{' '}
+              Please confirm that you&apos;d like to delete the {warehouse_name}{" "}
               from the list of warehouses. You won&apos;t be able to undo this
               action.
             </div>
@@ -38,7 +38,7 @@ const DeleteModal = ({ confirmDelete, warehouse_name }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DeleteModal
+export default DeleteModal;

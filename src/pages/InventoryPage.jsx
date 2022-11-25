@@ -1,13 +1,13 @@
-import React from 'react'
-import Title from '../components/title/Title.jsx'
+import React from "react";
+import Title from "../components/title/Title.jsx";
 const InventoryPage = () => {
-  let activeTable = 'Inventory'
+  let activeTable = "Inventory";
   return (
     <>
       <Title activeTable={activeTable} />
       <div>Inventory Page</div>
     </>
-  )
-}
+  );
+};
 
-export default InventoryPage
+export default InventoryPage;

@@ -1,30 +1,30 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import SortLabels from '../sort-labels/SortLabels'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import SortLabels from "../sort-labels/SortLabels";
 
-import './WarehouseDetails.scss'
+import "./WarehouseDetails.scss";
 
-const BACK_END = 'http://localhost:8080'
+const BACK_END = "http://localhost:8080";
 
 const WarehouseDetails = () => {
-  const [warehouseInventory, setWarehouseInventory] = useState([]) //loads a join array of warehouse and inventory
-  const [selectedWarehouse, setSelectedWarehouse] = useState([]) //loads a single warehouse object
+  const [warehouseInventory, setWarehouseInventory] = useState([]); //loads a join array of warehouse and inventory
+  const [selectedWarehouse, setSelectedWarehouse] = useState([]); //loads a single warehouse object
 
-  const inventoryLabels = ['INVENTORY', 'CATEGORY', 'STATUS', 'QTY', 'ACTIONS']
+  const inventoryLabels = ["INVENTORY", "CATEGORY", "STATUS", "QTY", "ACTIONS"];
 
-  const { id } = useParams()
+  const { id } = useParams();
 
   useEffect(() => {
     //pulls warehouse inventories
     axios.get(`${BACK_END}/warehouses/${id}/inventories`).then((res) => {
-      setWarehouseInventory(res.data)
-    })
+      setWarehouseInventory(res.data);
+    });
     //pull
     axios.get(`${BACK_END}/warehouses/${id}`).then((res) => {
-      setSelectedWarehouse(res.data)
-    })
-  }, [id])
+      setSelectedWarehouse(res.data);
+    });
+  }, [id]);
 
   return (
     <div className="warehouseDetails">
@@ -41,7 +41,7 @@ const WarehouseDetails = () => {
             {selectedWarehouse.contact_name}
           </p>
           <p className="warehouseDetails__text">
-            {' '}
+            {" "}
             {selectedWarehouse.contact_position}
           </p>
         </div>
@@ -57,7 +57,7 @@ const WarehouseDetails = () => {
       </section>
       <div className="sortLabels-cont">
         {inventoryLabels.map((label, index) => {
-          return <SortLabels key={index} label={label} />
+          return <SortLabels key={index} label={label} />;
         })}
       </div>
       <section>
@@ -68,7 +68,7 @@ const WarehouseDetails = () => {
         <ListingsCard /> */}
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default WarehouseDetails
+export default WarehouseDetails;

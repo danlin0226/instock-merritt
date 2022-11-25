@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 // import { Link } from "react-router-dom";
-import logo from '../../assets/Logo/InStock-Logo_1x.png'
-import './Header.scss'
+import logo from "../../assets/Logo/InStock-Logo_1x.png";
+import "./Header.scss";
 
 export default function Header() {
   return (
@@ -16,5 +16,5 @@ export default function Header() {
         {/* </Link> */}
       </ul>
     </div>
-  )
+  );
 }

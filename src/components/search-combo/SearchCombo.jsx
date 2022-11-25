@@ -1,7 +1,7 @@
-import './SearchCombo.scss'
+import "./SearchCombo.scss";
 
 const SearchCombo = () => {
-  const text = '+ Add new warehouse'
+  const text = "+ Add new warehouse";
   return (
     <div className="searchcombo">
       <input
@@ -11,7 +11,7 @@ const SearchCombo = () => {
       />
       <button className="searchcombo__button">{text}</button>
     </div>
-  )
-}
+  );
+};
 
-export default SearchCombo
+export default SearchCombo;
