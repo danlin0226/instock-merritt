@@ -23,6 +23,7 @@ const WarehousesPage = () => {
     <>
       <Routes>
         <Route path="/" element={<Warehouses warehouses={warehouses} />} />
+        <Route path="/add" element={<AddWarehouse />} />
         <Route
           path="/:id/inventories"
           element={<WarehouseDetails warehouses={warehouses} />}
