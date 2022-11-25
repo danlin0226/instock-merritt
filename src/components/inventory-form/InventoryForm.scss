@@ -33,6 +33,10 @@
       &-container {
         display: flex;
       }
+      &-label {
+        font-weight: 400;
+        margin-left: 0.5rem;
+      }
     }
 
     &__select {
@@ -57,25 +61,21 @@
       width: 100%;
       background-color: $Light-Grey;
       &-cancel {
-        background-color: $white !important;
-        color: $Slate !important;
-        border: 0.0625rem solid $Cloud !important;
+        background-color: $white;
+        color: $Slate;
+        border: 0.0625rem solid $Cloud;
         font-weight: 400;
         margin-right: 1rem;
         &:hover {
-          background-color: $Instock-Indigo;
+          border-color: $Instock-Indigo;
+          color: $Instock-Indigo;
+          background-color: $white;
         }
       }
       &-add {
         font-weight: 400;
       }
     }
-  }
-
-  //label-text css class is from styles/partials/typography
-  .label-text.item__radio-label {
-    font-weight: 400;
-    margin-left: 0.5rem;
   }
 }
 
@@ -111,6 +111,10 @@
       &-container {
         display: flex;
       }
+      &-label {
+        font-weight: 400;
+        margin-left: 0.5rem;
+      }
     }
 
     &__select {
@@ -143,25 +147,21 @@
       background-color: $Light-Grey;
       width: 100%;
       &-cancel {
-        background-color: $white !important;
-        color: $Slate !important;
-        border: 0.0625rem solid $Cloud !important;
+        background-color: $white;
+        color: $Slate;
+        border: 0.0625rem solid $Cloud;
         font-weight: 400;
         margin-right: 1rem;
         &:hover {
-          background-color: $Instock-Indigo;
+          border-color: $Instock-Indigo;
+          color: $Instock-Indigo;
+          background-color: $white;
         }
       }
       &-add {
         font-weight: 400;
       }
     }
-  }
-
-  //label-text css class is from styles/partials/typography
-  .label-text.item__radio-label {
-    font-weight: 400;
-    margin-left: 0.5rem;
   }
 }
 
@@ -197,6 +197,10 @@
       &-container {
         display: flex;
       }
+      &-label {
+        font-weight: 400;
+        margin-left: 0.5rem;
+      }
     }
 
     &__select {
@@ -229,24 +233,20 @@
       background-color: $Light-Grey;
       width: 100%;
       &-cancel {
-        background-color: $white !important;
-        color: $Slate !important;
-        border: 0.0625rem solid $Cloud !important;
+        background-color: $white;
+        color: $Slate;
+        border: 0.0625rem solid $Cloud;
         font-weight: 400;
         margin-right: 1rem;
         &:hover {
-          background-color: $Instock-Indigo;
+          border-color: $Instock-Indigo;
+          color: $Instock-Indigo;
+          background-color: $white;
         }
       }
       &-add {
         font-weight: 400;
       }
     }
-  }
-
-  //label-text css class is from styles/partials/typography
-  .label-text.item__radio-label {
-    font-weight: 400;
-    margin-left: 0.5rem;
   }
 }
