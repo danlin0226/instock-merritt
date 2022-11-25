@@ -6,10 +6,12 @@ import DeleteModal from './delete-modal/DeleteModal'
 const WarehousesPage = () => {
   // const [delOpen, setDelOpen] = useState(false)
   const [delOpen, setDelOpen] = useState(true)
+  let activeTable = 'Warehouses'
+
   return (
     <>
       {delOpen && <DeleteModal setDelOpen={setDelOpen} />}
-      <Title />
+      <Title activeTable={activeTable} />
       <WarehouseDetails />
     </>
   )

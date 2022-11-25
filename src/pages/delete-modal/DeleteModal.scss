@@ -70,4 +70,17 @@
     cursor: pointer;
 }
 
-/* The Close Button */
+@include main.bp_medium{
+    .deletemodal{
+        // position: relative;
+        @include main.m_pad_sizing_lr(36px);
+        &__content {
+            position: absolute;
+            width: 90%;
+            height: 50%;
+            top: 185px;
+        }
+    }
+}
+
+
