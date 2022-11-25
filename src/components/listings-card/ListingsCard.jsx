@@ -29,12 +29,10 @@ const ListingsCard = ({ path, dataItem }) => {
 
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">ADDRESS</h4>
-              <p className="listingsCard__text">{dataItem.address}</p>
-              <p className="listingsCard__text">{`${dataItem.city} ${dataItem.country}`}</p>
+              <p className="listingsCard__text">{`${dataItem.address}, ${dataItem.city}, ${dataItem.country}`}</p>
             </div>
 
             <div className="listingsCard__cont listingsCard__cont--second">
-              <h4 className="listingsCard__title">STATUS</h4>
               <h4 className="listingsCard__title">CONTACT NAME</h4>
               <p className="listingsCard__text">{dataItem.contact_name}</p>
             </div>
