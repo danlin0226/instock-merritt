@@ -8,14 +8,10 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 
 const ListingsCard = ({ path, dataItem }) => {
-  console.log("cards rendered");
-  console.log("path", path);
-  console.log("dataItem", dataItem);
-
   return (
     <>
       <article className="listingsCard">
-        {path === "hi" ? (
+        {path === "warehouses" ? (
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">WAREHOUSEX</h4>

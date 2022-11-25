@@ -22,7 +22,11 @@ const Warehouses = ({ warehouses }) => {
       </div>
       {warehouses.map((warehouse) => {
         return (
-          <ListingsCard key={warehouse.id} path="hi" dataItem={warehouse} />
+          <ListingsCard
+            key={warehouse.id}
+            path="warehouses"
+            dataItem={warehouse}
+          />
         );
       })}
     </div>
