@@ -93,6 +93,13 @@ const ListingsCard = ({ path, dataItem }) => {
               <p className="listingsCard__text">{dataItem.quantity}</p>
             </div>
 
+            {path === "inventories" && (
+              <div className="listingsCard__cont listingsCard__cont--right">
+                <h4 className="listingsCard__title">WAREHOUSE</h4>
+                <p className="listingsCard__text">{dataItem.warehouse_name}</p>
+              </div>
+            )}
+
             <div className="listingsCard__cont">
               <img
                 className="listingsCard__img"

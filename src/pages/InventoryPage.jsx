@@ -1,7 +1,30 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import InventoriesList from "../components/inventories-list/InventoriesList";
+
+const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
 const InventoryPage = () => {
-  return <div>Inventory Page</div>;
+  const [inventories, setInventories] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${BACK_END}/inventories`).then((res) => {
+      setInventories(res.data);
+    });
+  }, []);
+
+  return (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={<InventoriesList inventories={inventories} />}
+        />
+      </Routes>
+    </>
+  );
 };
 
 export default InventoryPage;

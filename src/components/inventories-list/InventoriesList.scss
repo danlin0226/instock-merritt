@@ -1,0 +1,18 @@
+@use "../../main.scss";
+
+.inventoriesList {
+  background-color: #d1d1d1;
+  @include main.m_pad_sizing_lr(16px);
+}
+
+@include main.bp_medium {
+  .inventoriesList {
+    @include main.m_pad_sizing_lr(32px);
+  }
+}
+
+@include main.bp_large {
+  .inventoriesList {
+    @include main.m_pad_sizing_lr(130px);
+  }
+}

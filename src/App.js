@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import InventoryPage from "./pages/InventoryPage";
 import WarehousesPage from "./pages/WarehousesPage";
@@ -18,8 +18,7 @@ function App() {
         <Route path="/warehouses/*" element={<WarehousesPage />} />
         <Route path="/warehouse-add" element={<AddWarehouse />} />
         <Route path="/warehouse-edit" element={<EditWarehouse />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        {/* <Route path="*" element={<Navigate to="/" />} /> */}
+        <Route path="/inventories/*" element={<InventoryPage />} />
       </Routes>
       <Footer />
     </>

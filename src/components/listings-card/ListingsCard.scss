@@ -26,6 +26,10 @@
       order: 2;
     }
 
+    &--right {
+      margin-left: auto;
+    }
+
     &:last-child {
       width: 100%;
       display: flex;
@@ -47,6 +51,7 @@
     &--blue {
       color: main.$c_Instock-Indigo;
       font-weight: 600;
+      text-decoration: none;
     }
 
     &--inStock {
