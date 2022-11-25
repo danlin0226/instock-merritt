@@ -28,3 +28,10 @@ body {
     
 }
 
+
+@include main.bp_medium{
+
+    .title{
+        @include main.m_sizing_leftright(margin-left, margin-right, 32px);
+    }
+}
