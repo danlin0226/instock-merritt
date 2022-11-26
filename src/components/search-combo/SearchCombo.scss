@@ -19,9 +19,23 @@
         width: 225px;
         border-radius: 20px;
         height: 36px;
-        @include main.m_fontsize_lineh_weight(8px, 16px, 600);
+        @include main.m_fontsize_lineh_weight(12px, 16px, 600);
         border: none;
     }
+}
+
+@include main.bp_medium{
+    .searchcombo{
+        &__searchbar{
+            width: 168px;
+            margin-right: 16px;
+        }
+        &__button{
+            width: 168px;
+        }
+
+    }
+    
 }
 
 

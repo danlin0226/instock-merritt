@@ -20,8 +20,6 @@ const WarehousesPage = () => {
     warehouse_name: "",
   });
 
-  let activeTable = "Warehouses";
-
   useEffect(() => {
     axios.get(`${BACK_END}/warehouses`).then((res) => {
       setWarehouses(res.data);
@@ -36,11 +34,13 @@ const WarehousesPage = () => {
       warehouse_name: wh_name,
     }));
   };
-  const confirmDelete = (choice) => {
+  const confirmDelete = async (choice) => {
     if (choice) {
       console.log("clicked delete");
       try {
-        axios.delete(`${BACK_END}/warehouses/${deleteModal.warehouse_ID}`);
+        await axios.delete(
+          `${BACK_END}/warehouses/${deleteModal.warehouse_ID}`
+        );
         setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
         console.log(
           `Deleted => ${deleteModal.warehouse_ID} => ${deleteModal.warehouse_name}`
@@ -48,6 +48,9 @@ const WarehousesPage = () => {
       } catch (err) {
         console.log(err);
       }
+      await axios.get(`${BACK_END}/warehouses`).then((res) => {
+        setWarehouses(res.data);
+      });
     } else {
       console.log("clicked cancel");
       setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
@@ -61,7 +64,7 @@ const WarehousesPage = () => {
           confirmDelete={confirmDelete}
         />
       )}
-      <Title activeTable={activeTable} />
+      <Title />
       <Routes>
         <Route
           path="/"
