@@ -1,73 +1,49 @@
 @use "../../main.scss";
 
-
+.selected {
+    background-color:  main.$c_Instock-Black;
+    width: 160px;
+}
 .header{
     background-color: main.$c_Graphite;
-    height:8.5625rem;
-
-    &__logo{
+    height: 200px;
+    &__con1 {
+        padding-top: 31px;
         display: flex;
-        margin: 0 auto;
-        padding: 1rem;
-        background-size: contain;
-        background-color: main.$c_Graphite;
-        max-width: 7.5rem;
-        max-height: 1.5625rem;
-    }    
-
-    &__link{
-        list-style-type: none;
-        color: main.$c_Cloud;
-        padding: .5rem 3rem;
-        @include main.m_fontsize_lineh_weight(.875rem,.8125rem,600)
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 24px;
     }
-
-    &__link:hover{
-        background-color: main.$c_Instock-Black;
-        border-radius: 20px;
+    &__img-con{
+        background-image: url("../../assets/Logo/InStock-Logo_1x.png");
+        background-repeat: no-repeat;
+        // background-size: contain;
+        background-size: 90% auto;
+        width: 180px;
+        height: 40px;
+        // min-height: 40px;
+        max-height: 40px;
+        // margin-left: 25vw;
+    }
+    &__con2 {
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+        margin-top: 25px;
+        display: inline-flex;
         color: main.$c_white;
+        list-style-type: none;
+        @include main.m_padmar-0;
+        gap: 16px;
     }
-
-    &__link-wrapper{
-        display: flex;
-        justify-content: space-around;
-    }
-}
-
-@include main.bp_medium{
-
-    .header{
-        height: 5.75rem;
-        display: flex;
-        padding: 1rem 2rem;
-        align-items: center;
-        justify-content: space-between;
-
-        &__logo{
-            margin:1rem;
-            align-items: center;
-        }
-        &__link{
-            list-style-type: none;
-            color: main.$c_Cloud;
-            padding: .5rem 3rem;
-            @include main.m_fontsize_lineh_weight(.875rem,1.375rem,600)
-        }
-    }
-}
-
-@include main.bp_large{
-    .header{
-        height: 5.75rem;
-        display: flex;
-        padding: 1rem 2rem;
-        align-items: center;
-        justify-content: space-between;
-
-        &__logo{
-            margin:1rem;
-            align-items: center;
-        }
+    &__link {
+        // background-color:  main.$c_Graphite;
+        height: 36px;
+        width: 160px;
+        // text-align: center;
     }
 
 }
+
+
+
