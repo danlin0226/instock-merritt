@@ -19,8 +19,8 @@ const InventoryPage = () => {
 
   return (
     <>
+      <Title activeTable={activeTable} />
       <Routes>
-        <Title activeTable={activeTable} />
         <Route
           path="/"
           element={<InventoriesList inventories={inventories} />}
