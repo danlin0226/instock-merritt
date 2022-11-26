@@ -88,6 +88,9 @@
 @include main.bp_large{
     .header{
         @include main.m_sizing_leftright(padding-left, padding-right, 130px);
+        &__con1{
+            padding-left: 0;
+        }
 
     }
 }
