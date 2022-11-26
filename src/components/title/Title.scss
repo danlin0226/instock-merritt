@@ -6,7 +6,7 @@ body {
 .title {
     position: relative;
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
-    margin-top: -40px;
+    margin-top: -55px;
     background-color: main.$c_white;
     height: 125px;
 
@@ -20,7 +20,7 @@ body {
         height: 36px;
         padding-left: 24px;
         @include main.m_fontsize_lineh_weight(28px, 36px, 600);
-        padding-top: 32px;
+        padding-top: 24px;
     }
     .searchcombo__con {
         padding-top: 24px;
@@ -32,6 +32,7 @@ body {
 
 @include main.bp_medium{
     .title{
+        margin-top: -90px;
         height: 90px !important;
         @include main.m_sizing_leftright(margin-left, margin-right, 32px);
     }
@@ -46,7 +47,7 @@ body {
 @include main.bp_large{
     .title{
         height: 90px !important;
-        @include main.m_sizing_leftright(margin-left, margin-right, 10.09vw);
+        @include main.m_sizing_leftright(margin-left, margin-right, 130px);
     }
 
     .searchcombo__con {

@@ -1,6 +1,9 @@
 @use "../../main.scss";
 
 .searchcombo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding-top: 16px;
     margin-left: 24px;
     
@@ -26,6 +29,8 @@
 
 @include main.bp_medium{
     .searchcombo{
+    display: flex;
+    flex-direction: row;
         &__searchbar{
             width: 168px;
             margin-right: 16px;
@@ -39,3 +44,16 @@
 }
 
 
+@include main.bp_large{
+    .searchcombo{
+        &__searchbar{
+            width: 274px;
+            margin-right: 16px;
+        }
+        &__button{
+            width: 168px;
+        }
+
+    }
+    
+}
