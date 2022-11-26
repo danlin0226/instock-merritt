@@ -5,13 +5,6 @@ import "../../styles/partials/_typography.scss";
 import "../../global.scss";
 import "./InventoryForm.scss";
 
-// components
-import Button from "../button/Button";
-
-import "../../styles/partials/_typography.scss";
-import "../../global.scss";
-import "./InventoryForm.scss";
-
 const InventoryForm = (warehouses, categories) => {
   const itemTest = {
     id: "3ce124a4-78b0-4d80-91b9-11f9ced631a7",
