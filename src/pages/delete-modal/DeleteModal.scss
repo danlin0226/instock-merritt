@@ -1,0 +1,115 @@
+@use "../../main.scss";
+
+.deletemodal {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(19,24,44,0.7); /* Black w/ opacity */
+
+    &__content {
+        @include main.m_pad_sizing_lr(16px);
+        display: inline-flex;
+        flex-direction: column;
+        background-color: #fefefe;
+        // margin: 15% auto; /* 15% from the top and centered */
+        border: 1px solid #888;
+        width: 100%; /* Could be more or less, depending on screen size */
+        height: 100%;
+    }
+    &__sec-con1{
+        width: 100%;
+    }
+    &__sec-con2{
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
+    &__sec2-innercon2{
+        display: inline-flex;
+        gap: 17px;
+        margin-bottom: 24px;
+
+    }
+
+    &__question{
+        @include main.m_fontsize_lineh_weight(28px, 36px, 600);
+    }
+    &__text{
+        @include main.m_fontsize_lineh_weight(15px, 26px, 400);
+        padding-top: 16px;
+    }
+    &__cancel-btn{
+        @include main.m_fontsize_lineh_weight(13px, 26px, 400);
+        border: 1px solid main.$c_Cloud;
+        background-color: white;
+        border-radius: 20px;
+        width: 150px;
+        height: 36px;
+    }
+    &__delete-btn{
+        @include main.m_fontsize_lineh_weight(13px, 26px, 400);
+        border: none;
+        border-radius: 20px;
+        width: 150px;
+        height: 36px;
+        background-color: #c94515;
+        color: main.$c_white;
+    }
+}
+
+.close {
+    display: block;
+    color: #aaa;
+    text-align: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@include main.bp_medium{
+    .deletemodal{
+        // position: relative;
+        @include main.m_pad_sizing_lr(48px);
+        &__content {
+            position: absolute;
+            width: 88%;
+            height: 50%;
+            top: 185px;
+        }
+
+        &__sec2-innercon2{
+            display: inline-flex;
+            justify-content: flex-end;
+            gap: 17px;
+            margin-bottom: 40px;
+
+
+        }
+    }
+}
+
+@include main.bp_large{
+    .deletemodal{
+        @include main.m_pad_sizing_lr(304px);
+        &__content {
+            width: 672px;
+            height: 262px;
+            top: 185px;
+        }
+
+    }
+}
+
+

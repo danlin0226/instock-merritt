@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import ListingsCard from "../listings-card/ListingsCard";
 import SortLabels from "../sort-labels/SortLabels";
 
 import "./Warehouses.scss";
 
-const Warehouses = ({ warehouses }) => {
+const Warehouses = ({ warehouses, deleteHandler }) => {
   const warehouseLabels = [
     "WAREHOUSE",
     "ADDRESS",
@@ -27,6 +27,7 @@ const Warehouses = ({ warehouses }) => {
               key={warehouse.id}
               path="warehouses"
               dataItem={warehouse}
+              deleteHandler={deleteHandler}
             />
           );
         })}
