@@ -13,7 +13,7 @@ export default function Header() {
         <Link className="header__link" to="/warehouses">
           <li className="header__link-content selected">Warehouse</li>
         </Link>
-        <Link className="header__link" to="/inventory">
+        <Link className="header__link" to="/inventories">
           <li className="header__link-content">Inventory</li>
         </Link>
       </ul>
