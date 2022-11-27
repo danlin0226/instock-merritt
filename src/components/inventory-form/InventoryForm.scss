@@ -252,3 +252,15 @@
     }
   }
 }
+
+.Toastify__toast--success {
+  border: 0.0625rem solid $Instock-Indigo !important;
+  background: $Instock-Indigo !important;
+}
+.toastBody {
+  font-family: "Titillium Web";
+  color: $white;
+}
+.toastProgress {
+  background: $white !important;
+}
