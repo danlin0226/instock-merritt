@@ -8,18 +8,20 @@ import "./InventoryForm.scss";
 
 // react
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const InventoryForm = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
+  // population of select dropdown
   const [activeWarehouses, setActiveWarehouses] = useState([]);
   const [activeCategories, setActiveCategories] = useState([]);
 
-  // form states
+  // form fields
   const [submissionStatus, setSubmissionStatus] = useState(false); //validation to display error messages
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
@@ -94,6 +96,24 @@ const InventoryForm = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(`${BACKEND_URL}/inventories/${id}/`)
+        .then(({ data }) => {
+          setItemName(data.item_name);
+          setDescription(data.description);
+          setCategory(data.category);
+          setQuantity(data.quantity);
+          setStatus(data.status);
+          setWarehouse(data.warehouse_id);
+        })
+        .catch((err) => {
+          console.log(`ERROR WHILE FETCHING INVENTORY ITEM ${err}`);
+        });
+    }
+  }, [activeCategories, activeWarehouses]);
+
   return (
     <form className="inventory__form" onSubmit={handleSubmit} autoComplete="off">
       <div className="item__details">
@@ -106,6 +126,7 @@ const InventoryForm = () => {
             name="itemName"
             placeholder="Item Name"
             onChange={handleChangeItemName}
+            defaultValue={itemName}
           />
           {!itemName && submissionStatus && <Error />}
         </div>
@@ -116,6 +137,7 @@ const InventoryForm = () => {
             type="text"
             name="itemName"
             placeholder="Please enter a brief item description..."
+            defaultValue={description}
             onChange={handleChangeDescription}
           />
           {!description && submissionStatus && <Error />}
@@ -124,7 +146,7 @@ const InventoryForm = () => {
           <label className="label-text">Category</label>
           <select
             className={`item__form ${!category && submissionStatus ? "item__form--invalid" : ""}`}
-            defaultValue=""
+            selected={category}
             onChange={handleChangeCategory}
           >
             <option className="item__select" value="" disabled hidden>
@@ -180,7 +202,7 @@ const InventoryForm = () => {
               className={`item__form item__quantity ${quantity <= 0 && submissionStatus ? "item__form--invalid" : ""}`}
               type="text"
               name="itemQuantity"
-              defaultValue={0}
+              defaultValue={String(quantity)}
               onChange={handleChangeQuantity}
             />
             {quantity <= 0 && submissionStatus && <Error customMessage="Item is in stock. Quantity must be > 0" />}
@@ -190,7 +212,7 @@ const InventoryForm = () => {
           <label className="label-text">Warehouse</label>
           <select
             className={`item__form ${!warehouse && submissionStatus ? "item__form--invalid" : ""}`}
-            defaultValue=""
+            selected={warehouse}
             onChange={handleChangeWarehouse}
           >
             <option className="item__select" value="" disabled hidden>

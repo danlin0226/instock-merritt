@@ -25,6 +25,7 @@ const InventoryPage = () => {
       <Routes>
         <Route path="/" element={<InventoriesList inventories={inventories} />} />
         <Route path="/add" element={<InventoryForm />} />
+        <Route path="/:id/edit" element={<InventoryForm />} />
       </Routes>
     </>
   );
