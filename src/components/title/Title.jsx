@@ -7,6 +7,7 @@ const Title = () => {
   let location = useLocation();
   let pathname = location.pathname;
   let m = pathname.match(/(warehouses).*(inventories)$/);
+  let m_inv = pathname.match(/.*(inventories)$/);
 
   const wh = true;
   const inv = true;

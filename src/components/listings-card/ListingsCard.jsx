@@ -112,6 +112,9 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
                 className="listingsCard__img"
                 src={trashIcon}
                 alt="trashbin"
+                onClick={(e) =>
+                  deleteHandler(e, dataItem.id, dataItem.item_name)
+                }
               />
               <img className="listingsCard__img" src={editIcon} alt="pencil" />
             </div>

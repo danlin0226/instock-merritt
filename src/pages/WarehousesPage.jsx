@@ -16,6 +16,7 @@ const WarehousesPage = () => {
   const [warehouses, setWarehouses] = useState([]);
   const [deleteModal, setDelModal] = useState({
     isActive: false,
+    table: "",
     warehouse_ID: "",
     warehouse_name: "",
   });
@@ -27,24 +28,27 @@ const WarehousesPage = () => {
   }, [deleteModal]);
 
   const deleteHandler = (e, wh_ID, wh_name) => {
-    // setDelModal((modal) => ({ ...modal.isActive, isActive: true }))
+    console.log("warehouse_ID => ", wh_ID);
+    console.log("warehouse_name=> ", wh_name);
     setDelModal((modal) => ({
       isActive: true,
+      table: "warehouses",
       warehouse_ID: wh_ID,
       warehouse_name: wh_name,
     }));
   };
+
   const confirmDelete = async (choice) => {
     if (choice) {
-      console.log("clicked delete");
+      // console.log("clicked delete");
       try {
         await axios.delete(
           `${BACK_END}/warehouses/${deleteModal.warehouse_ID}`
         );
         setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
-        console.log(
-          `Deleted => ${deleteModal.warehouse_ID} => ${deleteModal.warehouse_name}`
-        );
+        // console.log(
+        //   `Deleted => ${deleteModal.warehouse_ID} => ${deleteModal.warehouse_name}`
+        // );
       } catch (err) {
         console.log(err);
       }
@@ -52,14 +56,16 @@ const WarehousesPage = () => {
         setWarehouses(res.data);
       });
     } else {
-      console.log("clicked cancel");
+      // console.log("clicked cancel");
       setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
     }
   };
+
   return (
     <>
       {deleteModal.isActive && (
         <DeleteModal
+          deleteModal={deleteModal}
           warehouse_name={deleteModal.warehouse_name}
           confirmDelete={confirmDelete}
         />
