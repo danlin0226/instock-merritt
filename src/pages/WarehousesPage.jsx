@@ -20,6 +20,11 @@ const WarehousesPage = () => {
     warehouse_ID: "",
     warehouse_name: "",
   });
+  useEffect(() => {
+    axios.get(`${BACK_END}/warehouses`).then((res) => {
+      setWarehouses(res.data);
+    });
+  }, []);
 
   useEffect(() => {
     axios.get(`${BACK_END}/warehouses`).then((res) => {

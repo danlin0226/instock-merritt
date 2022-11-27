@@ -8,7 +8,13 @@ const Title = () => {
   let pathname = location.pathname;
   let m = pathname.match(/(warehouses).*(inventories)$/);
   let m_inv = pathname.match(/.*(inventories)$/);
+  let m_warehouse = pathname.match(/(warehouses)/);
+  console.log("m_warehouse", m_warehouse);
 
+  const insertSearchComboComp = () => {
+    if (m_inv) return "";
+    else if (m_warehouse) return <SearchCombo />;
+  };
   const wh = true;
   const inv = true;
 
@@ -18,7 +24,7 @@ const Title = () => {
         <div className="title__text">
           {m ? m[2].charAt(0).toUpperCase() + m[2].slice(1) : "Warehouses"}
         </div>
-        <div className="searchcombo__con">{(wh || inv) && <SearchCombo />}</div>
+        <div className="searchcombo__con">{insertSearchComboComp()}</div>
       </div>
     </div>
   );
