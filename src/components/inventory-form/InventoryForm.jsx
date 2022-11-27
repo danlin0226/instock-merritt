@@ -121,7 +121,9 @@ const InventoryForm = () => {
         <div className="item__container">
           <label className="label-text">Item Name</label>
           <input
-            className={`item__form item__name ${!itemName && submissionStatus ? "item__form--invalid" : ""}`}
+            className={`item__form item__name body--medium ${
+              !itemName && submissionStatus ? "item__form--invalid" : ""
+            }`}
             type="text"
             name="itemName"
             placeholder="Item Name"
@@ -133,7 +135,9 @@ const InventoryForm = () => {
         <div className="item__container">
           <label className="label-text">Description</label>
           <textarea
-            className={`item__form item__description ${!description && submissionStatus ? "item__form--invalid" : ""}`}
+            className={`item__form item__description body--medium ${
+              !description && submissionStatus ? "item__form--invalid" : ""
+            }`}
             type="text"
             name="itemName"
             placeholder="Please enter a brief item description..."
@@ -145,8 +149,8 @@ const InventoryForm = () => {
         <div className="item__container">
           <label className="label-text">Category</label>
           <select
-            className={`item__form ${!category && submissionStatus ? "item__form--invalid" : ""}`}
-            selected={category}
+            className={`item__form body--medium ${!category && submissionStatus ? "item__form--invalid" : ""}`}
+            selected={id ? category : ""}
             onChange={handleChangeCategory}
           >
             <option className="item__select" value="" disabled hidden>
@@ -199,7 +203,9 @@ const InventoryForm = () => {
           <div className="item__container">
             <label className="label-text">Quantity</label>
             <input
-              className={`item__form item__quantity ${quantity <= 0 && submissionStatus ? "item__form--invalid" : ""}`}
+              className={`item__form item__quantity body--medium ${
+                quantity <= 0 && submissionStatus ? "item__form--invalid" : ""
+              }`}
               type="text"
               name="itemQuantity"
               defaultValue={String(quantity)}
@@ -211,8 +217,8 @@ const InventoryForm = () => {
         <div className="item__container">
           <label className="label-text">Warehouse</label>
           <select
-            className={`item__form ${!warehouse && submissionStatus ? "item__form--invalid" : ""}`}
-            selected={warehouse}
+            className={`item__form body--medium ${!warehouse && submissionStatus ? "item__form--invalid" : ""}`}
+            selected={id ? warehouse : ""}
             onChange={handleChangeWarehouse}
           >
             <option className="item__select" value="" disabled hidden>
