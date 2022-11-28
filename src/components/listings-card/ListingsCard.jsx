@@ -17,7 +17,7 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
               <h4 className="listingsCard__title">WAREHOUSE</h4>
               <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {dataItem.city}{" "}
+                  {dataItem.warehouse_name}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
