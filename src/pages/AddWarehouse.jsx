@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:8080/warehouses";
 
-const AddWarehouse = () => {
-  const [warehouses, setWarehouses] = useState([]);
+const AddWarehouse = ({ setWarehouses, warehouses }) => {
+  // const [warehouses, setWarehouses] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,23 +20,13 @@ const AddWarehouse = () => {
     fetchWarehouses();
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newWarehouse = {
-      warehouse_name: event.target.warehouseName.value,
-      address: event.target.streetAddress.value,
-      city: event.target.city.value,
-      country: event.target.country.value,
-      contact_name: event.target.contactName.value,
-      contact_position: event.target.position.value,
-      contact_phone: event.target.phoneNumber.value,
-      contact_email: event.target.email.value,
-    };
+  const handleSubmit = (newWarehouse) => {
+
     axios.post(URL, newWarehouse).then((response) => {
       setWarehouses([...warehouses, response.data]);
-      navigate(`/`);
+      navigate(-1);
     });
-    event.target.reset();
+
   };
 
   return (

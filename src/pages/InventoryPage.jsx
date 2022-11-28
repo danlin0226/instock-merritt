@@ -9,6 +9,7 @@ import TitleEditAdd from "../components/title-editadd/TitleEditAdd";
 import InventoriesList from "../components/inventories-list/InventoriesList";
 import InventoryForm from "../components/inventory-form/InventoryForm.jsx";
 import DeleteModal from "./delete-modal/DeleteModal";
+import InventoryItemDetails from "../components/inventory-item-details/InventoryItemDetails";
 
 const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
@@ -25,6 +26,9 @@ const InventoryPage = ({ resetAddTitle }) => {
     inventory_ID: "",
     inventory_name: "",
   });
+  const [selectedItemName, setSelectedItemName] = useState("");
+
+  console.log("inventoryPage", selectedItemName);
 
   useEffect(() => {
     axios.get(`${BACK_END}/inventories`).then((res) => {
@@ -143,6 +147,12 @@ const InventoryPage = ({ resetAddTitle }) => {
               handleAddItem={handleAddItem}
               handleEditItem={handleEditItem}
             />
+          }
+        />
+        <Route
+          path="/:id/item-details"
+          element={
+            <InventoryItemDetails setSelectedItemName={setSelectedItemName} />
           }
         />
       </Routes>

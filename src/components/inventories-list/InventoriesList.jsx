@@ -11,7 +11,7 @@ const InventoriesList = ({ inventories, deleteHandler }) => {
     "STATUS",
     "QTY",
     "WAREHOUSE",
-    "ACTION",
+    "ACTIONS",
   ];
 
   return (

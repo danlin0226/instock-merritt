@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import SearchCombo from "../search-combo/SearchCombo";
 
 const Title = ({ editWarehouseTitleHandler }) => {
-  let location = useLocation();
   return (
     <>
       <div className="title" style={{ height: "180px" }}>

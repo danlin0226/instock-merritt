@@ -17,7 +17,7 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
               <h4 className="listingsCard__title">WAREHOUSE</h4>
               <Link to={`/warehouses/${dataItem.id}/inventories`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
-                  {dataItem.city}{" "}
+                  {dataItem.warehouse_name}{" "}
                   <img
                     className="listingsCard__chev"
                     src={chevronIcon}
@@ -40,7 +40,9 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
             <div className="listingsCard__cont">
               <h4 className="listingsCard__title">CONTACT INFORMATION</h4>
               <p className="listingsCard__text">{dataItem.contact_phone}</p>
-              <p className="listingsCard__text">{dataItem.contact_email}</p>
+              <p className="listingsCard__text listingsCard__text--break">
+                {dataItem.contact_email}
+              </p>
             </div>
 
             <div className="listingsCard__cont">
@@ -65,7 +67,7 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">INVENTORY ITEM</h4>
-              <Link to={`/warehouses/${dataItem.id}/inventories`}>
+              <Link to={`/inventories/${dataItem.id}/item-details`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
                   {dataItem.item_name}{" "}
                   <img
