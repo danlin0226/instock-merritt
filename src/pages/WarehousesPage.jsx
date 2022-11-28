@@ -91,6 +91,7 @@ const WarehousesPage = () => {
           path="/:id/inventories"
           element={<WarehouseDetails warehouses={warehouses} />}
         />
+
         <Route
           path="/:id/edit"
           element={
@@ -100,6 +101,7 @@ const WarehousesPage = () => {
             />
           }
         />
+
       </Routes>
     </>
   );
