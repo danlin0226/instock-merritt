@@ -23,13 +23,28 @@ const WarehousesPage = () => {
     <>
       <Routes>
         <Route path="/" element={<Warehouses warehouses={warehouses} />} />
-        <Route path="/add" element={<AddWarehouse />} />
+        <Route
+          path="/add"
+          element={
+            <AddWarehouse
+              setWarehouses={setWarehouses}
+              warehouses={warehouses}
+            />
+          }
+        />
         <Route
           path="/:id/inventories"
           element={<WarehouseDetails warehouses={warehouses} />}
         />
-        <Route path="/:id/edit" element={<EditWarehouse />} />
-        <Route path="/:id/add" element={<AddWarehouse />} />
+        <Route
+          path="/:id/edit"
+          element={
+            <EditWarehouse
+              setWarehouses={setWarehouses}
+              warehouses={warehouses}
+            />
+          }
+        />
       </Routes>
     </>
   );
