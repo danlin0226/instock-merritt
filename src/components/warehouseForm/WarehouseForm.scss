@@ -81,11 +81,11 @@
     }
     &__submit {
       background-color: $Instock-Indigo;
-      width: 8.75rem;
       border: solid 1px $Cloud;
       border-radius: 25px;
       color: $white;
       height: 2.25rem;
+      min-width: 8.75rem;
     }
   }
 }
