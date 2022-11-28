@@ -1,6 +1,5 @@
 import "./WarehouseForm.scss";
 import React from "react";
-import errorImg from "../../assets/Icons/error-24px.svg";
 import Error from "../error/Error";
 import { useState, useEffect } from "react";
 import axios from "axios";

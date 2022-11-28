@@ -18,6 +18,11 @@
       font-size: 0.7rem;
       height: 2.25rem;
       color: $Slate;
+      &:hover {
+        border-color: $Instock-Indigo;
+        color: $Instock-Indigo;
+        background-color: $white;
+      }
     }
     &__submit {
       font-weight: 600;
@@ -28,6 +33,7 @@
       color: $white;
       font-size: 0.7rem;
       height: 2.25rem;
+      margin-left: 1rem;
     }
   }
 }
@@ -35,6 +41,7 @@
 @include medium {
   .warehouse {
     &__buttons {
+      padding: 1rem 2rem;
       justify-content: flex-end;
       &__cancel {
         width: 4.5rem;
