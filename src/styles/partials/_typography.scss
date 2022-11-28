@@ -1,0 +1,114 @@
+@use "./breakpoints" as *;
+@use "./mixins" as *;
+@use "./colors" as *;
+
+@include small {
+  .page-header {
+    @include fontsize_lineh_weight(1.75rem, 2.25rem, 600);
+  }
+
+  .subheader {
+    @include fontsize_lineh_weight(1.25rem, 1.75rem, 600);
+  }
+
+  .label-text,
+  .button-text,
+  .link-text {
+    @include fontsize_lineh_weight(0.8125rem, 1.25rem, 600);
+  }
+
+  .table-header {
+    @include fontsize_lineh_weight(0.6875rem, 1rem, 600);
+    color: $Slate;
+  }
+
+  .body {
+    font-weight: 400;
+    &--large {
+      font-size: 0.9375rem;
+      line-height: 1.625rem;
+    }
+    &--medium {
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+    }
+    &--small {
+      font-size: 0.6875rem;
+      line-height: 1rem;
+    }
+  }
+}
+
+@include medium {
+  .page-header {
+    @include fontsize_lineh_weight(2rem, 2.5rem, 600);
+  }
+
+  .subheader {
+    @include fontsize_lineh_weight(1.5rem, 2rem, 600);
+  }
+
+  .label-text,
+  .button-text,
+  .link-text {
+    @include fontsize_lineh_weight(0.875rem, 1.375rem, 600);
+  }
+
+  .table-header {
+    @include fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+    color: $Slate;
+  }
+
+  .body {
+    font-weight: 400;
+    &--large {
+      font-size: 1rem;
+      line-height: 1.75rem;
+    }
+    &--medium {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+    &--small {
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+    }
+  }
+}
+
+@include large {
+  .page-header {
+    @include fontsize_lineh_weight(2rem, 2.5rem, 600);
+  }
+
+  .subheader {
+    @include fontsize_lineh_weight(1.5rem, 2rem, 600);
+  }
+
+  .label-text,
+  .button-text,
+  .link-text {
+    @include fontsize_lineh_weight(0.875rem, 1.375rem, 600);
+  }
+
+  .table-header {
+    @include fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+    color: $Slate;
+  }
+
+  .body {
+    font-weight: 400;
+    &--large {
+      font-size: 1rem;
+      line-height: 1.75rem;
+    }
+    &--medium {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+    &--small {
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+    }
+  }
+}
