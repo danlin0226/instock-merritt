@@ -50,7 +50,13 @@
     &--blue {
       color: main.$c_Instock-Indigo;
       font-weight: 600;
-      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &--break {
+      word-break: break-all;
     }
 
     &--inStock {
@@ -63,6 +69,11 @@
   &__chev {
     height: 20px;
     vertical-align: bottom;
+  }
+
+  &__img {
+    height: 24px;
+    cursor: pointer;
   }
 
   &:last-child {
@@ -78,6 +89,9 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: none;
+    &:hover {
+      background-color: rgba(main.$c_Instock-Indigo, 7%);
+    }
 
     &__title {
       display: none;
@@ -97,8 +111,10 @@
     }
     &__text {
       @include main.m_fontsize_lineh_weight(14px, 22px, 400);
-
       margin: 0px;
+      &--blue {
+        font-weight: 600;
+      }
 
       &--inStock {
         @include main.m_instock-label;
