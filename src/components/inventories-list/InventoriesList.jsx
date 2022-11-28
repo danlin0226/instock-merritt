@@ -11,7 +11,7 @@ const InventoriesList = ({ inventories }) => {
     "STATUS",
     "QTY",
     "WAREHOUSE",
-    "ACTION",
+    "ACTIONS",
   ];
 
   return (
