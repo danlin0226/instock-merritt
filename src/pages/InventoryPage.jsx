@@ -19,12 +19,24 @@ const InventoryPage = () => {
     });
   }, []);
 
+  const handleAddItem = (newItem) => {
+    setInventories([...inventories, newItem]);
+  };
+
+  const handleEditItem = (modifiedItem) => {
+    setInventories(inventories.map((item) => (item.id === modifiedItem.id ? modifiedItem : item)));
+  };
+
   return (
     <>
       <Title activeTable={activeTable} />
       <Routes>
         <Route path="/" element={<InventoriesList inventories={inventories} />} />
-        <Route path="/add" element={<InventoryForm />} />
+        <Route path="/add" element={<InventoryForm handleAddItem={handleAddItem} handleEditItem={handleEditItem} />} />
+        <Route
+          path="/:id/edit"
+          element={<InventoryForm handleAddItem={handleAddItem} handleEditItem={handleEditItem} />}
+        />
       </Routes>
     </>
   );

@@ -8,18 +8,22 @@ import "./InventoryForm.scss";
 
 // react
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const InventoryForm = () => {
+const InventoryForm = ({ handleAddItem, handleEditItem }) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
+  // population of select dropdown
   const [activeWarehouses, setActiveWarehouses] = useState([]);
   const [activeCategories, setActiveCategories] = useState([]);
 
-  // form states
+  // form fields
   const [submissionStatus, setSubmissionStatus] = useState(false); //validation to display error messages
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
@@ -49,12 +53,12 @@ const InventoryForm = () => {
   };
 
   const handleChangeQuantity = (event) => {
-    setQuantity(Number(event.target.value));
+    setQuantity(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const InventoryItem = {
+    const inventoryItem = {
       item_name: itemName,
       warehouse_id: warehouse,
       description: description,
@@ -63,17 +67,52 @@ const InventoryForm = () => {
       quantity: status === "In Stock" ? quantity : 0,
     };
     if (isFormValid()) {
-      axios
-        .post(`${BACKEND_URL}/inventories`, InventoryItem)
-        .then(alert("Added new item!"))
-        .catch((err) => console.log(`Error while adding new inventory item ${err}`));
+      if (id) {
+        axios
+          .patch(`${BACKEND_URL}/inventories/${id}`, inventoryItem)
+          .then(({ data }) =>
+            handleEditItem({
+              ...data,
+              warehouse_name: activeWarehouses.find((warehouseItem) => warehouseItem.id === warehouse).warehouse_name,
+            })
+          )
+          .then(displayNotification("Inventory item saved! Redirecting..."))
+          .catch((err) => console.log(`Error while editting inventory item ${id} with ${err}`));
+      } else {
+        axios
+          .post(`${BACKEND_URL}/inventories`, inventoryItem)
+          .then(({ data }) =>
+            handleAddItem({
+              ...data,
+              warehouse_name: activeWarehouses.find((warehouseItem) => warehouseItem.id === warehouse).warehouse_name,
+            })
+          )
+          .then(displayNotification("New inventory item created! Redirecting..."))
+          .catch((err) => console.log(`Error while adding new inventory item ${err}`));
+      }
     }
   };
 
+  // helpers
   const isFormValid = () => {
     return itemName && description && category && status && quantity >= 0 && warehouse;
   };
 
+  const displayNotification = (text) => {
+    toast.success(text, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    setTimeout(() => navigate("/inventories"), 2700);
+  };
+
+  // effects
   useEffect(() => {
     axios
       .get(`${BACKEND_URL}/warehouses/active`)
@@ -94,6 +133,24 @@ const InventoryForm = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(`${BACKEND_URL}/inventories/${id}/`)
+        .then(({ data }) => {
+          setItemName(data.item_name);
+          setDescription(data.description);
+          setCategory(data.category);
+          setQuantity(data.quantity);
+          setStatus(data.status);
+          setWarehouse(data.warehouse_id);
+        })
+        .catch((err) => {
+          console.log(`ERROR WHILE FETCHING INVENTORY ITEM ${err}`);
+        });
+    }
+  }, [activeCategories, activeWarehouses]);
+
   return (
     <form className="inventory__form" onSubmit={handleSubmit} autoComplete="off">
       <div className="item__details">
@@ -101,21 +158,27 @@ const InventoryForm = () => {
         <div className="item__container">
           <label className="label-text">Item Name</label>
           <input
-            className={`item__form item__name ${!itemName && submissionStatus ? "item__form--invalid" : ""}`}
+            className={`item__form item__name body--medium ${
+              !itemName && submissionStatus ? "item__form--invalid" : ""
+            }`}
             type="text"
             name="itemName"
             placeholder="Item Name"
             onChange={handleChangeItemName}
+            value={itemName}
           />
           {!itemName && submissionStatus && <Error />}
         </div>
         <div className="item__container">
           <label className="label-text">Description</label>
           <textarea
-            className={`item__form item__description ${!description && submissionStatus ? "item__form--invalid" : ""}`}
+            className={`item__form item__description body--medium ${
+              !description && submissionStatus ? "item__form--invalid" : ""
+            }`}
             type="text"
             name="itemName"
             placeholder="Please enter a brief item description..."
+            value={description}
             onChange={handleChangeDescription}
           />
           {!description && submissionStatus && <Error />}
@@ -123,8 +186,8 @@ const InventoryForm = () => {
         <div className="item__container">
           <label className="label-text">Category</label>
           <select
-            className={`item__form ${!category && submissionStatus ? "item__form--invalid" : ""}`}
-            defaultValue=""
+            className={`item__form body--medium ${!category && submissionStatus ? "item__form--invalid" : ""}`}
+            value={category}
             onChange={handleChangeCategory}
           >
             <option className="item__select" value="" disabled hidden>
@@ -151,7 +214,7 @@ const InventoryForm = () => {
                 id="inStock"
                 name="itemStatus"
                 value="In Stock"
-                defaultChecked={status === "In Stock"}
+                checked={status === "In Stock"}
                 onChange={handleChangeStatus}
               />
               <label className="label-text item__radio-label" htmlFor="inStock">
@@ -164,7 +227,7 @@ const InventoryForm = () => {
                 id="outOfStock"
                 name="itemStatus"
                 value="Out of Stock"
-                defaultChecked={status === "Out of Stock"}
+                checked={status === "Out of Stock"}
                 onChange={handleChangeStatus}
               />
               <label className="label-text item__radio-label" htmlFor="outOfStock">
@@ -177,20 +240,23 @@ const InventoryForm = () => {
           <div className="item__container">
             <label className="label-text">Quantity</label>
             <input
-              className={`item__form item__quantity ${quantity <= 0 && submissionStatus ? "item__form--invalid" : ""}`}
+              className={`item__form item__quantity body--medium ${
+                quantity <= 0 && submissionStatus ? "item__form--invalid" : ""
+              }`}
               type="text"
               name="itemQuantity"
-              defaultValue={0}
+              value={quantity}
               onChange={handleChangeQuantity}
             />
             {quantity <= 0 && submissionStatus && <Error customMessage="Item is in stock. Quantity must be > 0" />}
+            {isNaN(quantity) && submissionStatus && <Error customMessage="Invalid input. Please input a number." />}
           </div>
         ) : null}
         <div className="item__container">
           <label className="label-text">Warehouse</label>
           <select
-            className={`item__form ${!warehouse && submissionStatus ? "item__form--invalid" : ""}`}
-            defaultValue=""
+            className={`item__form body--medium ${!warehouse && submissionStatus ? "item__form--invalid" : ""}`}
+            value={warehouse}
             onChange={handleChangeWarehouse}
           >
             <option className="item__select" value="" disabled hidden>
@@ -207,13 +273,19 @@ const InventoryForm = () => {
         </div>
       </div>
       <div className="item__buttons">
-        <Button buttonText="Cancel" additionalClasses="item__buttons-cancel" clickHandler={() => navigate(-1)}></Button>
         <Button
-          buttonText="+Add Item"
+          buttonText="Cancel"
+          additionalClasses="item__buttons-cancel"
+          clickHandler={() => navigate("/inventories")}
+        ></Button>
+        <Button
+          buttonType="submit"
+          buttonText={id ? "Save" : "+Add Item"}
           additionalClasses="item__buttons-add"
           clickHandler={() => setSubmissionStatus(true)}
         ></Button>
       </div>
+      <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
     </form>
   );
 };
