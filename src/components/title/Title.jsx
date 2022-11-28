@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import SearchCombo from "../search-combo/SearchCombo";
 
-const Title = () => {
+const Title = ({ activeTable, selectedItemName }) => {
   let location = useLocation();
   let pathname = location.pathname;
   let m = pathname.match(/(warehouses).*(inventories)$/);
@@ -11,6 +11,9 @@ const Title = () => {
 
   const wh = true;
   const inv = true;
+
+  // console.log("title", selectedItemName);
+  //selectedItemName prop is used to pass the item name when an item is changed
 
   return (
     <div className="title" style={wh || inv ? { height: "180px" } : ""}>
