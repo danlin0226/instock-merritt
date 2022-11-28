@@ -8,12 +8,14 @@ import DeleteModal from "./delete-modal/DeleteModal";
 import Title from "../components/title/Title";
 import AddWarehouse from "./AddWarehouse";
 import EditWarehouse from "./EditWarehouse";
+import TitleEditAdd from "../components/title-editadd/TitleEditAdd";
 
 // const BACK_END = process.env.REACT_APP_BACKEND_URL;
 const BACK_END = "http://localhost:8080";
 
 const WarehousesPage = () => {
   const [warehouses, setWarehouses] = useState([]);
+  const [editWarehouseTitle, setEditWarehouseTitle] = useState(false);
   const [deleteModal, setDelModal] = useState({
     isActive: false,
     table: "",
@@ -66,6 +68,10 @@ const WarehousesPage = () => {
     }
   };
 
+  const editWarehouseTitleHandler = () => {
+    setEditWarehouseTitle((old) => !old);
+  };
+
   return (
     <>
       {deleteModal.isActive && (
@@ -75,7 +81,11 @@ const WarehousesPage = () => {
           confirmDelete={confirmDelete}
         />
       )}
-      <Title />
+      {!editWarehouseTitle ? (
+        <Title editWarehouseTitleHandler={editWarehouseTitleHandler} />
+      ) : (
+        <TitleEditAdd verb={"Add New"} table={"Warehouse"} />
+      )}
       <Routes>
         <Route
           path="/"

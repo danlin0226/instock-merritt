@@ -2,7 +2,8 @@ import React from "react";
 import ButtonSet from "../components/buttonSet/ButtonSet";
 import WarehouseForm from "../components/warehouseForm/WarehouseForm";
 import axios from "axios";
-import { useEffect, useState, useNavigate } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:8080/warehouses";
 

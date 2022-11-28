@@ -12,7 +12,7 @@ const BACK_END = "http://localhost:8080";
 const WarehouseDetails = () => {
   const [warehouseInventory, setWarehouseInventory] = useState([]); //loads a join array of warehouse and inventory
   const [selectedWarehouse, setSelectedWarehouse] = useState([]); //loads a single warehouse object
-
+  const [editWarehouse, setEditWarehouse] = useState(false);
   const [deleteModal, setDelModal] = useState({
     isActive: false,
     table: "inventories",
@@ -73,6 +73,10 @@ const WarehouseDetails = () => {
       console.log("clicked cancel");
       setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
     }
+  };
+
+  const editWarehouseTitleHandler = () => {
+    setEditWarehouse((old) => !old);
   };
 
   return (
