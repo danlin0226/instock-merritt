@@ -9,7 +9,15 @@
   &__text {
     font-family: "Titillium Web";
     font-size: 0.75rem;
-    padding: 2rem;
+    padding: 2.5rem;
     color: $Slate;
+  }
+}
+
+@include large {
+  .footer {
+    &__text {
+      padding: 3rem;
+    }
   }
 }
