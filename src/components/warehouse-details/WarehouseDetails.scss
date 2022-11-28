@@ -1,7 +1,7 @@
 @use "../../main.scss";
 
 .warehouseDetails {
-  background-color: white;
+  background-color: main.$c_Light-Grey;
   @include main.m_pad_sizing_lr(16px);
 
   &__page-cont {
