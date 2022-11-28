@@ -102,7 +102,10 @@
 
 @include main.bp_large{
     .deletemodal{
-        @include main.m_pad_sizing_lr(304px);
+        display: flex;
+        justify-content: center;
+
+        // @include main.m_pad_sizing_lr(304px);
         &__content {
             width: 672px;
             height: 262px;

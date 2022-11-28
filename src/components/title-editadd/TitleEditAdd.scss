@@ -1,0 +1,13 @@
+@use "../../main.scss";
+.title-editadd{
+    width: 100%;
+    height: 150px;
+    &__backarrow{
+        background-image: url('../../assets/Icons/arrow_back-24px.svg') no-repeat;
+        background-size: contain;
+    }
+    &__table-text{
+        @include main.m_fontsize_lineh_weight(28px, 36px, 600);
+    }
+    
+}

@@ -3,6 +3,7 @@
 body {
     background-color: main.$c_Light-Grey;
 }
+
 .title {
     position: relative;
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
@@ -24,7 +25,9 @@ body {
     }
     .searchcombo__con {
         padding-top: 24px;
+        padding-right: 48px;
         position: absolute;
+        width: 100%;
     }
 }
 
