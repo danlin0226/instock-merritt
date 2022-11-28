@@ -17,7 +17,7 @@ const InventoryPage = ({ resetAddTitle }) => {
   const [addInventoriesTitle, setAddInventoriesTitle] = useState(
     !resetAddTitle
   );
-  const [editInventoriesTitle, setEditInventoriesTitle] = useState(false);
+  const [titleMode, setTitleMode] = useState("default");
 
   const [deleteModal, setDelModal] = useState({
     isActive: false,
@@ -80,28 +80,30 @@ const InventoryPage = ({ resetAddTitle }) => {
   };
 
   const addInventoriesTitleHandler = () => {
-    setAddInventoriesTitle((old) => !old);
+    setTitleMode("add");
   };
   const renderTitle = () => {
-    if (!addInventoriesTitle) {
-      // setEditInventoriesTitle(false);
-      return (
-        <TitleInventories
-          addInventoriesTitleHandler={addInventoriesTitleHandler}
-        />
-      );
-    }
-    // if (!editInventoriesTitle) {
-    //   // setAddInventoriesTitle(false);
+    // if (!addInventoriesTitle) {
     //   return (
     //     <TitleInventories
     //       addInventoriesTitleHandler={addInventoriesTitleHandler}
     //     />
     //   );
     // }
-    else {
-      // setEditInventoriesTitle(false);
-      return <TitleEditAdd verb={"Add New"} table={"Inventory"} />;
+    // else {
+    //   return <TitleEditAdd verb={"Add New"} table={"Inventory"} />;
+    // }
+    switch (titleMode) {
+      case "add":
+        return <TitleEditAdd verb={"Add New"} table={"Inventory Item"} />;
+      case "default":
+        return (
+          <TitleInventories
+            addInventoriesTitleHandler={addInventoriesTitleHandler}
+          />
+        );
+      default:
+        return <TitleEditAdd verb={"Add New"} table={"Inventory"} />;
     }
   };
 

@@ -5,17 +5,6 @@ import SearchCombo from "../search-combo/SearchCombo";
 
 const Title = ({ editWarehouseTitleHandler }) => {
   let location = useLocation();
-  console.log("location: ", location.pathname === "/");
-
-  let pathname = location.pathname;
-
-  let m = /(?=.*warehouses.*)(?!.*inventories).*/;
-  let m_wh_inv = /(?=.*warehouses.*)(?=.*inventories).*/;
-  let m_inv = /^((?!warehouses).)*$/;
-  // let m_inv_add = /(?=.*inventories.*)(?=.*add).*/;
-
-  // on warehouse/
-
   return (
     <>
       <div className="title" style={{ height: "180px" }}>

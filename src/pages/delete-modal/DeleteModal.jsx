@@ -1,5 +1,6 @@
 import "./DeleteModal.scss";
 import React from "react";
+import Button from "../../components/button/Button";
 const DeleteModal = ({ deleteModal, confirmDelete, warehouse_name }) => {
   let wh = deleteModal.table.match(/warehouse/);
   return (
@@ -26,16 +27,18 @@ const DeleteModal = ({ deleteModal, confirmDelete, warehouse_name }) => {
           <div className="deletemodal__sec2-innercon2">
             <button
               className="deletemodal__cancel-btn"
+              type="button"
               onClick={() => confirmDelete(false)}
             >
               Cancel
             </button>
-            <button
-              className="deletemodal__delete-btn"
-              onClick={() => confirmDelete(true)}
-            >
-              Delete
-            </button>
+
+            <Button
+              buttonType={"button"}
+              additionalClasses={"deletemodal__delete-btn"}
+              clickHandler={() => confirmDelete(true)}
+              buttonText={"Delete"}
+            />
           </div>
         </div>
       </div>

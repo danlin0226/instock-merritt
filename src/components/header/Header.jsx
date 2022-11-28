@@ -14,7 +14,7 @@ export default function Header({ resetAddInventoryTitleHandler }) {
         <NavLink
           activeClassName="active"
           className={"header__link"}
-          to="/warehouses"
+          to="/"
         >
           <li className="header__link-content">Warehouse</li>
         </NavLink>
