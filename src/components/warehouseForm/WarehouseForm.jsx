@@ -250,7 +250,7 @@ function WarehouseForm(props) {
           </label>
           <input
             className={`warehouse__section__details__input ${
-              !phoneNumber && isSubmit
+              (!phoneNumber || !phoneValid) && isSubmit
                 ? "warehouse__section__details__input-flagged"
                 : ""
             }`}
@@ -261,13 +261,15 @@ function WarehouseForm(props) {
             value={phoneNumber}
           />
           {!phoneNumber && isSubmit && <Error />}
-          {!phoneValid && isSubmit && <div>input correct format</div>}
+          {!phoneValid && isSubmit && (
+            <Error customMessage={"Provide right format"} />
+          )}
           <label className="warehouse__section__details__label" htmlFor="email">
             Email
           </label>
           <input
             className={`warehouse__section__details__input ${
-              !email && isSubmit
+              (!phoneNumber || !phoneValid) && isSubmit
                 ? "warehouse__section__details__input-flagged"
                 : ""
             }`}
@@ -278,7 +280,9 @@ function WarehouseForm(props) {
             value={email}
           />
           {!email && isSubmit && <Error />}
-          {!emailValid && isSubmit && <div>input correct format</div>}
+          {!emailValid && isSubmit && (
+            <Error customMessage={"Provide right format"} />
+          )}
         </div>
       </section>
       {props.Buttons}
