@@ -7,7 +7,7 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
 import { Link } from "react-router-dom";
 
-const ListingsCard = ({ path, dataItem }) => {
+const ListingsCard = ({ path, dataItem, deleteHandler }) => {
   return (
     <>
       <article className="listingsCard">
@@ -44,13 +44,14 @@ const ListingsCard = ({ path, dataItem }) => {
             </div>
 
             <div className="listingsCard__cont">
-              <Link to={`/`}>
-                <img
-                  className="listingsCard__img"
-                  src={trashIcon}
-                  alt="trashbin"
-                />
-              </Link>
+              <img
+                className="listingsCard__img"
+                src={trashIcon}
+                alt="trashbin"
+                onClick={(e) => {
+                  deleteHandler(e, dataItem.id, dataItem.warehouse_name);
+                }}
+              />
               <Link to={`/warehouses/${dataItem.id}/edit`}>
                 <img
                   className="listingsCard__img"
@@ -111,6 +112,9 @@ const ListingsCard = ({ path, dataItem }) => {
                 className="listingsCard__img"
                 src={trashIcon}
                 alt="trashbin"
+                onClick={(e) =>
+                  deleteHandler(e, dataItem.id, dataItem.item_name)
+                }
               />
               <img className="listingsCard__img" src={editIcon} alt="pencil" />
             </div>

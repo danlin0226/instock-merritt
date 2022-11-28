@@ -6,6 +6,7 @@ import WarehousesPage from "./pages/WarehousesPage";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import InventoryForm from "./components/inventory-form/InventoryForm";
 
 function App() {
   return (
