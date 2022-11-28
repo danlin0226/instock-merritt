@@ -10,12 +10,10 @@
     justify-content: space-between;
     background-color: $Light-Grey;
     &__cancel {
-      font-weight: 600;
       width: 8.75rem;
       background-color: $white;
       border: solid 1px $Cloud;
       border-radius: 25px;
-      font-size: 0.8125rem;
       height: 2.25rem;
       color: $Slate;
       &:hover {
@@ -25,13 +23,11 @@
       }
     }
     &__submit {
-      font-weight: 600;
       background-color: $Instock-Indigo;
       width: 8.75rem;
       border: solid 1px $Cloud;
       border-radius: 25px;
       color: $white;
-      font-size: 0.8125rem;
       height: 2.25rem;
       margin-left: 1rem;
     }
@@ -45,10 +41,8 @@
       justify-content: flex-end;
       &__cancel {
         width: 4.5rem;
-        font-size: 0.875rem;
       }
       &__submit {
-        font-size: 0.875rem;
         margin-left: 1rem;
         width: 8.625rem;
       }
