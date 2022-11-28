@@ -1,9 +1,5 @@
 @use "../../main.scss";
 
-.selected {
-    background-color:  main.$c_Instock-Black;
-    width: 160px;
-}
 .header{
     background-color: main.$c_Graphite;
     height: 200px;
@@ -14,59 +10,78 @@
         width: 100%;
         margin-bottom: 24px;
     }
+
     &__img-con{
         background-image: url("../../assets/Logo/InStock-Logo_1x.png");
         background-repeat: no-repeat;
-        // background-size: contain;
         background-size: 90% auto;
         width: 180px;
         height: 40px;
-        // min-height: 40px;
         max-height: 40px;
-        // margin-left: 25vw;
     }
     &__con2 {
         width: 100%;
-        display: flex;
-        flex-direction: center;
+        justify-content: space-around;
         align-items: center;
         margin-top: 25px;
         display: inline-flex;
         color: main.$c_white;
         list-style-type: none;
         @include main.m_padmar-0;
-        padding-left: 16px;
+        padding-left: 5px;
     }
     &__link-content {
-        // background-color:  main.$c_Graphite;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 36px;
-        width: 160px;
+        height: 38px;
+        width: 164px;
         padding-bottom: 5px;
         border-radius: 20px;
-        // text-align: center;
+        &:hover{
+            text-decoration: underline;
+        }
     }
     &__link{
-        color: white;
+        color: main.$c_Cloud;
+        @include main.m_fontsize_lineh_weight(13px, 36px, 600);
+        &:hover{
+            color: white;
+        }
         &:link{
             text-decoration: none;
         }
-
     }
-
+    .header__link.active{
+        background-color:  main.$c_Instock-Black;
+        border-radius: 20px;
+        color: white;
+        width: 164px;
+        height: 38px;
+    }
 }
+
 
 @include main.bp_medium {
     .header {
-        height: 160px;
+        height: 186px;
         display: inline-flex;
         justify-content: space-around;
         width: 100%;
         align-items: center;
         padding-top: 0;
         padding-bottom: 60px;
+
+        &__img-con{
+            background-image: url("../../assets/Logo/InStock-Logo_1x.png");
+            background-repeat: no-repeat;
+            background-size: 70% auto;
+            width: 180px;
+            height: 40px;
+            max-height: 40px;
+            cursor: pointer;
+            
+        }
 
         &__con1{
             display: flex;
@@ -78,10 +93,23 @@
         &__con2{
             display: flex;
             justify-content: flex-end;
+            padding-left: 0;
             padding-bottom: 24px;
-            
+            padding-right: 5px;
+
+        }
+        &__link-content{
+            width: 107px;
+
+        }
+        .header__link.active{
+            background-color:  main.$c_Instock-Black;
+            border-radius: 20px;
+            color: white;
+            width: 107px;
         }
     }
+
 
 }
 

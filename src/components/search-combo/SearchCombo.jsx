@@ -2,23 +2,27 @@ import "./SearchCombo.scss";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../button/Button";
 
-const SearchCombo = ({ editWarehouseTitleHandler }) => {
-  const text = "+ Add new warehouse";
+const SearchCombo = ({
+  addWarehouseTitleHandler,
+  addInventoriesTitleHandler,
+}) => {
+  // const text = "+ Add new warehouse";
   const location = useLocation();
   let pathname = location.pathname;
   let nav = useNavigate();
   console.log("just / pathname", pathname);
   // let m_inv = /(?=.*inventories.*)/;
-  let m_inv = /^((?!\/warehouses).)*$/;
+  // let m_inv = /^((?!\/warehouses).)*$/;
   let m = /(?=.*warehouses.*)(?!.*inventories).*/;
-  let singleslash = /\//;
+  // let singleslash = /\//;
   const clickHandler_wh_add = () => {
     nav("/warehouses/add");
-    editWarehouseTitleHandler();
+    addWarehouseTitleHandler();
   };
 
   const clickHandler_inv = () => {
     nav("/inventories/add");
+    addInventoriesTitleHandler();
   };
 
   const renderButtons = () => {

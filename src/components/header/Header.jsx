@@ -1,21 +1,31 @@
 import "./Header.scss";
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ resetAddInventoryTitleHandler }) {
+  const nav = useNavigate();
   return (
     <div className="header">
       <div className="header__con1">
-        <div className="header__img-con"></div>
+        <div className="header__img-con" onClick={() => nav("/")}></div>
       </div>
       <ul className="header__con2">
-        <Link className="header__link" to="/warehouses">
-          <li className="header__link-content selected">Warehouse</li>
-        </Link>
-        <Link className="header__link" to="/inventories">
+        <NavLink
+          activeClassName="active"
+          className={"header__link"}
+          to="/warehouses"
+        >
+          <li className="header__link-content">Warehouse</li>
+        </NavLink>
+        <NavLink
+          activeClassName="active"
+          className={"header__link"}
+          to="/inventories"
+          onClick={(e) => resetAddInventoryTitleHandler(e)}
+        >
           <li className="header__link-content">Inventory</li>
-        </Link>
+        </NavLink>
       </ul>
     </div>
   );

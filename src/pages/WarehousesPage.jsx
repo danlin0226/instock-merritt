@@ -15,7 +15,8 @@ const BACK_END = "http://localhost:8080";
 
 const WarehousesPage = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [editWarehouseTitle, setEditWarehouseTitle] = useState(false);
+  const [addWarehouseTitle, setAddWarehouseTitle] = useState(false);
+
   const [deleteModal, setDelModal] = useState({
     isActive: false,
     table: "",
@@ -68,8 +69,11 @@ const WarehousesPage = () => {
     }
   };
 
+  const addWarehouseTitleHandler = () => {
+    setAddWarehouseTitle((old) => !old);
+  };
   const editWarehouseTitleHandler = () => {
-    setEditWarehouseTitle((old) => !old);
+    setAddWarehouseTitle((old) => !old);
   };
 
   return (
@@ -81,8 +85,8 @@ const WarehousesPage = () => {
           confirmDelete={confirmDelete}
         />
       )}
-      {!editWarehouseTitle ? (
-        <Title editWarehouseTitleHandler={editWarehouseTitleHandler} />
+      {!addWarehouseTitle ? (
+        <Title addWarehouseTitleHandler={addWarehouseTitleHandler} />
       ) : (
         <TitleEditAdd verb={"Add New"} table={"Warehouse"} />
       )}

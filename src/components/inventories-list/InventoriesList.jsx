@@ -4,7 +4,7 @@ import SortLabels from "../sort-labels/SortLabels";
 
 import "./InventoriesList.scss";
 
-const InventoriesList = ({ inventories }) => {
+const InventoriesList = ({ inventories, deleteHandler }) => {
   const inventoriesLabels = [
     "INVENTORY ITEM",
     "CATEGORY",
@@ -28,6 +28,7 @@ const InventoriesList = ({ inventories }) => {
               key={inventoryItem.id}
               path="inventories"
               dataItem={inventoryItem}
+              deleteHandler={deleteHandler}
             />
           );
         })}
