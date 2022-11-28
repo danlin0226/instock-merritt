@@ -141,21 +141,7 @@ function WarehouseForm(props) {
             onChange={handleChangeWarehouseName}
             value={warehouseName}
           />
-          {!warehouseName && isSubmit && (
-            <label
-              className={
-                "warehouse__section__details__label--validation-flagged"
-              }
-              htmlFor="streetAddress"
-            >
-              <img
-                src={errorImg}
-                alt="error"
-                className="warehouse__section__details__label--validation-flagged_img"
-              />
-              This field is required
-            </label>
-          )}
+          {!warehouseName && isSubmit && <Error />}
 
           <label
             className="warehouse__section__details__label"
@@ -175,7 +161,7 @@ function WarehouseForm(props) {
             onChange={handleChangeStreetAddress}
             value={streetAddress}
           />
-          {!streetAddress && isSubmit && <div>input pls</div>}
+          {!streetAddress && isSubmit && <Error />}
           <label className="warehouse__section__details__label" htmlFor="city">
             City
           </label>
