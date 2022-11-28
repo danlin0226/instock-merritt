@@ -10,24 +10,26 @@
     justify-content: space-between;
     background-color: $Light-Grey;
     &__cancel {
-      font-weight: 600;
       width: 8.75rem;
       background-color: $white;
       border: solid 1px $Cloud;
       border-radius: 25px;
-      font-size: 0.7rem;
       height: 2.25rem;
       color: $Slate;
+      &:hover {
+        border-color: $Instock-Indigo;
+        color: $Instock-Indigo;
+        background-color: $white;
+      }
     }
     &__submit {
-      font-weight: 600;
       background-color: $Instock-Indigo;
       width: 8.75rem;
       border: solid 1px $Cloud;
       border-radius: 25px;
       color: $white;
-      font-size: 0.7rem;
       height: 2.25rem;
+      margin-left: 1rem;
     }
   }
 }
@@ -35,6 +37,7 @@
 @include medium {
   .warehouse {
     &__buttons {
+      padding: 1rem 2rem;
       justify-content: flex-end;
       &__cancel {
         width: 4.5rem;
