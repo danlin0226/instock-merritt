@@ -10,7 +10,6 @@ const TitleInventoryDetails = ({
 }) => {
   const nav = useNavigate();
   const location = useLocation();
-  console.log(location);
 
   return (
     <>

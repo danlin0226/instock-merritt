@@ -114,6 +114,7 @@ const WarehousesPage = () => {
           <TitleWarehouseDetails
             titleModeHandler={titleModeHandler}
             warehouse_name={editWarehouseName.warehouse_name}
+            editInventoriesTitleHandler={editInventoriesTitleHandler}
           />
         );
 
@@ -161,7 +162,7 @@ const WarehousesPage = () => {
           }
         />
         <Route
-          path="/:id/inventories"
+          path="/:id"
           element={
             <WarehouseDetails
               warehouses={warehouses}

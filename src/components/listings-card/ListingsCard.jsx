@@ -25,7 +25,7 @@ const ListingsCard = ({
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">WAREHOUSE</h4>
               <Link
-                to={`/warehouses/${dataItem.id}/inventories`}
+                to={`/warehouses/${dataItem.id}`}
                 onClick={(e) => {
                   detailsWarehouseTitleHandler(e, dataItem.warehouse_name);
                 }}
