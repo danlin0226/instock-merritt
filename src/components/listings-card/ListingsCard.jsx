@@ -12,6 +12,8 @@ const ListingsCard = ({
   dataItem,
   deleteHandler,
   editInventoriesTitleHandler,
+  detailInventoryTitleHandler,
+  viewTitleHandler,
 }) => {
   return (
     <>
@@ -75,7 +77,13 @@ const ListingsCard = ({
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">INVENTORY ITEM</h4>
-              <Link to={`/inventories/${dataItem.id}/item-details`}>
+              <Link
+                to={`/inventories/${dataItem.id}/item-details`}
+                onClick={(e) => {
+                  detailInventoryTitleHandler();
+                  viewTitleHandler(e, dataItem.id, dataItem.item_name);
+                }}
+              >
                 <h3 className="listingsCard__text listingsCard__text--blue">
                   {dataItem.item_name}{" "}
                   <img

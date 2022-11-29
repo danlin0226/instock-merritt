@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import TitleInventories from "../components/title-inventories/TitleInventories.jsx";
 import Title from "../components/title/Title";
 import TitleEditAdd from "../components/title-editadd/TitleEditAdd";
+import TitleInventoryDetails from "../components/title-inventory-details/TitleInventoryDetails.jsx";
 import InventoriesList from "../components/inventories-list/InventoriesList";
 import InventoryForm from "../components/inventory-form/InventoryForm.jsx";
 import DeleteModal from "./delete-modal/DeleteModal";
@@ -51,7 +52,10 @@ const InventoryPage = ({ resetAddTitle }) => {
     );
   };
 
-  const viewTitleHandler = (e, inv_ID, inv_name) => {};
+  const viewTitleHandler = (e, inv_ID, inv_name) => {
+    console.log("viewTitleHandler", inv_ID);
+    setSelectedItemName(inv_name);
+  };
 
   const deleteHandler = (e, inv_ID, inv_name) => {
     // setDelModal((modal) => ({ ...modal.isActive, isActive: true }))
@@ -125,20 +129,18 @@ const InventoryPage = ({ resetAddTitle }) => {
             titleModeHandler={titleModeHandler}
           />
         );
-      // case "details":
-      //   return (
-      //     <TitleEditAdd
-      //       verb={""}
-      //       table={selectedItemName}
-      //       titleModeHandler={titleModeHandler}
-      //     />
-      //   );
+      case "details":
+        return (
+          <TitleInventoryDetails
+            item={selectedItemName}
+            titleModeHandler={titleModeHandler}
+          />
+        );
       case "default":
         return (
           <TitleInventories
             addInventoriesTitleHandler={addInventoriesTitleHandler}
             editInventoriesTitleHandler={editInventoriesTitleHandler}
-            detailInventoryTitleHandler={detailInventoryTitleHandler}
           />
         );
       default:
@@ -163,6 +165,8 @@ const InventoryPage = ({ resetAddTitle }) => {
             <InventoriesList
               inventories={inventories}
               deleteHandler={deleteHandler}
+              detailInventoryTitleHandler={detailInventoryTitleHandler}
+              viewTitleHandler={viewTitleHandler}
             />
           }
         />
@@ -187,10 +191,7 @@ const InventoryPage = ({ resetAddTitle }) => {
         <Route
           path="/:id/item-details"
           element={
-            <InventoryItemDetails
-              setSelectedItemName={setSelectedItemName}
-              editInventoriesTitleHandler={editInventoriesTitleHandler}
-            />
+            <InventoryItemDetails setSelectedItemName={setSelectedItemName} />
           }
         />
       </Routes>

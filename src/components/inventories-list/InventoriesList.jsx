@@ -4,7 +4,12 @@ import SortLabels from "../sort-labels/SortLabels";
 
 import "./InventoriesList.scss";
 
-const InventoriesList = ({ inventories, deleteHandler }) => {
+const InventoriesList = ({
+  inventories,
+  deleteHandler,
+  detailInventoryTitleHandler,
+  viewTitleHandler,
+}) => {
   const inventoriesLabels = [
     "INVENTORY ITEM",
     "CATEGORY",

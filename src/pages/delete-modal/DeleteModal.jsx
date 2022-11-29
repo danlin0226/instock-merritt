@@ -18,9 +18,9 @@ const DeleteModal = ({ deleteModal, confirmDelete, warehouse_name }) => {
               {wh ? warehouse_name : deleteModal.inventory_name}?
             </div>
             <div className="deletemodal__text">
-              Please confirm that you&apos;d like to delete{" "}
-              {wh ? warehouse_name : deleteModal.inventory_name}
-              from the list of {wh ? deleteModal.table : deleteModal.table}. You
+              Please confirm that you&apos;d like to delete&nbsp;
+              {wh ? warehouse_name : deleteModal.inventory_name}&nbsp;from the
+              list of {wh ? deleteModal.table : deleteModal.table}. You
               won&apos;t be able to undo this action.
             </div>
           </div>
