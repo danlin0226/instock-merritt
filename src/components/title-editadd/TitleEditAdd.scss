@@ -12,6 +12,7 @@ body {
     background-color: main.$c_white;
     height: 90px;
     border-radius: 3px 3px 0 0 ;
+    box-shadow: 0px 2px 5px rgba(19,24,44,0.1);
 
 
     &__text-con{
@@ -23,7 +24,8 @@ body {
         height: 90px;
         border-bottom: 1px solid #BDC5D5;
         gap: 12px;
-        padding-bottom: 32px;
+        padding-bottom: 34px;
+        margin-bottom: 10px;
     }
     &__img-con {
         display: flex;

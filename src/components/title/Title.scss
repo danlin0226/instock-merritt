@@ -7,10 +7,11 @@ body {
 .title {
     position: relative;
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
-    margin-top: -55px;
+    margin-top: -45px;
     background-color: main.$c_white;
     height: 125px;
     border-radius: 3px 3px 0 0 ;
+    box-shadow: 0px 2px 5px rgba(19,24,44,0.1);
 
     &__text-con{
         width: 100%;
@@ -20,13 +21,13 @@ body {
     &__text{
         width: 150px;
         height: 36px;
-        padding-left: 24px;
+        padding-left: 32px;
         @include main.m_fontsize_lineh_weight(28px, 36px, 600);
         padding-top: 24px;
     }
     .searchcombo__con {
         padding-top: 16px;
-        padding-right: 48px;
+        padding-right: 32px;
         position: absolute;
         width: 100%;
     }
@@ -37,32 +38,24 @@ body {
         margin-top: -90px;
         height: 90px !important;
         @include main.m_sizing_leftright(margin-left, margin-right, 32px);
-    }
-
-
-    @include main.bp_medium{
-        .title{
-            margin-top: -90px;
-            height: 90px !important;
-            @include main.m_sizing_leftright(margin-left, margin-right, 32px);
-        }
 
         .searchcombo__con {
             position: absolute;
         }
-
     }
 
-    @include main.bp_large {
-        .title {
-            height: 90px !important;
-            @include main.m_sizing_leftright(margin-left, margin-right, 130px);
-        }
 
-        .searchcombo__con {
-            position: absolute;
-            top: -6px;
-            right: 24px;
-        }
+
+}
+@include main.bp_large {
+    .title {
+        height: 90px !important;
+        @include main.m_sizing_leftright(margin-left, margin-right, 130px);
+    }
+
+    .searchcombo__con {
+        position: absolute;
+        top: -6px;
+        right: 24px;
     }
 }

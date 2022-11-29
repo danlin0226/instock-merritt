@@ -9,6 +9,8 @@ const InventoriesList = ({
   deleteHandler,
   detailInventoryTitleHandler,
   viewTitleHandler,
+  editInventoriesTitleHandler,
+  editSingleInventoryTitleHandler,
 }) => {
   const inventoriesLabels = [
     "INVENTORY ITEM",
@@ -36,6 +38,8 @@ const InventoriesList = ({
               deleteHandler={deleteHandler}
               detailInventoryTitleHandler={detailInventoryTitleHandler}
               viewTitleHandler={viewTitleHandler}
+              editInventoriesTitleHandler={editInventoriesTitleHandler}
+              editSingleInventoryTitleHandler={editSingleInventoryTitleHandler}
             />
           );
         })}

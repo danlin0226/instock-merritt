@@ -44,7 +44,7 @@
     }
     &__link{
         color: main.$c_Cloud;
-        @include main.m_fontsize_lineh_weight(13px, 36px, 600);
+        @include main.m_fontsize_lineh_weight(14px, 36px, 600);
         &:hover{
             color: white;
         }
@@ -95,7 +95,7 @@
             justify-content: flex-end;
             padding-left: 0;
             padding-bottom: 24px;
-            padding-right: 5px;
+            padding-right: 32px;
 
         }
         &__link-content{

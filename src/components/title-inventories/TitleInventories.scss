@@ -7,26 +7,28 @@ body {
 .title-inventories {
     position: relative;
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
-    margin-top: -55px;
+    margin-top: -45px;
     background-color: main.$c_white;
     height: 125px;
     border-radius: 3px 3px 0 0 ;
+    box-shadow: 0px 2px 5px rgba(19,24,44,0.1);
 
     &__text-con{
         width: 100%;
         height: 100%;
         border-bottom: 1px solid #BDC5D5;
+        // padding-left: 40px;
     }
     &__text{
         width: 150px;
         height: 36px;
-        padding-left: 24px;
+        padding-left: 32px;
         @include main.m_fontsize_lineh_weight(28px, 36px, 600);
         padding-top: 24px;
     }
     .searchcombo__con {
         padding-top: 16px;
-        padding-right: 48px;
+        padding-right: 40px;
         position: absolute;
         width: 100%;
     }
@@ -52,6 +54,10 @@ body {
     .title-inventories{
         height: 90px !important;
         @include main.m_sizing_leftright(margin-left, margin-right, 130px);
+        &__text{
+            padding-left: 40px;
+        }
+
     }
 
     .searchcombo__con {
