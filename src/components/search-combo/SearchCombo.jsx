@@ -2,6 +2,8 @@ import "./SearchCombo.scss";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../button/Button";
 
+import SearchIcon from "../../assets/Icons/search-24px.svg";
+
 const SearchCombo = ({
   addWarehouseTitleHandler,
   addInventoriesTitleHandler,
@@ -53,11 +55,18 @@ const SearchCombo = ({
   };
   return (
     <div className="searchcombo">
-      <input
-        type="text"
-        className="searchcombo__searchbar"
-        placeholder="Search..."
-      />
+      <div className="searchcombo__container">
+        <input
+          type="text"
+          className="searchcombo__searchbar"
+          placeholder="Search..."
+        />
+        <img
+          src={SearchIcon}
+          alt="gray magnifying glass"
+          className="searchcombo__searchicon"
+        />
+      </div>
       {renderButtons()}
     </div>
   );
