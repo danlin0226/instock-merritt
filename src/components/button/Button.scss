@@ -15,6 +15,10 @@
     &:hover {
       background-color: $Graphite;
     }
+    &__icon{
+        width: 15px;
+        height: 15px;
+    }
   }
 }
 
@@ -46,6 +50,10 @@
 
     &:hover {
       background-color: $Graphite;
+    }
+    &__icon{
+        width: 15px;
+        height: 15px;
     }
   }
 }

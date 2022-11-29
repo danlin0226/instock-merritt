@@ -2,7 +2,7 @@ import "./TitleWarehouseDetails.scss";
 import { useNavigate } from "react-router-dom";
 import "../button/Button";
 import Button from "../button/Button";
-import pencil from "../../assets/Icons/edit-24px.svg";
+import pencil from "../../assets/Icons/edit-24px-white.svg";
 
 const TitleWarehouseDetails = ({ titleModeHandler, warehouse_name }) => {
   const nav = useNavigate();
@@ -25,10 +25,11 @@ const TitleWarehouseDetails = ({ titleModeHandler, warehouse_name }) => {
           </div>
           <div className="title-wh-details__text">{` ${warehouse_name} `}</div>
           <div className="title-wh-details__button-con">
-            <Button
+            <Button 
               buttonText={"Edit"}
               buttonType={"button"}
               additionalClasses={"title-wh-details__btn"}
+              buttonIcon={pencil}
             ></Button>
           </div>
         </div>
