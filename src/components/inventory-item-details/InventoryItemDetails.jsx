@@ -6,7 +6,11 @@ import "./InventoryItemDetails.scss";
 
 const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
-const InventoryItemDetails = ({ setSelectedItemName }) => {
+const InventoryItemDetails = ({
+  setSelectedItemName,
+  detailInventoryTitleHandler,
+  viewTitleHandler,
+}) => {
   const [inventoryItem, SetInventoryItem] = useState({});
 
   const { id } = useParams();

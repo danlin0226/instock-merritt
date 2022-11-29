@@ -7,7 +7,15 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
 import { Link } from "react-router-dom";
 
-const ListingsCard = ({ path, dataItem, deleteHandler }) => {
+const ListingsCard = ({
+  path,
+  dataItem,
+  deleteHandler,
+  editInventoriesTitleHandler,
+  detailInventoryTitleHandler,
+  viewTitleHandler,
+  detailsWarehouseTitleHandler,
+}) => {
   return (
     <>
       <article className="listingsCard">
@@ -15,7 +23,12 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">WAREHOUSE</h4>
-              <Link to={`/warehouses/${dataItem.id}/inventories`}>
+              <Link
+                to={`/warehouses/${dataItem.id}/inventories`}
+                onClick={(e) => {
+                  detailsWarehouseTitleHandler(e, dataItem.warehouse_name);
+                }}
+              >
                 <h3 className="listingsCard__text listingsCard__text--blue">
                   {dataItem.warehouse_name}{" "}
                   <img
@@ -59,6 +72,9 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
                   className="listingsCard__img"
                   src={editIcon}
                   alt="pencil"
+                  onClick={(e) => {
+                    editInventoriesTitleHandler(e, dataItem.warehouse_name);
+                  }}
                 />
               </Link>
             </div>
@@ -67,7 +83,13 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">INVENTORY ITEM</h4>
-              <Link to={`/inventories/${dataItem.id}`}>
+              <Link
+                to={`/inventories/${dataItem.id}`}
+                onClick={(e) => {
+                  detailInventoryTitleHandler();
+                  viewTitleHandler(e, dataItem.id, dataItem.item_name);
+                }}
+              >
                 <h3 className="listingsCard__text listingsCard__text--blue">
                   {dataItem.item_name}{" "}
                   <img
@@ -118,13 +140,7 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
                   deleteHandler(e, dataItem.id, dataItem.item_name)
                 }
               />
-              <Link to={`/inventories/${dataItem.id}/edit`}>
-                <img
-                  className="listingsCard__img"
-                  src={editIcon}
-                  alt="pencil"
-                />
-              </Link>
+              <img className="listingsCard__img" src={editIcon} alt="pencil" />
             </div>
           </>
         )}

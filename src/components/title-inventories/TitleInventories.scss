@@ -4,7 +4,7 @@ body {
     background-color: main.$c_Light-Grey;
 }
 
-.title {
+.title-inventories {
     position: relative;
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
     margin-top: -55px;
@@ -32,37 +32,33 @@ body {
     }
 }
 
-@include main.bp_medium {
-    .title {
+
+
+@include main.bp_medium{
+    .title-inventories{
         margin-top: -90px;
         height: 90px !important;
         @include main.m_sizing_leftright(margin-left, margin-right, 32px);
     }
 
-
-    @include main.bp_medium{
-        .title{
-            margin-top: -90px;
-            height: 90px !important;
-            @include main.m_sizing_leftright(margin-left, margin-right, 32px);
-        }
-
-        .searchcombo__con {
-            position: absolute;
-        }
-
-    }
-
-    @include main.bp_large {
-        .title {
-            height: 90px !important;
-            @include main.m_sizing_leftright(margin-left, margin-right, 130px);
-        }
-
-        .searchcombo__con {
-            position: absolute;
-            top: -6px;
-            right: 24px;
-        }
+    .searchcombo__con {
+        position: absolute;
+        top:-6px; 
+        right: 24px;
     }
 }
+
+@include main.bp_large{
+    .title-inventories{
+        height: 90px !important;
+        @include main.m_sizing_leftright(margin-left, margin-right, 130px);
+    }
+
+    .searchcombo__con {
+        position: absolute;
+        top:-6px; 
+        right: 24px;
+    }
+}
+
+

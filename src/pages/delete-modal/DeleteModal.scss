@@ -83,10 +83,20 @@
         // position: relative;
         @include main.m_pad_sizing_lr(48px);
         &__content {
+            // @include main.m_pad_sizing_lr(64px);
             position: absolute;
             width: 88%;
-            height: 50%;
+            max-height: 40%;
             top: 185px;
+        }
+        &__question{
+            @include main.m_pad_sizing_lr(64px);
+            // @include main.m_fontsize_lineh_weight(28px, 36px, 600);
+        }
+
+        &__text{
+            @include main.m_pad_sizing_lr(64px);
+            padding-top: 16px;
         }
 
         &__sec2-innercon2{
@@ -94,15 +104,30 @@
             justify-content: flex-end;
             gap: 17px;
             margin-bottom: 40px;
-
-
+            margin-right: 35px;
+        }
+        &__cancel-btn{
+            @include main.m_fontsize_lineh_weight(13px, 26px, 400);
+            border-radius: 20px;
+            width: 71px;
+            height: 38px;
+        }
+        &__delete-btn{
+            @include main.m_fontsize_lineh_weight(13px, 26px, 400);
+            border: none;
+            border-radius: 20px;
+            width: 71px;
+            height: 38px;
         }
     }
 }
 
 @include main.bp_large{
     .deletemodal{
-        @include main.m_pad_sizing_lr(304px);
+        display: flex;
+        justify-content: center;
+
+        // @include main.m_pad_sizing_lr(304px);
         &__content {
             width: 672px;
             height: 262px;

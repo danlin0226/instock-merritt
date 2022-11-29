@@ -73,29 +73,46 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
           .then(({ data }) =>
             handleEditItem({
               ...data,
-              warehouse_name: activeWarehouses.find((warehouseItem) => warehouseItem.id === warehouse).warehouse_name,
+              warehouse_name: activeWarehouses.find(
+                (warehouseItem) => warehouseItem.id === warehouse
+              ).warehouse_name,
             })
           )
           .then(displayNotification("Inventory item saved! Redirecting..."))
-          .catch((err) => console.log(`Error while editting inventory item ${id} with ${err}`));
+          .catch((err) =>
+            console.log(`Error while editting inventory item ${id} with ${err}`)
+          );
       } else {
         axios
           .post(`${BACKEND_URL}/inventories`, inventoryItem)
           .then(({ data }) =>
             handleAddItem({
               ...data,
-              warehouse_name: activeWarehouses.find((warehouseItem) => warehouseItem.id === warehouse).warehouse_name,
+              warehouse_name: activeWarehouses.find(
+                (warehouseItem) => warehouseItem.id === warehouse
+              ).warehouse_name,
             })
           )
-          .then(displayNotification("New inventory item created! Redirecting..."))
-          .catch((err) => console.log(`Error while adding new inventory item ${err}`));
+          .then(
+            displayNotification("New inventory item created! Redirecting...")
+          )
+          .catch((err) =>
+            console.log(`Error while adding new inventory item ${err}`)
+          );
       }
     }
   };
 
   // helpers
   const isFormValid = () => {
-    return itemName && description && category && status && quantity >= 0 && warehouse;
+    return (
+      itemName &&
+      description &&
+      category &&
+      status &&
+      quantity >= 0 &&
+      warehouse
+    );
   };
 
   const displayNotification = (text) => {
@@ -152,7 +169,11 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
   }, [activeCategories, activeWarehouses]);
 
   return (
-    <form className="inventory__form" onSubmit={handleSubmit} autoComplete="off">
+    <form
+      className="inventory__form"
+      onSubmit={handleSubmit}
+      autoComplete="off"
+    >
       <div className="item__details">
         <h2 className="subheader item__header">Item Details</h2>
         <div className="item__container">
@@ -186,7 +207,9 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
         <div className="item__container">
           <label className="label-text">Category</label>
           <select
-            className={`item__form body--medium ${!category && submissionStatus ? "item__form--invalid" : ""}`}
+            className={`item__form body--medium ${
+              !category && submissionStatus ? "item__form--invalid" : ""
+            }`}
             value={category}
             onChange={handleChangeCategory}
           >
@@ -195,7 +218,11 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
             </option>
             {activeCategories &&
               activeCategories.map((category) => (
-                <option className="item__select" value={category} key={category}>
+                <option
+                  className="item__select"
+                  value={category}
+                  key={category}
+                >
                   {category}
                 </option>
               ))}
@@ -230,7 +257,10 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
                 checked={status === "Out of Stock"}
                 onChange={handleChangeStatus}
               />
-              <label className="label-text item__radio-label" htmlFor="outOfStock">
+              <label
+                className="label-text item__radio-label"
+                htmlFor="outOfStock"
+              >
                 Out of stock
               </label>
             </div>
@@ -248,14 +278,20 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
               value={quantity}
               onChange={handleChangeQuantity}
             />
-            {quantity <= 0 && submissionStatus && <Error customMessage="Item is in stock. Quantity must be > 0" />}
-            {isNaN(quantity) && submissionStatus && <Error customMessage="Invalid input. Please input a number." />}
+            {quantity <= 0 && submissionStatus && (
+              <Error customMessage="Item is in stock. Quantity must be > 0" />
+            )}
+            {isNaN(quantity) && submissionStatus && (
+              <Error customMessage="Invalid input. Please input a number." />
+            )}
           </div>
         ) : null}
         <div className="item__container">
           <label className="label-text">Warehouse</label>
           <select
-            className={`item__form body--medium ${!warehouse && submissionStatus ? "item__form--invalid" : ""}`}
+            className={`item__form body--medium ${
+              !warehouse && submissionStatus ? "item__form--invalid" : ""
+            }`}
             value={warehouse}
             onChange={handleChangeWarehouse}
           >
@@ -264,7 +300,11 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
             </option>
             {activeWarehouses &&
               activeWarehouses.map((warehouse) => (
-                <option className="item__select" value={warehouse.id} key={warehouse.id}>
+                <option
+                  className="item__select"
+                  value={warehouse.id}
+                  key={warehouse.id}
+                >
                   {warehouse.warehouse_name}
                 </option>
               ))}
@@ -285,7 +325,10 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
           clickHandler={() => setSubmissionStatus(true)}
         ></Button>
       </div>
-      <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
+      <ToastContainer
+        progressClassName="toastProgress"
+        bodyClassName="toastBody"
+      />
     </form>
   );
 };
