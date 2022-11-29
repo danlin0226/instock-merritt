@@ -18,8 +18,10 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      border-top: solid 1px $Cloud;
       padding: 1rem 1.5rem;
+      &-right {
+        border-top: solid 1px $Cloud;
+      }
       &__header {
         margin: 0;
         font-size: 1.25rem;
@@ -65,29 +67,6 @@
       }
     }
   }
-  &__buttons {
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: $Light-Grey;
-    &__cancel {
-      width: 8.75rem;
-      background-color: $white;
-      border: solid 1px $Cloud;
-      border-radius: 25px;
-      height: 2.25rem;
-      color: $Slate;
-    }
-    &__submit {
-      background-color: $Instock-Indigo;
-      border: solid 1px $Cloud;
-      border-radius: 25px;
-      color: $white;
-      height: 2.25rem;
-      min-width: 8.75rem;
-    }
-  }
 }
 
 @include medium {
@@ -124,22 +103,12 @@
         }
       }
     }
-    &__buttons {
-      justify-content: flex-end;
-      &__cancel {
-        width: 4.5rem;
-      }
-      &__submit {
-        margin-left: 1rem;
-      }
-    }
   }
 }
 
 @include large {
   .warehouse {
     min-width: 63.75rem;
-    height: 100%;
     margin: 0 8.125rem;
     &__section {
       flex-direction: row;
@@ -167,17 +136,6 @@
           padding-bottom: 0.35rem;
           font-size: 0.875rem;
         }
-      }
-    }
-    &__buttons {
-      justify-content: flex-end;
-      padding: 1rem 2.5rem;
-      &__cancel {
-        height: 2.375rem;
-      }
-      &__submit {
-        margin-left: 1rem;
-        height: 2.375rem;
       }
     }
   }
