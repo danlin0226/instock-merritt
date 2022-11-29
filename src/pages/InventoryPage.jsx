@@ -90,7 +90,7 @@ const InventoryPage = ({ resetAddTitle }) => {
     setTitleMode("add");
   };
 
-  const editInventoriesTitleHandler = (e, inv_name) => {
+  const editSingleInventoryTitleHandler = (e, inv_name) => {
     setEditInvName({
       inventory_name: inv_name,
     });
@@ -134,7 +134,7 @@ const InventoryPage = ({ resetAddTitle }) => {
         return (
           <TitleInventories
             addInventoriesTitleHandler={addInventoriesTitleHandler}
-            editInventoriesTitleHandler={editInventoriesTitleHandler}
+            editSingleInventoryTitleHandler={editSingleInventoryTitleHandler}
           />
         );
       default:
@@ -160,6 +160,7 @@ const InventoryPage = ({ resetAddTitle }) => {
               inventories={inventories}
               deleteHandler={deleteHandler}
               detailInventoryTitleHandler={detailInventoryTitleHandler}
+              editSingleInventoryTitleHandler={editSingleInventoryTitleHandler}
               viewTitleHandler={viewTitleHandler}
             />
           }

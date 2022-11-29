@@ -15,6 +15,7 @@ const ListingsCard = ({
   detailInventoryTitleHandler,
   viewTitleHandler,
   detailsWarehouseTitleHandler,
+  editSingleInventoryTitleHandler,
 }) => {
   return (
     <>
@@ -145,6 +146,9 @@ const ListingsCard = ({
                   className="listingsCard__img"
                   src={editIcon}
                   alt="pencil"
+                  onClick={(e) => {
+                    editSingleInventoryTitleHandler(e, dataItem.item_name);
+                  }}
                 />
               </Link>
             </div>

@@ -1,10 +1,12 @@
 import "./TitleInventoryDetails.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../button/Button";
 import pencil from "../../assets/Icons/edit-24px-white.svg";
 
 const TitleInventoryDetails = ({ item, titleModeHandler }) => {
   const nav = useNavigate();
+  const location = useLocation();
+
   return (
     <>
       <div className="title-inv-details">
@@ -29,6 +31,7 @@ const TitleInventoryDetails = ({ item, titleModeHandler }) => {
               buttonType={"button"}
               additionalClasses={"title-wh-details__btn"}
               buttonIcon={pencil}
+              clickHandler={() => nav(`${location.pathname}/edit`)}
             ></Button>
           </div>
         </div>

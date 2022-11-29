@@ -7,7 +7,7 @@ const TitleInventories = ({ addInventoriesTitleHandler }) => {
     <>
       <div className="title-inventories" style={{ height: "180px" }}>
         <div className="title-inventories__text-con">
-          <div className="title-inventories__text">Inventories</div>
+          <div className="title-inventories__text">Inventory</div>
           <div className="searchcombo__con">
             <SearchCombo
               addInventoriesTitleHandler={addInventoriesTitleHandler}

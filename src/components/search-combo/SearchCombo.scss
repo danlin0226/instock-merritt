@@ -23,7 +23,6 @@
     &__button {
         background-color: main.$c_Instock-Indigo;
         color: main.$c_white;
-        width: 100%;
         border-radius: 20px;
         height: 36px;
         border: none;
@@ -42,9 +41,6 @@
             width: 168px;
             margin-right: 16px;
         }
-        &__button{
-            width: 168px;
-        }
         &__hide {
             display: none;
         }
@@ -56,9 +52,6 @@
         &__searchbar{
             width: 274px;
             margin-right: 16px;
-        }
-        &__button{
-            width: 168px;
         }
 
         &__hide {

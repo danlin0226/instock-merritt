@@ -21,7 +21,7 @@ const TitleWarehouseEdit = ({ verb, warehouse_name, titleModeHandler }) => {
               alt="backarrow"
             />
           </div>
-          <div className="title-warehouse-edit__text">{` ${verb} ${warehouse_name} `}</div>
+          <div className="title-warehouse-edit__text">{` ${verb} Warehouse `}</div>
         </div>
       </div>
     </>

@@ -14,8 +14,8 @@ const DeleteModal = ({ deleteModal, confirmDelete, warehouse_name }) => {
         <div className="deletemodal__sec-con2">
           <div className="deletemodal__sec2-innercon1">
             <div className="deletemodal__question">
-              Do you want to delete{" "}
-              {wh ? warehouse_name : deleteModal.inventory_name}?
+              Delete {wh ? warehouse_name : deleteModal.inventory_name}
+              &nbsp;warehouse?
             </div>
             <div className="deletemodal__text">
               Please confirm that you&apos;d like to delete&nbsp;
@@ -32,7 +32,6 @@ const DeleteModal = ({ deleteModal, confirmDelete, warehouse_name }) => {
             >
               Cancel
             </button>
-
             <Button
               buttonType={"button"}
               additionalClasses={"deletemodal__delete-btn"}
