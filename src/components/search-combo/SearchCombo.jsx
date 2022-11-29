@@ -9,7 +9,6 @@ const SearchCombo = ({
   const location = useLocation();
   let pathname = location.pathname;
   let nav = useNavigate();
-  console.log("just / pathname", pathname);
   let m = /(?=.*warehouses.*)(?!.*inventories).*/;
   const clickHandler_wh_add = () => {
     nav("/warehouses/add");
@@ -42,7 +41,6 @@ const SearchCombo = ({
           />
         );
       default:
-        console.log("inventory search combo");
         return (
           <Button
             buttonType={"button"}

@@ -26,7 +26,6 @@
         width: 100%;
         border-radius: 20px;
         height: 36px;
-        @include main.m_fontsize_lineh_weight(12px, 16px, 600);
         border: none;
     }
     &__hide {
@@ -34,11 +33,6 @@
     }
 }
 
-// @include main.bp_small {
-//     .searchcombo{
-//         width: 100%;
-//     }
-// }
 
 @include main.bp_medium{
     .searchcombo{
@@ -54,7 +48,6 @@
         &__hide {
             display: none;
         }
-
     }
 }
 

@@ -25,7 +25,7 @@ const TitleWarehouseDetails = ({ titleModeHandler, warehouse_name }) => {
           </div>
           <div className="title-wh-details__text">{` ${warehouse_name} `}</div>
           <div className="title-wh-details__button-con">
-            <Button 
+            <Button
               buttonText={"Edit"}
               buttonType={"button"}
               additionalClasses={"title-wh-details__btn"}

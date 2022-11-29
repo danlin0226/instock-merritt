@@ -37,8 +37,6 @@ const InventoryPage = ({ resetAddTitle }) => {
     setSelectedItemName("");
   }, [location]);
 
-  console.log("inventoryPage", selectedItemName);
-
   useEffect(() => {
     axios.get(`${BACK_END}/inventories`).then((res) => {
       setInventories(res.data);

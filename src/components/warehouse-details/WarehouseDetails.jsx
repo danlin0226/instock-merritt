@@ -35,9 +35,6 @@ const WarehouseDetails = ({ detailsWarehouseTitleHandler }) => {
   }, [id]);
 
   const deleteHandler = (e, inv_ID, inv_name) => {
-    // setDelModal((modal) => ({ ...modal.isActive, isActive: true }))
-    console.log("inventory_ID => ", inv_ID);
-    console.log("inventory_name=> ", inv_name);
     setDelModal((modal) => ({
       isActive: true,
       table: "inventories",
@@ -48,15 +45,11 @@ const WarehouseDetails = ({ detailsWarehouseTitleHandler }) => {
 
   const confirmDelete = async (choice) => {
     if (choice) {
-      console.log("clicked delete");
       try {
         await axios.delete(
           `${BACK_END}/inventories/${deleteModal.inventory_ID}`
         );
         setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
-        console.log(
-          `Deleted => ${deleteModal.inventory_ID} => ${deleteModal.inventory_name}`
-        );
       } catch (err) {
         console.log(err);
       }
@@ -70,7 +63,6 @@ const WarehouseDetails = ({ detailsWarehouseTitleHandler }) => {
         setSelectedWarehouse(res.data);
       });
     } else {
-      console.log("clicked cancel");
       setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
     }
   };

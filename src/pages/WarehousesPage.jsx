@@ -43,8 +43,6 @@ const WarehousesPage = () => {
   }, [deleteModal]);
 
   const deleteHandler = (e, wh_ID, wh_name) => {
-    console.log("warehouse_ID => ", wh_ID);
-    console.log("warehouse_name=> ", wh_name);
     setDelModal((modal) => ({
       isActive: true,
       table: "warehouses",
@@ -52,10 +50,6 @@ const WarehousesPage = () => {
       warehouse_name: wh_name,
     }));
   };
-
-  // useEffect(() => {
-  //   setEditWarehouseName("");
-  // }, [location]);
 
   const confirmDelete = async (choice) => {
     if (choice) {

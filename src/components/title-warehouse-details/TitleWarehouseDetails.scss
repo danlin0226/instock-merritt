@@ -45,14 +45,29 @@ body {
         width: 100px;
     }
     &__btn{
-        // width: 81px;
-        // height: 38px;
-        @include main.m_fontsize_lineh_weight(15px, 36px, 600);
-        background-image: url('../../assets/Icons/edit-24px.svg') no-repeat;
-        background-size: cover;
+        width: 100px;
+        height: 38px;
+        padding-left: 20px;
+        @include main.m_fontsize_lineh_weight(14px, 36px, 600);
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        align-items: center;
     }
 }
 
+@include main.bp_small{
+    .title-wh-details{
+
+        &__btn{
+            padding-left: 20px;
+            justify-content: center; 
+            width: 36px;
+            height: 36px;
+            font-size: 0;
+        }
+    }
+}
 
 @include main.bp_medium{
     .title-wh-details{

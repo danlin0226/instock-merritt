@@ -1,5 +1,7 @@
 import "./TitleInventoryDetails.scss";
 import { useNavigate } from "react-router-dom";
+import Button from "../button/Button";
+import pencil from "../../assets/Icons/edit-24px-white.svg";
 
 const TitleInventoryDetails = ({ item, titleModeHandler }) => {
   const nav = useNavigate();
@@ -21,6 +23,14 @@ const TitleInventoryDetails = ({ item, titleModeHandler }) => {
             />
           </div>
           <div className="title-inv-details__text">{` ${item} `}</div>
+          <div className="title-inv-details__button-con">
+            <Button
+              buttonText={"Edit"}
+              buttonType={"button"}
+              additionalClasses={"title-wh-details__btn"}
+              buttonIcon={pencil}
+            ></Button>
+          </div>
         </div>
       </div>
     </>
