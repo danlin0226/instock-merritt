@@ -41,7 +41,9 @@ const EditWarehouse = ({ warehouses, setWarehouses, resetTitleHandler }) => {
       <WarehouseForm
         id={params.id}
         handleSubmit={handleSubmit}
-        Buttons={<ButtonSet buttonName="Save" />}
+        Buttons={
+          <ButtonSet resetTitleHandler={resetTitleHandler} buttonName="Save" />
+        }
       />
     </>
   );

@@ -6,12 +6,16 @@ import "../../styles/partials/_typography.scss";
 
 function ButtonSet(props) {
   const navigate = useNavigate();
+  const { resetTitleHandler } = props;
   return (
     <section className="warehouse__buttons">
       <Button
         buttonText="Cancel"
         additionalClasses="warehouse__buttons__cancel"
-        clickHandler={() => navigate("/warehouses")}
+        clickHandler={() => {
+          resetTitleHandler();
+          navigate("/warehouses");
+        }}
       ></Button>
       <Button
         buttonType="submit"

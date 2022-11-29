@@ -31,7 +31,12 @@ const AddWarehouse = ({ setWarehouses, warehouses, resetTitleHandler }) => {
     <>
       <WarehouseForm
         handleSubmit={handleSubmit}
-        Buttons={<ButtonSet buttonName="+ Add Warehouse" />}
+        Buttons={
+          <ButtonSet
+            resetTitleHandler={resetTitleHandler}
+            buttonName="+ Add Warehouse"
+          />
+        }
       />
     </>
   );
