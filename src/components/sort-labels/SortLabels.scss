@@ -11,25 +11,25 @@
 
 @include main.bp_medium {
   .sortLabels-cont {
-    height: 40px;
+    height: 2.5rem;
     display: flex;
     justify-content: space-between;
-    @include main.m_pad_sizing_lr(32px);
+    @include main.m_pad_sizing_lr(2rem);
   }
   .sortLabels {
     @include main.m_flex-row;
-    // border: 2px solid red;
+    // border: .125rem solid red;
     width: 25%;
     align-items: center;
 
     &__name {
       color: main.$c_Slate;
-      @include main.m_fontsize_lineh_weight(12px, 18px, 600);
-      margin-right: 4px;
+      @include main.m_fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+      margin-right: 0.25rem;
     }
 
     &__icon {
-      width: 16px;
+      width: 1rem;
 
       &--hidden {
         display: none;
@@ -38,7 +38,13 @@
 
     &:last-child {
       justify-content: flex-end;
-      flex: 0 0 67px;
+      flex: 0 0 4.1875rem;
     }
+  }
+}
+
+@include main.bp_large {
+  .sortLabels-cont {
+    @include main.m_pad_sizing_lr(2.5rem);
   }
 }

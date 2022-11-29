@@ -89,10 +89,11 @@ const WarehouseDetails = () => {
           <section className="warehouseDetails__head">
             <div className="warehouseDetails__cont">
               <h4 className="warehouseDetails__title">WAREHOUSE ADDRESS:</h4>
-              <p className="warehouseDetails__text">
+              <p className="warehouseDetails__text warehouseDetails__text--hidden">
                 {selectedWarehouse.address}
               </p>
-              <p className="warehouseDetails__text">{`${selectedWarehouse.city}, ${selectedWarehouse.country}`}</p>
+              <p className="warehouseDetails__text warehouseDetails__text--hidden">{`${selectedWarehouse.city}, ${selectedWarehouse.country}`}</p>
+              <p className="warehouseDetails__text warehouseDetails__text--mobile">{`${selectedWarehouse.address}, ${selectedWarehouse.city}, ${selectedWarehouse.country}`}</p>
             </div>
 
             <div className="warehouseDetails__cont">
