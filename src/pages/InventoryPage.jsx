@@ -128,6 +128,7 @@ const InventoryPage = ({ resetAddTitle }) => {
           <TitleInventoryDetails
             item={selectedItemName}
             titleModeHandler={titleModeHandler}
+            editSingleInventoryTitleHandler={editSingleInventoryTitleHandler}
           />
         );
       case "default":

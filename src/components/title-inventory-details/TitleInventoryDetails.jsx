@@ -3,9 +3,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../button/Button";
 import pencil from "../../assets/Icons/edit-24px-white.svg";
 
-const TitleInventoryDetails = ({ item, titleModeHandler }) => {
+const TitleInventoryDetails = ({
+  item,
+  titleModeHandler,
+  editSingleInventoryTitleHandler,
+}) => {
   const nav = useNavigate();
   const location = useLocation();
+  console.log(location);
 
   return (
     <>
@@ -15,7 +20,7 @@ const TitleInventoryDetails = ({ item, titleModeHandler }) => {
             className="title-inv-details__img-con"
             onClick={() => {
               titleModeHandler();
-              nav(-1);
+              nav("/inventories");
             }}
           >
             <img
@@ -31,7 +36,10 @@ const TitleInventoryDetails = ({ item, titleModeHandler }) => {
               buttonType={"button"}
               additionalClasses={"title-wh-details__btn"}
               buttonIcon={pencil}
-              clickHandler={() => nav(`${location.pathname}/edit`)}
+              clickHandler={() => {
+                editSingleInventoryTitleHandler();
+                nav(`${location.pathname}/edit`);
+              }}
             ></Button>
           </div>
         </div>
