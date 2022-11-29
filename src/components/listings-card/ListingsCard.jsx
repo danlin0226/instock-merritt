@@ -118,7 +118,13 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
                   deleteHandler(e, dataItem.id, dataItem.item_name)
                 }
               />
-              <img className="listingsCard__img" src={editIcon} alt="pencil" />
+              <Link to={`/inventories/${dataItem.id}/edit`}>
+                <img
+                  className="listingsCard__img"
+                  src={editIcon}
+                  alt="pencil"
+                />
+              </Link>
             </div>
           </>
         )}
