@@ -3,10 +3,10 @@
 @use "../../styles/partials/colors" as *;
 
 .warehouse {
-  box-shadow: 0px 2px 5px $Cloud;
+  box-shadow: 0rem 0.125rem 0.3125rem $Cloud;
   margin: 0 1rem;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0.1875rem;
+  border-bottom-left-radius: 0.1875rem;
   font-family: "Titillium Web";
   &__section {
     display: flex;
@@ -20,7 +20,7 @@
       align-items: flex-start;
       padding: 1rem 1.5rem;
       &-right {
-        border-top: solid 1px $Cloud;
+        border-top: solid 0.0625rem $Cloud;
       }
       &__header {
         margin: 0;
@@ -52,17 +52,17 @@
       &__input {
         font-size: 0.8rem;
         width: 100%;
-        height: 32px;
-        border: solid 1px lightgray;
-        border-radius: 20px;
+        height: 2rem;
+        border: solid 0.0625rem lightgray;
+        border-radius: 1.25rem;
         padding-left: 1rem;
         &-flagged {
           font-size: 0.8rem;
           width: 94%;
-          height: 32px;
-          border-radius: 20px;
+          height: 2rem;
+          border-radius: 1.25rem;
           padding-left: 1rem;
-          border: solid 1px $Red;
+          border: solid 0.0625rem $Red;
         }
       }
     }
@@ -86,7 +86,7 @@
         padding-left: 2rem;
         padding-right: 2rem;
         &-right {
-          border-left: solid $Cloud 1px;
+          border-left: solid $Cloud 0.0625rem;
         }
         &__header {
           font-size: 1.5rem;
@@ -98,8 +98,8 @@
         }
 
         &__input {
-          height: 38px;
-          max-height: 38px;
+          height: 2.375rem;
+          max-height: 2.375rem;
         }
       }
     }
@@ -121,15 +121,15 @@
         width: 50%;
         border: none;
         &-right {
-          border-left: solid $Cloud 1px;
+          border-left: solid $Cloud 0.0625rem;
         }
         &__header {
           font-size: 1.5rem;
           padding: 0;
         }
         &__input {
-          height: 38px;
-          max-height: 38px;
+          height: 2.375rem;
+          max-height: 2.375rem;
         }
         &__label {
           padding-top: 2rem;

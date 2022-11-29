@@ -1,61 +1,60 @@
 @use "../../main.scss";
 
 .searchcombo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  margin-left: 1.5rem;
+  &_con {
+    padding-top: 0;
+  }
+
+  &__searchbar {
+    margin-bottom: 1rem;
+    height: 2.25rem;
+    border-radius: 1.75rem;
+    border: 0.0625rem solid #bdc5d5;
     width: 100%;
+    padding-left: 1rem;
+  }
+
+  &__button {
+    background-color: main.$c_Instock-Indigo;
+    color: main.$c_white;
+    border-radius: 1.25rem;
+    height: 2.25rem;
+    border: none;
+  }
+  &__hide {
+    display: none;
+  }
+}
+
+@include main.bp_medium {
+  .searchcombo {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-top: 16px;
-    margin-left: 24px;
-    &_con{
-        padding-top: 0;
-    }
-
-    &__searchbar{
-        margin-bottom: 16px;
-        height: 36px;
-        border-radius: 28px;
-        border: 1px solid #bdc5d5;
-        width: 100%;
-        padding-left: 16px;
-    }
-
-    &__button {
-        background-color: main.$c_Instock-Indigo;
-        color: main.$c_white;
-        border-radius: 20px;
-        height: 36px;
-        border: none;
+    flex-direction: row;
+    &__searchbar {
+      width: 10.5rem;
+      margin-right: 1rem;
     }
     &__hide {
-        display: none;
+      display: none;
     }
+  }
 }
 
-
-@include main.bp_medium{
-    .searchcombo{
-        display: flex;
-        flex-direction: row;
-        &__searchbar{
-            width: 168px;
-            margin-right: 16px;
-        }
-        &__hide {
-            display: none;
-        }
+@include main.bp_large {
+  .searchcombo {
+    &__searchbar {
+      width: 17.125rem;
+      margin-right: 1rem;
     }
-}
 
-@include main.bp_large{
-    .searchcombo{
-        &__searchbar{
-            width: 274px;
-            margin-right: 16px;
-        }
-
-        &__hide {
-            display: none;
-        }
+    &__hide {
+      display: none;
     }
+  }
 }

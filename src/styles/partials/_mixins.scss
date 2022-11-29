@@ -59,29 +59,29 @@
 }
 
 @mixin thin-border-bottom {
-  border-bottom: 1px solid $Cloud;
+  border-bottom: 0.0625rem solid $Cloud;
 }
 
 @mixin thin-border-right {
-  border-right: 1px solid $Cloud;
+  border-right: 0.0625rem solid $Cloud;
 }
 
 @mixin instock-label {
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   background-color: rgba($Green, 7%);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   color: $Green;
-  @include fontsize_lineh_weight(11px, 16px, 600);
+  @include fontsize_lineh_weight(0.6875rem, 1rem, 600);
   //   text-align: center;
   display: inline-block;
 }
 
 @mixin oos-label {
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   background-color: rgba($Red, 7%);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   color: $Red;
-  @include fontsize_lineh_weight(11px, 16px, 600);
+  @include fontsize_lineh_weight(0.6875rem, 1rem, 600);
   display: inline-block;
 }
 
