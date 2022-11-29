@@ -63,7 +63,7 @@ const InventoryPage = () => {
           }
         />
         <Route
-          path="/:id/item-details"
+          path="/:id"
           element={
             <InventoryItemDetails setSelectedItemName={setSelectedItemName} />
           }
