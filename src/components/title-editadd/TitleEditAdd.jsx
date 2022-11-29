@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const TitleEditAdd = ({ verb, table, titleModeHandler }) => {
   const nav = useNavigate();
+  const redirectionPath =
+    table === "Warehouse" ? "/warehouses" : "/inventories";
   return (
     <>
       <div className="title-editadd">
@@ -11,7 +13,7 @@ const TitleEditAdd = ({ verb, table, titleModeHandler }) => {
             className="title-editadd__img-con"
             onClick={() => {
               titleModeHandler();
-              nav(-1);
+              nav(redirectionPath);
             }}
           >
             <img

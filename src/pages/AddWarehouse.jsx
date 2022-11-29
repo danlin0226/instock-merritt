@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:8080/warehouses";
 
-const AddWarehouse = ({ setWarehouses, warehouses }) => {
+const AddWarehouse = ({ setWarehouses, warehouses, resetTitleHandler }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,12 +20,11 @@ const AddWarehouse = ({ setWarehouses, warehouses }) => {
   }, []);
 
   const handleSubmit = (newWarehouse) => {
-
     axios.post(URL, newWarehouse).then((response) => {
       setWarehouses([...warehouses, response.data]);
-      navigate(-1);
+      resetTitleHandler();
+      navigate("/warehouses");
     });
-
   };
 
   return (

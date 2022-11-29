@@ -1,6 +1,6 @@
 import "./ButtonSet.scss";
 import React from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import "../../styles/partials/_typography.scss";
 
@@ -11,7 +11,7 @@ function ButtonSet(props) {
       <Button
         buttonText="Cancel"
         additionalClasses="warehouse__buttons__cancel"
-        clickHandler={() => navigate(-1)}
+        clickHandler={() => navigate("/warehouses")}
       ></Button>
       <Button
         buttonType="submit"

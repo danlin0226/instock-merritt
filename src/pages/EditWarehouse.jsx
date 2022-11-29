@@ -6,7 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:8080/warehouses";
 
-const EditWarehouse = ({ warehouses, setWarehouses }) => {
+const EditWarehouse = ({ warehouses, setWarehouses, resetTitleHandler }) => {
   const navigate = useNavigate();
   let params = useParams();
 
@@ -28,7 +28,8 @@ const EditWarehouse = ({ warehouses, setWarehouses }) => {
       axios.patch(`${URL}/${params.id}`, payload).then((response) => {
         let updWarehouses = warehouses.filter((el) => el.id !== params.id);
         setWarehouses([...updWarehouses, response.data]);
-        navigate(-1);
+        resetTitleHandler();
+        navigate("/warehouses");
       });
     } else {
       console.log("Not valid");

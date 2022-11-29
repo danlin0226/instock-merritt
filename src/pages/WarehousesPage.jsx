@@ -156,12 +156,18 @@ const WarehousesPage = () => {
             <AddWarehouse
               setWarehouses={setWarehouses}
               warehouses={warehouses}
+              resetTitleHandler={titleModeHandler}
             />
           }
         />
         <Route
           path="/:id/inventories"
-          element={<WarehouseDetails warehouses={warehouses} />}
+          element={
+            <WarehouseDetails
+              warehouses={warehouses}
+              resetTitleHandler={titleModeHandler}
+            />
+          }
         />
 
         <Route
@@ -170,6 +176,7 @@ const WarehousesPage = () => {
             <EditWarehouse
               setWarehouses={setWarehouses}
               warehouses={warehouses}
+              resetTitleHandler={titleModeHandler}
             />
           }
         />
