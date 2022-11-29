@@ -67,7 +67,7 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
           <>
             <div className="listingsCard__cont listingsCard__cont--first">
               <h4 className="listingsCard__title">INVENTORY ITEM</h4>
-              <Link to={`/inventories/${dataItem.id}/item-details`}>
+              <Link to={`/inventories/${dataItem.id}`}>
                 <h3 className="listingsCard__text listingsCard__text--blue">
                   {dataItem.item_name}{" "}
                   <img
