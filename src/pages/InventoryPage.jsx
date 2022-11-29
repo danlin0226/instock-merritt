@@ -171,6 +171,7 @@ const InventoryPage = ({ resetAddTitle }) => {
             <InventoryForm
               handleAddItem={handleAddItem}
               handleEditItem={handleEditItem}
+              resetTitleHandler={titleModeHandler}
             />
           }
         />
@@ -180,6 +181,7 @@ const InventoryPage = ({ resetAddTitle }) => {
             <InventoryForm
               handleAddItem={handleAddItem}
               handleEditItem={handleEditItem}
+              resetTitleHandler={titleModeHandler}
             />
           }
         />

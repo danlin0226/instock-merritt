@@ -13,7 +13,11 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const InventoryForm = ({ handleAddItem, handleEditItem }) => {
+const InventoryForm = ({
+  handleAddItem,
+  handleEditItem,
+  resetTitleHandler,
+}) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const { id } = useParams();
 
@@ -126,7 +130,10 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
       progress: undefined,
       theme: "dark",
     });
-    setTimeout(() => navigate("/inventories"), 2700);
+    setTimeout(() => {
+      resetTitleHandler();
+      navigate("/inventories");
+    }, 2700);
   };
 
   // effects
@@ -316,7 +323,10 @@ const InventoryForm = ({ handleAddItem, handleEditItem }) => {
         <Button
           buttonText="Cancel"
           additionalClasses="item__buttons-cancel"
-          clickHandler={() => navigate("/inventories")}
+          clickHandler={() => {
+            resetTitleHandler();
+            navigate("/inventories");
+          }}
         ></Button>
         <Button
           buttonType="submit"
