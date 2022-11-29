@@ -1,0 +1,24 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-grow: 1;
+  &__text {
+    margin: 0rem;
+    font-size: 0.6875rem;
+    padding: 2.5rem 0rem;
+    color: $Slate;
+  }
+}
+
+@include medium {
+  .footer {
+    &__text {
+      font-size: 0.75rem;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@use "../../main.scss";
+
+.warehouseDetails {
+  background-color: main.$c_Light-Grey;
+  @include main.m_pad_sizing_lr(1rem);
+
+  &__page-cont {
+    box-shadow: 0rem 0.125rem 0.3125rem rgba(19, 24, 44, 0.1);
+    border-radius: 0.1875rem;
+  }
+
+  &__head {
+    background-color: main.$c_white;
+    @include main.m_flex-row {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    @include main.m_pad_sizing_lr(1.5rem);
+    @include main.m_thin-border-bottom;
+    @include main.m_sizing_topbot(padding-top, padding-bottom, 1rem);
+    gap: 1rem;
+  }
+
+  &__cont {
+    // border: .125rem solid red;
+    width: 45%;
+
+    &:first-child {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    color: main.$c_Slate;
+    @include main.m_fontsize_lineh_weight(0.6875rem, 1rem, 600);
+    margin: 0rem;
+    margin-bottom: 0.25rem;
+  }
+  &__text {
+    color: main.$c_Instock-Black;
+    @include main.m_fontsize_lineh_weight(0.8125rem, 1.25rem, 400);
+    margin: 0rem;
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+@include main.bp_medium {
+  .warehouseDetails {
+    @include main.m_pad_sizing_lr(2rem);
+
+    &__head {
+      @include main.m_flex-row {
+        @include main.m_pad_sizing_lr(2rem);
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+      border: none;
+      @include main.m_sizing_topbot(padding-top, padding-bottom, 1.5rem);
+      gap: 0rem;
+    }
+
+    &__cont {
+      width: auto;
+      // border: .125rem solid red;
+
+      &:first-child {
+        width: 13.375rem;
+        @include main.m_thin-border-right;
+        padding-right: 2rem;
+        margin-right: 2.5rem;
+        white-space: nowrap;
+      }
+      &:nth-child(2) {
+        width: 8.875rem;
+        margin-right: 1.5rem;
+      }
+    }
+
+    &__title {
+      @include main.m_fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+    }
+    &__text {
+      @include main.m_fontsize_lineh_weight(0.875rem, 1.375rem, 400);
+      &--hidden {
+        display: block;
+      }
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+@include main.bp_large {
+  .warehouseDetails {
+    @include main.m_pad_sizing_lr(8.125rem);
+    &__head {
+      @include main.m_pad_sizing_lr(2.5rem);
+    }
+    &__cont {
+      &:first-child {
+        padding-right: 9.75rem;
+        width: 23.125rem;
+      }
+      &:nth-child(2) {
+        width: 13.5625rem;
+      }
+    }
+  }
+}

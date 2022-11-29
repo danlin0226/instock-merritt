@@ -1,0 +1,23 @@
+@use "../../main.scss";
+
+.warehouses {
+  background-color: main.$c_Light-Grey;
+  @include main.m_pad_sizing_lr(1rem);
+
+  &__card-list-cont {
+    border-radius: 0.1875rem;
+    box-shadow: 0rem 0.125rem 0.3125rem rgba(19, 24, 44, 0.1);
+  }
+}
+
+@include main.bp_medium {
+  .warehouses {
+    @include main.m_pad_sizing_lr(2rem);
+  }
+}
+
+@include main.bp_large {
+  .warehouses {
+    @include main.m_pad_sizing_lr(8.125rem);
+  }
+}

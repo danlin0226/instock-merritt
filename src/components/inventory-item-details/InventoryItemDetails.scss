@@ -1,0 +1,104 @@
+@use "../../main.scss";
+
+.outer-wrapper {
+  background-color: main.$c_Light-Grey;
+  @include main.m_pad_sizing_lr(1rem);
+
+  .itemDetails {
+    // border: .125rem solid red;
+    box-shadow: 0rem 0.125rem 0.3125rem rgba(19, 24, 44, 0.1);
+    background-color: white;
+    @include main.m_pad_sizing_lr(1.5rem);
+    border-radius: 0.1875rem;
+    padding-top: 1rem;
+    padding-bottom: 1.6875rem;
+
+    &__left {
+      @include main.m_flex-column {
+        gap: 1rem;
+      }
+    }
+
+    &__right {
+      //   border: .125rem solid blue;
+      @include main.m_flex-row {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      padding-top: 1rem;
+    }
+
+    &__cont {
+      //   background-color: red;
+      &--column {
+        width: 45%;
+      }
+    }
+
+    &__title {
+      color: main.$c_Slate;
+      @include main.m_fontsize_lineh_weight(0.6875rem, 1rem, 600);
+      margin: 0rem 0rem 0.25rem 0rem;
+    }
+    &__text {
+      color: main.$c_Instock-Black;
+      @include main.m_fontsize_lineh_weight(0.8125rem, 1.25rem, 400);
+      margin: 0rem;
+
+      &--inStock {
+        @include main.m_instock-label;
+      }
+      &--oos {
+        @include main.m_oos-label;
+      }
+    }
+  }
+}
+
+@include main.bp_medium {
+  .outer-wrapper {
+    @include main.m_pad_sizing_lr(2rem);
+
+    .itemDetails {
+      @include main.m_pad_sizing_lr(2rem);
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+      @include main.m_flex-row {
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      &__left {
+        width: 50%;
+        padding-right: 2.5rem;
+        gap: 2rem;
+      }
+      &__right {
+        width: 50%;
+        border-left: 0.0625rem solid main.$c_Cloud;
+        padding-left: 2.5rem;
+        padding-top: 0rem;
+      }
+
+      &__text {
+        @include main.m_fontsize_lineh_weight(0.875rem, 1.375rem, 400);
+        margin: 0rem;
+
+        &--inStock {
+          @include main.m_instock-label;
+          @include main.m_fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+        }
+        &--oos {
+          @include main.m_oos-label;
+          @include main.m_fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+        }
+      }
+    }
+  }
+}
+
+@include main.bp_large {
+  .outer-wrapper {
+    @include main.m_pad_sizing_lr(8.125rem);
+  }
+}

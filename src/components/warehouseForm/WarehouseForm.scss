@@ -1,0 +1,142 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse {
+  box-shadow: 0rem 0.125rem 0.3125rem $Cloud;
+  margin: 0 1rem;
+  border-bottom-right-radius: 0.1875rem;
+  border-bottom-left-radius: 0.1875rem;
+  font-family: "Titillium Web";
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $white;
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem 1.5rem;
+      &-right {
+        border-top: solid 0.0625rem $Cloud;
+      }
+      &__header {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+      }
+      &__label {
+        padding-top: 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        &--validation {
+          display: none;
+          &-flagged {
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $Red;
+
+            &_img {
+              transform: scale(0.6, 0.6);
+            }
+          }
+        }
+      }
+      &__input {
+        font-size: 0.8rem;
+        width: 100%;
+        height: 2rem;
+        border: solid 0.0625rem lightgray;
+        border-radius: 1.25rem;
+        padding-left: 1rem;
+        &-flagged {
+          font-size: 0.8rem;
+          width: 94%;
+          height: 2rem;
+          border-radius: 1.25rem;
+          padding-left: 1rem;
+          border: solid 0.0625rem $Red;
+        }
+      }
+    }
+  }
+}
+
+@include medium {
+  .warehouse {
+    min-width: 44rem;
+    margin: 0 2rem;
+
+    &__section {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-bottom: 1.5rem;
+      &__details {
+        margin-top: 1.5rem;
+        padding-top: 0;
+        width: 50%;
+        border: none;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        &-right {
+          border-left: solid $Cloud 0.0625rem;
+        }
+        &__header {
+          font-size: 1.5rem;
+        }
+        &__label {
+          font-size: 0.875rem;
+          padding: 0.25rem 0;
+          padding-top: 1.5rem;
+        }
+
+        &__input {
+          height: 2.375rem;
+          max-height: 2.375rem;
+        }
+      }
+    }
+  }
+}
+
+@include large {
+  .warehouse {
+    min-width: 63.75rem;
+    margin: 0 8.125rem;
+    &__section {
+      flex-direction: row;
+      justify-content: flex-start;
+      &__details {
+        margin-top: 1.6875rem;
+        padding: 2rem 2.5rem;
+        padding-top: 0;
+
+        width: 50%;
+        border: none;
+        &-right {
+          border-left: solid $Cloud 0.0625rem;
+        }
+        &__header {
+          font-size: 1.5rem;
+          padding: 0;
+        }
+        &__input {
+          height: 2.375rem;
+          max-height: 2.375rem;
+        }
+        &__label {
+          padding-top: 2rem;
+          padding-bottom: 0.35rem;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}

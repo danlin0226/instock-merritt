@@ -1,0 +1,80 @@
+@use "../../main.scss";
+
+body {
+  background-color: main.$c_Light-Grey;
+}
+
+.title-wh-details {
+  position: relative;
+  @include main.m_sizing_leftright(margin-left, margin-right, 1rem);
+  margin-top: -3.4375rem;
+  background-color: main.$c_white;
+  height: 5.625rem;
+  border-radius: 0.1875rem 0.1875rem 0 0;
+
+  &__text-con {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    height: 5.625rem;
+    border-bottom: 0.0625rem solid #bdc5d5;
+  }
+  &__img-con {
+    display: flex;
+    align-items: center;
+    width: 1.25rem;
+    height: 0.625rem;
+  }
+
+  &__text {
+    padding: 0;
+    width: 100%;
+    height: 2.25rem;
+    margin-left: 0.5rem;
+    // padding-left: 1.5rem;
+    @include main.m_fontsize_lineh_weight(1.75rem, 2.25rem, 600);
+  }
+  &__img-back {
+    cursor: pointer;
+  }
+  &__btn {
+    width: 6.25rem;
+    height: 2.375rem;
+    padding-left: 1.25rem;
+    @include main.m_fontsize_lineh_weight(0.875rem, 2.25rem, 600);
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.3125rem;
+    align-items: center;
+  }
+}
+
+@include main.bp_small {
+  .title-wh-details {
+    &__btn {
+      padding-left: 1.25rem;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 0;
+    }
+  }
+}
+
+@include main.bp_medium {
+  .title-wh-details {
+    margin-top: -5.625rem;
+    height: 5.625rem;
+    @include main.m_sizing_leftright(margin-left, margin-right, 2rem);
+    &__text-con {
+      padding-bottom: 0;
+    }
+  }
+}
+@include main.bp_large {
+  .title-wh-details {
+    height: 5.625rem !important;
+    @include main.m_sizing_leftright(margin-left, margin-right, 8.125rem);
+  }
+}

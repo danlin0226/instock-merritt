@@ -1,0 +1,146 @@
+@use "../../main.scss";
+
+.deletemodal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(19, 24, 44, 0.7); /* Black w/ opacity */
+
+  &__content {
+    @include main.m_pad_sizing_lr(1rem);
+    display: inline-flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    // margin: 15% auto; /* 15% from the top and centered */
+    border: 0.0625rem solid #888;
+    // width: 100%; /* Could be more or less, depending on screen size */
+    // height: 100%;
+    width: 42rem;
+    height: 16.375rem;
+    top: 11.5625rem;
+  }
+
+  &__sec-con1 {
+    width: 100%;
+  }
+  &__sec-con2 {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+  &__sec2-innercon2 {
+    display: inline-flex;
+    gap: 1.0625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__question {
+    @include main.m_fontsize_lineh_weight(1.75rem, 2.25rem, 600);
+  }
+  &__text {
+    @include main.m_fontsize_lineh_weight(0.9375rem, 1.625rem, 400);
+    padding-top: 1rem;
+  }
+  &__cancel-btn {
+    @include main.m_fontsize_lineh_weight(0.8125rem, 1.625rem, 400);
+    border: 0.0625rem solid main.$c_Cloud;
+    background-color: white;
+    color: #5c6675;
+
+    &:hover {
+      color: #2e66e5;
+      border: 0.0625rem solid #2e66e5;
+    }
+    // border-radius: 1.25rem;
+    // width: 9.375rem;
+    // height: 2.25rem;
+  }
+  &__delete-btn {
+    // @include main.m_fontsize_lineh_weight(.8125rem, 1.625rem, 400);
+    border: none;
+    border-radius: 1.25rem;
+    width: 9.375rem;
+    height: 2.25rem;
+    background-color: #c94515;
+    color: main.$c_white;
+  }
+}
+
+.close {
+  display: block;
+  color: #aaa;
+  text-align: right;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@include main.bp_medium {
+  .deletemodal {
+    // position: relative;
+    @include main.m_pad_sizing_lr(3rem);
+    &__content {
+      // @include main.m_pad_sizing_lr(4rem);
+      position: absolute;
+      width: 88%;
+      max-height: 40%;
+      top: 11.5625rem;
+    }
+    &__question {
+      @include main.m_pad_sizing_lr(4rem);
+      // @include main.m_fontsize_lineh_weight(1.75rem, 2.25rem, 600);
+    }
+
+    &__text {
+      @include main.m_pad_sizing_lr(4rem);
+      padding-top: 1rem;
+    }
+
+    &__sec2-innercon2 {
+      display: inline-flex;
+      justify-content: flex-end;
+      gap: 1.0625rem;
+      margin-bottom: 2.5rem;
+      margin-right: 2.1875rem;
+    }
+    &__cancel-btn {
+      @include main.m_fontsize_lineh_weight(0.8125rem, 1.625rem, 400);
+      border-radius: 1.25rem;
+      width: 4.4375rem;
+      height: 2.375rem;
+    }
+    &__delete-btn {
+      @include main.m_fontsize_lineh_weight(0.8125rem, 1.625rem, 400);
+      border: none;
+      border-radius: 1.25rem;
+      width: 4.4375rem;
+      height: 2.375rem;
+    }
+  }
+}
+
+@include main.bp_large {
+  .deletemodal {
+    display: flex;
+    justify-content: center;
+
+    // @include main.m_pad_sizing_lr(19rem);
+    &__content {
+      width: 42rem;
+      height: 16.375rem;
+      top: 11.5625rem;
+    }
+  }
+}

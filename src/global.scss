@@ -1,0 +1,75 @@
+@use "./main.scss";
+@use "./styles/partials/colors" as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: "Titillium Web";
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+textarea {
+  font-family: "Titillium Web";
+  outline: none;
+  &::placeholder {
+    color: $Slate;
+  }
+  &:focus {
+    border-color: $Instock-Indigo;
+  }
+}
+
+select {
+  appearance: none;
+  background-image: url(./assets/Icons/arrow_drop_down-24px.svg);
+  background-repeat: no-repeat;
+  background-position: center right 0.75rem;
+  font-family: "Titillium Web";
+  color: $Slate;
+  background-color: $white;
+  border-color: $Instock-Indigo;
+  outline: none;
+  &:focus {
+    background-image: url(./assets/Icons/arrow_drop_down-active-24px.svg);
+    border-color: $Instock-Indigo;
+  }
+  &::placeholder {
+    color: $Slate;
+  }
+}
+
+option {
+  background-color: $white;
+}
+
+input[type="radio"] {
+  margin: 0rem;
+  &:not(:checked) + label {
+    color: $Slate;
+    opacity: 75%;
+  }
+}
+
+button {
+  font-family: "Titillium Web";
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}

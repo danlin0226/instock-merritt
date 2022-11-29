@@ -1,0 +1,133 @@
+@use "../../main.scss";
+
+.header {
+  background-color: main.$c_Graphite;
+  height: 12.5rem;
+  &__con1 {
+    padding-top: 1.9375rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  &__img-con {
+    background-image: url("../../assets/Logo/InStock-Logo_1x.png");
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+    width: 11.25rem;
+    height: 2.5rem;
+    max-height: 2.5rem;
+  }
+  &__con2 {
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.5625rem;
+    display: inline-flex;
+    color: main.$c_white;
+    list-style-type: none;
+    @include main.m_padmar-0;
+    padding-left: 0.3125rem;
+  }
+  &__link-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.375rem;
+    width: 10.25rem;
+    padding-bottom: 0.3125rem;
+    border-radius: 1.25rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__link {
+    color: main.$c_Cloud;
+    @include main.m_fontsize_lineh_weight(0.875rem, 2.25rem, 600);
+    &:hover {
+      color: white;
+    }
+    &:link {
+      text-decoration: none;
+    }
+  }
+  .header__link.active {
+    background-color: main.$c_Instock-Black;
+    border-radius: 1.25rem;
+    color: white;
+    width: 10.25rem;
+    height: 2.375rem;
+  }
+}
+
+.active {
+  background-color: main.$c_Instock-Black;
+  border-radius: 1.25rem;
+  color: white;
+  width: 10.25rem;
+  height: 2.375rem;
+  font-size: 0.8125rem;
+}
+
+@include main.bp_medium {
+  .header {
+    height: 11.625rem;
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 3.75rem;
+
+    &__img-con {
+      background-image: url("../../assets/Logo/InStock-Logo_1x.png");
+      background-repeat: no-repeat;
+      background-size: 70% auto;
+      width: 11.25rem;
+      height: 2.5rem;
+      max-height: 2.5rem;
+      cursor: pointer;
+    }
+
+    &__con1 {
+      display: flex;
+      justify-content: flex-start;
+      @include main.m_padmar-0;
+      padding-left: 2rem;
+      padding-bottom: 1.5rem;
+    }
+    &__con2 {
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 0;
+      padding-bottom: 1.5rem;
+      padding-right: 2rem;
+    }
+    &__link-content {
+      width: 6.6875rem;
+    }
+    .header__link.active {
+      background-color: main.$c_Instock-Black;
+      border-radius: 1.25rem;
+      color: white;
+      width: 6.6875rem;
+    }
+  }
+  .active {
+    background-color: main.$c_Instock-Black;
+    border-radius: 1.25rem;
+    color: white;
+    width: 6.6875rem;
+    font-size: 0.875rem;
+  }
+}
+
+@include main.bp_large {
+  .header {
+    @include main.m_sizing_leftright(padding-left, padding-right, 8.125rem);
+    &__con1 {
+      padding-left: 0;
+    }
+  }
+}

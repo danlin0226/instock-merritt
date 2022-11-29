@@ -1,0 +1,68 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouse {
+  &__buttons {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $Light-Grey;
+    &__cancel {
+      width: 8.75rem;
+      background-color: $white;
+      border: solid 0.0625rem $Cloud;
+      border-radius: 1.5625rem;
+      height: 2.25rem;
+      color: $Slate;
+      &:hover {
+        border-color: $Instock-Indigo;
+        color: $Instock-Indigo;
+        background-color: $white;
+      }
+    }
+    &__submit {
+      background-color: $Instock-Indigo;
+      width: 8.75rem;
+      border: solid 0.0625rem $Cloud;
+      border-radius: 1.5625rem;
+      color: $white;
+      height: 2.25rem;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@include medium {
+  .warehouse {
+    &__buttons {
+      padding: 1rem 2rem;
+      justify-content: flex-end;
+      &__cancel {
+        width: 4.5rem;
+      }
+      &__submit {
+        margin-left: 1rem;
+        width: auto;
+      }
+    }
+  }
+}
+
+@include large {
+  .warehouse {
+    &__buttons {
+      justify-content: flex-end;
+      padding: 1rem 2.5rem;
+      &__cancel {
+        width: 4.5rem;
+        height: 2.375rem;
+      }
+      &__submit {
+        margin-left: 1rem;
+        height: 2.375rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@use "../../main.scss";
+
+.listingsCard {
+  @include main.m_pad_sizing_lr(1.5rem);
+  @include main.m_thin-border-bottom;
+  padding-top: 1rem;
+  padding-bottom: 1.6875rem;
+  background-color: main.$c_white;
+  @include main.m_flex-row {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__cont {
+    // border: .125rem solid red;
+    width: 45%;
+    order: 4;
+
+    &--first {
+      order: 1;
+    }
+
+    &--second {
+      order: 2;
+    }
+
+    &--right {
+      margin-left: auto;
+    }
+
+    &:last-child {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    color: main.$c_Slate;
+    @include main.m_fontsize_lineh_weight(0.6875rem, 1rem, 600);
+    margin: 0rem 0rem 0.25rem 0rem;
+  }
+
+  &__text {
+    color: main.$c_Instock-Black;
+    @include main.m_fontsize_lineh_weight(0.8125rem, 1.25rem, 400);
+    margin: 0rem;
+
+    &--blue {
+      color: main.$c_Instock-Indigo;
+      font-weight: 600;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &--break {
+      word-break: break-all;
+    }
+
+    &--inStock {
+      @include main.m_instock-label;
+    }
+    &--oos {
+      @include main.m_oos-label;
+    }
+  }
+  &__chev {
+    height: 1.25rem;
+    vertical-align: bottom;
+  }
+
+  &__img {
+    height: 1.5rem;
+    cursor: pointer;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+@include main.bp_medium {
+  .listingsCard {
+    @include main.m_pad_sizing_lr(2rem);
+    padding-top: 1.125rem;
+    padding-bottom: 1.125rem;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: none;
+    &:hover {
+      background-color: rgba(main.$c_Instock-Indigo, 7%);
+    }
+
+    &__title {
+      display: none;
+    }
+
+    &__cont {
+      &--second {
+        order: 4;
+      }
+
+      &:last-child {
+        width: auto;
+        gap: 0.9375rem;
+      }
+    }
+    &__text {
+      @include main.m_fontsize_lineh_weight(0.875rem, 1.375rem, 400);
+      margin: 0rem;
+      &--blue {
+        font-weight: 600;
+      }
+
+      &--inStock {
+        @include main.m_instock-label;
+        @include main.m_fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+      }
+      &--oos {
+        @include main.m_oos-label;
+        @include main.m_fontsize_lineh_weight(0.75rem, 1.125rem, 600);
+      }
+    }
+  }
+}
+
+@include main.bp_large {
+  .listingsCard {
+    @include main.m_pad_sizing_lr(2.5rem);
+  }
+}
