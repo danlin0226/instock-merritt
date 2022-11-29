@@ -96,7 +96,7 @@ const WarehouseDetails = ({ detailsWarehouseTitleHandler }) => {
               <p className="warehouseDetails__text">
                 {selectedWarehouse.address}
               </p>
-              <p className="warehouseDetails__text">{selectedWarehouse.city}</p>
+              <p className="warehouseDetails__text">{`${selectedWarehouse.city}, ${selectedWarehouse.country}`}</p>
             </div>
 
             <div className="warehouseDetails__cont">
