@@ -1,5 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import WarehouseDetails from "../components/warehouse-details/WarehouseDetails";
@@ -15,7 +20,7 @@ import TitleWarehouseDetails from "../components/title-warehouse-details/TitleWa
 // const BACK_END = process.env.REACT_APP_BACKEND_URL;
 const BACK_END = "http://localhost:8080";
 
-const WarehousesPage = () => {
+const WarehousesPage = forwardRef((props, _ref) => {
   const [warehouses, setWarehouses] = useState([]);
   const [addWarehouseTitle, setAddWarehouseTitle] = useState(false);
   const [titleMode, setTitleMode] = useState("default");
@@ -29,7 +34,12 @@ const WarehousesPage = () => {
     warehouse_name: "",
   });
 
-  const location = useLocation();
+  useImperativeHandle(_ref, () => ({
+    getTitleHandler: () => {
+      return setTitleMode;
+    },
+  }));
+
   useEffect(() => {
     axios.get(`${BACK_END}/warehouses`).then((res) => {
       setWarehouses(res.data);
@@ -184,6 +194,6 @@ const WarehousesPage = () => {
       </Routes>
     </>
   );
-};
+});
 
 export default WarehousesPage;

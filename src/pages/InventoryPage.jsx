@@ -1,5 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 // components
@@ -14,11 +19,8 @@ import InventoryItemDetails from "../components/inventory-item-details/Inventory
 
 const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
-const InventoryPage = ({ resetAddTitle }) => {
+const InventoryPage = forwardRef((props, _ref) => {
   const [inventories, setInventories] = useState([]);
-  const [addInventoriesTitle, setAddInventoriesTitle] = useState(
-    !resetAddTitle
-  );
   const [titleMode, setTitleMode] = useState("default");
   const [editInvName, setEditInvName] = useState({
     inventory_name: "",
@@ -33,6 +35,11 @@ const InventoryPage = ({ resetAddTitle }) => {
 
   const [selectedItemName, setSelectedItemName] = useState("");
   const location = useLocation();
+  useImperativeHandle(_ref, () => ({
+    getTitleHandler: () => {
+      return setTitleMode;
+    },
+  }));
   useEffect(() => {
     setSelectedItemName("");
   }, [location]);
@@ -195,6 +202,6 @@ const InventoryPage = ({ resetAddTitle }) => {
       </Routes>
     </>
   );
-};
+});
 
 export default InventoryPage;

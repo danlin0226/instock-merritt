@@ -61,6 +61,14 @@
   }
 }
 
+.active {
+  background-color: main.$c_Instock-Black;
+  border-radius: 1.25rem;
+  color: white;
+  width: 10.25rem;
+  height: 2.375rem;
+}
+
 @include main.bp_medium {
   .header {
     height: 11.625rem;
@@ -104,6 +112,12 @@
       color: white;
       width: 6.6875rem;
     }
+  }
+  .active {
+    background-color: main.$c_Instock-Black;
+    border-radius: 1.25rem;
+    color: white;
+    width: 6.6875rem;
   }
 }
 

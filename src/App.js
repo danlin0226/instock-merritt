@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import InventoryPage from "./pages/InventoryPage";
@@ -18,15 +18,27 @@ function App() {
     nav("/inventories");
   };
 
+  const titleHandlerRef = useRef();
+  const getTitleHandler = () => {
+    const titleModeHandler = titleHandlerRef.current.getTitleHandler();
+    titleModeHandler("default");
+  };
+
   return (
     <>
-      <Header resetAddInventoryTitleHandler={resetAddInventoryTitleHandler} />
+      <Header
+        titleResetHandler={getTitleHandler}
+        resetAddInventoryTitleHandler={resetAddInventoryTitleHandler}
+      />
       <Routes>
         <Route path="*" element={<WarehousesPage />} />
-        <Route path="/warehouses/*" element={<WarehousesPage />} />
+        <Route
+          path="/warehouses/*"
+          element={<WarehousesPage ref={titleHandlerRef} />}
+        />
         <Route
           path="/inventories/*"
-          element={<InventoryPage resetAddTitle={resetAddTitle} />}
+          element={<InventoryPage ref={titleHandlerRef} />}
         />
       </Routes>
       <Footer />
