@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
 import InventoryPage from "./pages/InventoryPage";
 import WarehousesPage from "./pages/WarehousesPage";
@@ -31,7 +31,7 @@ function App() {
         resetAddInventoryTitleHandler={resetAddInventoryTitleHandler}
       />
       <Routes>
-        <Route path="*" element={<WarehousesPage />} />
+        <Route path="*" element={<Navigate to="/warehouses" replace />} />
         <Route
           path="/warehouses/*"
           element={<WarehousesPage ref={titleHandlerRef} />}
