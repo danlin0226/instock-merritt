@@ -4,7 +4,11 @@ import SortLabels from "../sort-labels/SortLabels";
 
 import "./Warehouses.scss";
 
-const Warehouses = ({ warehouses, deleteHandler }) => {
+const Warehouses = ({
+  warehouses,
+  deleteHandler,
+  editInventoriesTitleHandler,
+}) => {
   const warehouseLabels = [
     "WAREHOUSE",
     "ADDRESS",
@@ -28,6 +32,7 @@ const Warehouses = ({ warehouses, deleteHandler }) => {
               path="warehouses"
               dataItem={warehouse}
               deleteHandler={deleteHandler}
+              editInventoriesTitleHandler={editInventoriesTitleHandler}
             />
           );
         })}

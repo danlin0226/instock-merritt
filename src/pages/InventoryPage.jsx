@@ -19,6 +19,9 @@ const InventoryPage = ({ resetAddTitle }) => {
     !resetAddTitle
   );
   const [titleMode, setTitleMode] = useState("default");
+  const [editInvName, setEditInvName] = useState({
+    inventory_name: "",
+  });
 
   const [deleteModal, setDelModal] = useState({
     isActive: false,
@@ -47,6 +50,8 @@ const InventoryPage = ({ resetAddTitle }) => {
       )
     );
   };
+
+  const viewTitleHandler = (e, inv_ID, inv_name) => {};
 
   const deleteHandler = (e, inv_ID, inv_name) => {
     // setDelModal((modal) => ({ ...modal.isActive, isActive: true }))
@@ -86,24 +91,54 @@ const InventoryPage = ({ resetAddTitle }) => {
   const addInventoriesTitleHandler = () => {
     setTitleMode("add");
   };
+
+  const editInventoriesTitleHandler = (e, inv_name) => {
+    setEditInvName({
+      inventory_name: inv_name,
+    });
+    setTitleMode("edit");
+  };
+
+  const detailInventoryTitleHandler = () => {
+    setTitleMode("details");
+  };
+
+  const titleModeHandler = () => {
+    setTitleMode("default");
+  };
+
   const renderTitle = () => {
-    // if (!addInventoriesTitle) {
-    //   return (
-    //     <TitleInventories
-    //       addInventoriesTitleHandler={addInventoriesTitleHandler}
-    //     />
-    //   );
-    // }
-    // else {
-    //   return <TitleEditAdd verb={"Add New"} table={"Inventory"} />;
-    // }
     switch (titleMode) {
       case "add":
-        return <TitleEditAdd verb={"Add New"} table={"Inventory Item"} />;
+        return (
+          <TitleEditAdd
+            verb={"Add New"}
+            table={"Inventory Item"}
+            titleModeHandler={titleModeHandler}
+          />
+        );
+      case "edit":
+        return (
+          <TitleEditAdd
+            verb={"Edit"}
+            table={"Inventory Item"}
+            titleModeHandler={titleModeHandler}
+          />
+        );
+      // case "details":
+      //   return (
+      //     <TitleEditAdd
+      //       verb={""}
+      //       table={selectedItemName}
+      //       titleModeHandler={titleModeHandler}
+      //     />
+      //   );
       case "default":
         return (
           <TitleInventories
             addInventoriesTitleHandler={addInventoriesTitleHandler}
+            editInventoriesTitleHandler={editInventoriesTitleHandler}
+            detailInventoryTitleHandler={detailInventoryTitleHandler}
           />
         );
       default:
@@ -152,7 +187,10 @@ const InventoryPage = ({ resetAddTitle }) => {
         <Route
           path="/:id/item-details"
           element={
-            <InventoryItemDetails setSelectedItemName={setSelectedItemName} />
+            <InventoryItemDetails
+              setSelectedItemName={setSelectedItemName}
+              editInventoriesTitleHandler={editInventoriesTitleHandler}
+            />
           }
         />
       </Routes>

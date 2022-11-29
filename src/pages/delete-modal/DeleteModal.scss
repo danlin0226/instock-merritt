@@ -83,6 +83,7 @@
         // position: relative;
         @include main.m_pad_sizing_lr(48px);
         &__content {
+            @include main.m_pad_sizing_lr(64px);
             position: absolute;
             width: 88%;
             max-height: 40%;

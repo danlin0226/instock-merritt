@@ -9,6 +9,7 @@ import Title from "../components/title/Title";
 import AddWarehouse from "./AddWarehouse";
 import EditWarehouse from "./EditWarehouse";
 import TitleEditAdd from "../components/title-editadd/TitleEditAdd";
+import TitleWarehouseEdit from "../components/title-warehouse-edit/TitleWarehouseEdit";
 
 // const BACK_END = process.env.REACT_APP_BACKEND_URL;
 const BACK_END = "http://localhost:8080";
@@ -16,7 +17,10 @@ const BACK_END = "http://localhost:8080";
 const WarehousesPage = () => {
   const [warehouses, setWarehouses] = useState([]);
   const [addWarehouseTitle, setAddWarehouseTitle] = useState(false);
-
+  const [titleMode, setTitleMode] = useState("default");
+  const [editWarehouseName, setEditWarehouseName] = useState({
+    warehouse_name: "",
+  });
   const [deleteModal, setDelModal] = useState({
     isActive: false,
     table: "",
@@ -70,12 +74,50 @@ const WarehousesPage = () => {
   };
 
   const addWarehouseTitleHandler = () => {
-    setAddWarehouseTitle((old) => !old);
-  };
-  const editWarehouseTitleHandler = () => {
-    setAddWarehouseTitle((old) => !old);
+    setTitleMode("add");
   };
 
+  const editInventoriesTitleHandler = (e, wh_name) => {
+    setEditWarehouseName({
+      warehouse_name: wh_name,
+    });
+    setTitleMode("edit");
+  };
+
+  const titleModeHandler = () => {
+    setTitleMode("default");
+  };
+
+  const renderTitle = () => {
+    switch (titleMode) {
+      case "add":
+        return (
+          <TitleEditAdd
+            verb={"Add New"}
+            table={"Warehouse"}
+            titleModeHandler={titleModeHandler}
+          />
+        );
+
+      case "edit":
+        return (
+          <TitleWarehouseEdit
+            verb={"Edit"}
+            titleModeHandler={titleModeHandler}
+            warehouse_name={editWarehouseName.warehouse_name}
+          />
+        );
+      case "default":
+        return (
+          <Title
+            titleModeHandler={titleModeHandler}
+            addWarehouseTitleHandler={addWarehouseTitleHandler}
+          />
+        );
+      default:
+        return <TitleEditAdd verb={"Add New"} table={"Inventory"} />;
+    }
+  };
   return (
     <>
       {deleteModal.isActive && (
@@ -85,16 +127,16 @@ const WarehousesPage = () => {
           confirmDelete={confirmDelete}
         />
       )}
-      {!addWarehouseTitle ? (
-        <Title addWarehouseTitleHandler={addWarehouseTitleHandler} />
-      ) : (
-        <TitleEditAdd verb={"Add New"} table={"Warehouse"} />
-      )}
+      {renderTitle()}
       <Routes>
         <Route
           path="/"
           element={
-            <Warehouses warehouses={warehouses} deleteHandler={deleteHandler} />
+            <Warehouses
+              warehouses={warehouses}
+              deleteHandler={deleteHandler}
+              editInventoriesTitleHandler={editInventoriesTitleHandler}
+            />
           }
         />
         <Route
@@ -120,7 +162,6 @@ const WarehousesPage = () => {
             />
           }
         />
-
       </Routes>
     </>
   );

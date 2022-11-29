@@ -42,7 +42,7 @@ const SearchCombo = ({
           <Button
             buttonType={"button"}
             additionalClasses={"searchcombo__button"}
-            clickHandler={clickHandler_wh_add}
+            clickHandler={addWarehouseTitleHandler}
             buttonText={"+ Add New Warehouse"}
           />
         );

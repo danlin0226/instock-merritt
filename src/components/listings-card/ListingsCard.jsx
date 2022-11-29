@@ -7,7 +7,12 @@ import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
 import { Link } from "react-router-dom";
 
-const ListingsCard = ({ path, dataItem, deleteHandler }) => {
+const ListingsCard = ({
+  path,
+  dataItem,
+  deleteHandler,
+  editInventoriesTitleHandler,
+}) => {
   return (
     <>
       <article className="listingsCard">
@@ -59,6 +64,9 @@ const ListingsCard = ({ path, dataItem, deleteHandler }) => {
                   className="listingsCard__img"
                   src={editIcon}
                   alt="pencil"
+                  onClick={(e) => {
+                    editInventoriesTitleHandler(e, dataItem.warehouse_name);
+                  }}
                 />
               </Link>
             </div>

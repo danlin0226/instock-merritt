@@ -5,39 +5,6 @@ body {
     background-color: main.$c_Light-Grey;
 }
 
-// .title-editadd{
-//     display: flex;
-//     justify-content: center;
-//     margin-top: -55px;
-//     background-color: main.$c_white;
-//     gap: 5px;
-//     // background-color: red;
-//     height: 100px;
-//     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
-//     align-items: center;
-//
-//     &__table-text{
-//         @include main.m_fontsize_lineh_weight(28px, 36px, 600);
-//     }
-//
-//     &__img-back{
-//         padding-top: 5px;
-//         // transform: scale(1.0);
-//     }
-//
-// }
-//
-// @include main.bp_medium{
-//     .title-editadd{
-//         @include main.m_sizing_leftright(margin-left, margin-right, 32px);
-//         background-color: main.$c_white;
-//         top: 135px;
-//         width: 91.60%;
-//         height: 80px;
-//     }
-//
-// }
-
 .title-editadd {
     position: relative;
     @include main.m_sizing_leftright(margin-left, margin-right, 16px);
