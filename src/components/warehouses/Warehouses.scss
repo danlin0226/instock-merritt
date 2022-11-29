@@ -2,22 +2,22 @@
 
 .warehouses {
   background-color: main.$c_Light-Grey;
-  @include main.m_pad_sizing_lr(16px);
+  @include main.m_pad_sizing_lr(1rem);
 
   &__card-list-cont {
-    border-radius: 3px;
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 0.1875rem;
+    box-shadow: 0rem 0.125rem 0.3125rem rgba(19, 24, 44, 0.1);
   }
 }
 
 @include main.bp_medium {
   .warehouses {
-    @include main.m_pad_sizing_lr(32px);
+    @include main.m_pad_sizing_lr(2rem);
   }
 }
 
 @include main.bp_large {
   .warehouses {
-    @include main.m_pad_sizing_lr(130px);
+    @include main.m_pad_sizing_lr(8.125rem);
   }
 }
