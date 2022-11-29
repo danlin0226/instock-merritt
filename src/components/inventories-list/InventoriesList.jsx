@@ -34,6 +34,8 @@ const InventoriesList = ({
               path="inventories"
               dataItem={inventoryItem}
               deleteHandler={deleteHandler}
+              detailInventoryTitleHandler={detailInventoryTitleHandler}
+              viewTitleHandler={viewTitleHandler}
             />
           );
         })}

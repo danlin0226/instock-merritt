@@ -8,6 +8,7 @@ const Warehouses = ({
   warehouses,
   deleteHandler,
   editInventoriesTitleHandler,
+  detailsWarehouseTitleHandler,
 }) => {
   const warehouseLabels = [
     "WAREHOUSE",
@@ -33,6 +34,7 @@ const Warehouses = ({
               dataItem={warehouse}
               deleteHandler={deleteHandler}
               editInventoriesTitleHandler={editInventoriesTitleHandler}
+              detailsWarehouseTitleHandler={detailsWarehouseTitleHandler}
             />
           );
         })}

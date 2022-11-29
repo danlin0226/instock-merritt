@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import WarehouseDetails from "../components/warehouse-details/WarehouseDetails";
 import Warehouses from "../components/warehouses/Warehouses";
@@ -10,6 +10,7 @@ import AddWarehouse from "./AddWarehouse";
 import EditWarehouse from "./EditWarehouse";
 import TitleEditAdd from "../components/title-editadd/TitleEditAdd";
 import TitleWarehouseEdit from "../components/title-warehouse-edit/TitleWarehouseEdit";
+import TitleWarehouseDetails from "../components/title-warehouse-details/TitleWarehouseDetails";
 
 // const BACK_END = process.env.REACT_APP_BACKEND_URL;
 const BACK_END = "http://localhost:8080";
@@ -27,6 +28,8 @@ const WarehousesPage = () => {
     warehouse_ID: "",
     warehouse_name: "",
   });
+
+  const location = useLocation();
   useEffect(() => {
     axios.get(`${BACK_END}/warehouses`).then((res) => {
       setWarehouses(res.data);
@@ -50,17 +53,17 @@ const WarehousesPage = () => {
     }));
   };
 
+  // useEffect(() => {
+  //   setEditWarehouseName("");
+  // }, [location]);
+
   const confirmDelete = async (choice) => {
     if (choice) {
-      // console.log("clicked delete");
       try {
         await axios.delete(
           `${BACK_END}/warehouses/${deleteModal.warehouse_ID}`
         );
         setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
-        // console.log(
-        //   `Deleted => ${deleteModal.warehouse_ID} => ${deleteModal.warehouse_name}`
-        // );
       } catch (err) {
         console.log(err);
       }
@@ -68,7 +71,6 @@ const WarehousesPage = () => {
         setWarehouses(res.data);
       });
     } else {
-      // console.log("clicked cancel");
       setDelModal((modal) => ({ ...modal.isActive, isActive: false }));
     }
   };
@@ -82,6 +84,13 @@ const WarehousesPage = () => {
       warehouse_name: wh_name,
     });
     setTitleMode("edit");
+  };
+
+  const detailsWarehouseTitleHandler = (e, wh_name) => {
+    setEditWarehouseName({
+      warehouse_name: wh_name,
+    });
+    setTitleMode("details");
   };
 
   const titleModeHandler = () => {
@@ -98,7 +107,6 @@ const WarehousesPage = () => {
             titleModeHandler={titleModeHandler}
           />
         );
-
       case "edit":
         return (
           <TitleWarehouseEdit
@@ -107,6 +115,14 @@ const WarehousesPage = () => {
             warehouse_name={editWarehouseName.warehouse_name}
           />
         );
+      case "details":
+        return (
+          <TitleWarehouseDetails
+            titleModeHandler={titleModeHandler}
+            warehouse_name={editWarehouseName.warehouse_name}
+          />
+        );
+
       case "default":
         return (
           <Title
@@ -136,6 +152,7 @@ const WarehousesPage = () => {
               warehouses={warehouses}
               deleteHandler={deleteHandler}
               editInventoriesTitleHandler={editInventoriesTitleHandler}
+              detailsWarehouseTitleHandler={detailsWarehouseTitleHandler}
             />
           }
         />

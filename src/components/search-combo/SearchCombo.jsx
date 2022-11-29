@@ -6,15 +6,11 @@ const SearchCombo = ({
   addWarehouseTitleHandler,
   addInventoriesTitleHandler,
 }) => {
-  // const text = "+ Add new warehouse";
   const location = useLocation();
   let pathname = location.pathname;
   let nav = useNavigate();
   console.log("just / pathname", pathname);
-  // let m_inv = /(?=.*inventories.*)/;
-  // let m_inv = /^((?!\/warehouses).)*$/;
   let m = /(?=.*warehouses.*)(?!.*inventories).*/;
-  // let singleslash = /\//;
   const clickHandler_wh_add = () => {
     nav("/warehouses/add");
     addWarehouseTitleHandler();
@@ -28,7 +24,6 @@ const SearchCombo = ({
   const renderButtons = () => {
     switch (true) {
       case pathname === "/":
-        console.log("singleslash regex");
         return (
           <Button
             buttonType={"button"}
@@ -47,7 +42,6 @@ const SearchCombo = ({
           />
         );
       default:
-        // <button className="searchcombo__button">{text}</button>;
         console.log("inventory search combo");
         return (
           <Button
